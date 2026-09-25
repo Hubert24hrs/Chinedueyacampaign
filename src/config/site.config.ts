@@ -38,7 +38,7 @@ export const candidate = {
    */
   slogan: 'A New Voice. A Better Future.',
   sloganIgbo: 'Olu Ọhụrụ. Ọdịnihu Ka Mma.',
-  bio: `Hon. Chinedu Eya is a dedicated community leader, public servant, and advocate for grassroots development in the Igbo Eze North / Udenu Constituency of Enugu State.`,
+  bio: `Hon. Chinedu Eya is a successful entrepreneur, community leader, and proud son of Igbo Eze North / Udenu Constituency, Enugu State. He is the CEO of Suskii Group of Companies, a leading automobile dealership that imports quality vehicles from the United States and Europe. He is also the CEO of MY Eya Homes, a renowned real estate company operating across Nigeria. Drawing from his experience building businesses and creating jobs, he is now bringing that same drive and dedication to public service as he contests for the Federal House of Assembly on the platform of the Labour Party.`,
   email: 'info@chinedueya.ng', // {{TO_VERIFY_WITH_CLIENT}}
   phone: '+234 800 000 0000', // {{TO_VERIFY_WITH_CLIENT}}
   whatsapp: '+2348000000000', // {{TO_VERIFY_WITH_CLIENT}}

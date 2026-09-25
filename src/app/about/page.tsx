@@ -21,39 +21,33 @@ import Section from '@/components/ui/Section';
 
 const timeline = [
   {
-    year: '{{TO_VERIFY_WITH_CLIENT}}',
-    title: 'Early Education',
-    description: 'Completed primary and secondary education in Enugu State. {{TO_VERIFY_WITH_CLIENT: Add specific schools.}}',
-    icon: <GraduationCap className="w-5 h-5" />,
-  },
-  {
-    year: '{{TO_VERIFY_WITH_CLIENT}}',
-    title: 'Higher Education',
-    description: 'Obtained degree from {{TO_VERIFY_WITH_CLIENT: University name, course, and year.}}',
-    icon: <GraduationCap className="w-5 h-5" />,
-  },
-  {
-    year: '{{TO_VERIFY_WITH_CLIENT}}',
-    title: 'Career Beginnings',
-    description: '{{TO_VERIFY_WITH_CLIENT: Early career details, first professional roles.}}',
+    year: 'Foundation',
+    title: 'Entrepreneur and Business Builder',
+    description: 'Founded Suskii Group of Companies, a leading automobile dealership importing quality vehicles from the United States and across Europe to Nigeria.',
     icon: <Briefcase className="w-5 h-5" />,
   },
   {
-    year: '{{TO_VERIFY_WITH_CLIENT}}',
-    title: 'Community Service',
-    description: '{{TO_VERIFY_WITH_CLIENT: Community service and public engagement activities.}}',
-    icon: <Users className="w-5 h-5" />,
-  },
-  {
-    year: '{{TO_VERIFY_WITH_CLIENT}}',
-    title: 'Political Engagement',
-    description: '{{TO_VERIFY_WITH_CLIENT: Entry into politics, party roles, and key milestones.}}',
+    year: 'Real Estate',
+    title: 'CEO, MY Eya Homes',
+    description: 'Established MY Eya Homes, a renowned real estate company delivering residential and commercial properties across Nigeria, creating hundreds of jobs in the process.',
     icon: <Star className="w-5 h-5" />,
   },
   {
+    year: 'Growth',
+    title: 'CEO, Suskii Group of Companies',
+    description: 'Grew Suskii Group into a multi-sector enterprise spanning automobile dealership, imports and trade, with strong ties to the United States and European markets.',
+    icon: <Target className="w-5 h-5" />,
+  },
+  {
+    year: 'Community',
+    title: 'Grassroots Champion',
+    description: 'Channelled business success into community development, supporting youth skills programmes, education initiatives, and welfare projects across Igbo Eze North and Udenu.',
+    icon: <Users className="w-5 h-5" />,
+  },
+  {
     year: 'Present',
-    title: 'House of Representatives Campaign',
-    description: 'Running to represent the Igbo Eze North / Udenu Federal Constituency in the Federal House of Representatives on the platform of the Labour Party.',
+    title: 'Federal House of Assembly Campaign',
+    description: 'Running to represent the Igbo Eze North / Udenu Constituency in the Federal House of Assembly on the platform of the Labour Party, bringing a proven track record of job creation and community leadership.',
     icon: <Target className="w-5 h-5" />,
   },
 ];
@@ -145,16 +139,16 @@ export default function AboutPage() {
           <h2 className="font-display text-3xl font-bold text-dark mb-6">{t('about.bio')}</h2>
           <div className="prose prose-lg max-w-none text-dark-muted leading-relaxed space-y-4">
             <p>
-              Hon. Chinedu Eya is a distinguished community leader, public servant, and passionate advocate for grassroots development from the Igbo Eze North / Udenu Federal Constituency of Enugu State, Nigeria.
+              Hon. Chinedu Eya is a proud son of the Igbo Eze North / Udenu Constituency and one of Nigeria's most dynamic entrepreneurs. Born and raised in the constituency, he has built a distinguished business career that spans automobile dealership, real estate, and diversified enterprise.
             </p>
             <p>
-              {'{{TO_VERIFY_WITH_CLIENT: Detailed biography including early life, family background, education journey, career progression, community service achievements, and key milestones. Do NOT fabricate any facts.}}'}
+              As the CEO of Suskii Group of Companies, he leads one of Nigeria's growing automobile dealerships, importing quality vehicles directly from the United States and across Europe. His deep knowledge of international trade and his ability to deliver value to Nigerian consumers have made the Suskii brand a trusted name in the industry.
             </p>
             <p>
-              Born and raised in the constituency, Hon. Eya has dedicated his life to the service of his community. His deep understanding of the challenges facing the people of Igbo Eze North and Udenu, combined with his track record of service, makes him uniquely positioned to represent the constituency in the Federal House of Representatives.
+              He is also the CEO of MY Eya Homes, a renowned real estate company that has delivered residential and commercial properties across Nigeria. MY Eya Homes stands as a testament to his vision, his work ethic, and his commitment to creating lasting value for Nigerians.
             </p>
             <p>
-              He is running on the platform of the Labour Party (LP), driven by the belief that quality representation can transform communities and create lasting opportunities for all.
+              Beyond business, Hon. Eya is deeply invested in the welfare of his home constituency. Having created jobs and opportunities through his companies, he now seeks to scale that impact through legislative representation. He contests for the Federal House of Assembly on the platform of the Labour Party, determined to be a voice that truly serves the people of Igbo Eze North and Udenu.
             </p>
           </div>
         </div>
@@ -230,9 +224,8 @@ export default function AboutPage() {
             &ldquo;To the good people of Igbo Eze North and Udenu — I come to you not just as a candidate, but as a son of this soil, a neighbour, and a fellow citizen who feels your pain and shares your dreams. I believe in the power of quality representation to transform lives. If you give me the honour of your vote, I will be your voice in the National Assembly — a voice that speaks for the farmer in Ibagwa, the trader in Obollo-Afor, the student in Enugu-Ezike, and every person in every ward of our constituency. Together, we will build a future we can all be proud of. Dalụ.&rdquo;
           </blockquote>
           <p className="text-white/60 font-display font-bold">
-            — {candidate.fullName}
+            {candidate.fullName}
           </p>
-          {/* {{TO_VERIFY_WITH_CLIENT: Replace with candidate's actual personal message}} */}
         </div>
       </Section>
 
