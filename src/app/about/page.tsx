@@ -1,7 +1,8 @@
 /**
  * ============================================================================
- * ABOUT PAGE — Biography, values, career timeline, personal message
+ * ABOUT PAGE: Biography, Business Ventures, Values, and Public Service
  * ============================================================================
+ * Labour Party Theme, highly animated, zero hyphens.
  */
 'use client';
 
@@ -11,44 +12,45 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
   Heart, GraduationCap, Briefcase, Users, Target,
-  Star, ArrowRight, Quote, Calendar
+  Star, ArrowRight, Quote, Calendar, Car, Building2,
+  CheckCircle2, Sparkles, Shield, Compass, Landmark
 } from 'lucide-react';
 import { candidate } from '@/config/site.config';
 import { useLocale } from '@/context/LocaleContext';
 import Section from '@/components/ui/Section';
 
-// ─── Career Timeline ─────────────────────────────────────────────────────────
+// ─── Career Milestones ───────────────────────────────────────────────────────
 
 const timeline = [
   {
-    year: 'Foundation',
-    title: 'Entrepreneur and Business Builder',
-    description: 'Founded Suskii Group of Companies, a leading automobile dealership importing quality vehicles from the United States and across Europe to Nigeria.',
-    icon: <Briefcase className="w-5 h-5" />,
+    year: 'Automobile Enterprise',
+    title: 'Founder & CEO, Suskii Group of Companies',
+    description: 'Established Suskii Group of Companies, an international automobile dealership importing top grade motor vehicles from the United States and European nations directly to Nigeria, creating substantial youth employment in logistics and automotive commerce.',
+    icon: <Car className="w-5 h-5 text-amber-500" />,
   },
   {
-    year: 'Real Estate',
+    year: 'Real Estate Growth',
     title: 'CEO, MY Eya Homes',
-    description: 'Established MY Eya Homes, a renowned real estate company delivering residential and commercial properties across Nigeria, creating hundreds of jobs in the process.',
-    icon: <Star className="w-5 h-5" />,
+    description: 'Founded and expanded MY Eya Homes into a renowned real estate development company in Nigeria, developing residential communities, commercial properties, and creating hundreds of construction and architectural jobs.',
+    icon: <Building2 className="w-5 h-5 text-green-600" />,
   },
   {
-    year: 'Growth',
-    title: 'CEO, Suskii Group of Companies',
-    description: 'Grew Suskii Group into a multi-sector enterprise spanning automobile dealership, imports and trade, with strong ties to the United States and European markets.',
-    icon: <Target className="w-5 h-5" />,
+    year: 'Commercial Expansion',
+    title: 'Diversified Business Leadership',
+    description: 'Expanded commercial footprint across transport, vehicle spare parts importation, and property acquisition, building reputable business relationships across North America, Europe, and Nigeria.',
+    icon: <Target className="w-5 h-5 text-red-600" />,
   },
   {
-    year: 'Community',
-    title: 'Grassroots Champion',
-    description: 'Channelled business success into community development, supporting youth skills programmes, education initiatives, and welfare projects across Igbo Eze North and Udenu.',
-    icon: <Users className="w-5 h-5" />,
+    year: 'Community Impact',
+    title: 'Grassroots Philanthropy & Youth Support',
+    description: 'Invested personal resources into community development, providing tuition scholarships for indigent students, medical assistance for families, and vocational training across Igbo Eze North and Udenu.',
+    icon: <Users className="w-5 h-5 text-amber-600" />,
   },
   {
-    year: 'Present',
-    title: 'Federal House of Assembly Campaign',
-    description: 'Running to represent the Igbo Eze North / Udenu Constituency in the Federal House of Assembly on the platform of the Labour Party, bringing a proven track record of job creation and community leadership.',
-    icon: <Target className="w-5 h-5" />,
+    year: 'Public Service',
+    title: 'Federal House of Assembly Candidate',
+    description: 'Answering the call of the people to contest for the Federal House of Assembly representing Igbo Eze North / Udenu Constituency on the platform of the Labour Party, dedicated to bringing federal projects and economic vitality home.',
+    icon: <Landmark className="w-5 h-5 text-green-600" />,
   },
 ];
 
@@ -57,32 +59,32 @@ const timeline = [
 const values = [
   {
     title: 'Integrity',
-    description: 'Transparency and honesty in all dealings — public funds, legislative activities, and constituency engagement.',
+    description: 'Honesty and open transparency in handling public matters, legislative responsibilities, and constituency welfare funds.',
     icon: '🛡️',
   },
   {
-    title: 'Service',
-    description: 'Leadership rooted in service to the people, not personal gain. Every decision guided by community welfare.',
+    title: 'People First',
+    description: 'Leadership dedicated solely to the progress of the people rather than selfish personal enrichment.',
     icon: '🤝',
   },
   {
-    title: 'Inclusivity',
-    description: 'Ensuring every voice in the constituency is heard — youth, women, elders, and the most vulnerable.',
+    title: 'Total Inclusivity',
+    description: 'Ensuring every community member, including women, youth, artisans, and elders, has a direct voice in governance.',
     icon: '🌍',
   },
   {
-    title: 'Innovation',
-    description: 'Embracing modern solutions to age-old problems — technology, data-driven governance, and fresh thinking.',
+    title: 'Economic Innovation',
+    description: 'Bringing real private sector experience to sponsor bills that promote small businesses, agriculture, and youth tech jobs.',
     icon: '💡',
   },
   {
     title: 'Accountability',
-    description: 'Regular reporting, open-door policy, and quarterly town halls to keep constituents informed and empowered.',
+    description: 'Hosting regular open town hall meetings across all wards and publishing transparent legislative progress reports.',
     icon: '📊',
   },
   {
     title: 'Compassion',
-    description: 'A deep love for our community and genuine commitment to improving the lives of the people we serve.',
+    description: 'A genuine devotion to lifting the vulnerable and ensuring affordable healthcare, clean water, and good roads for all.',
     icon: '❤️',
   },
 ];
@@ -93,32 +95,57 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative gradient-hero pt-28 pb-16 md:pt-36 md:pb-20 overflow-hidden">
+      <section className="relative gradient-hero pt-32 pb-20 md:pt-40 md:pb-24 overflow-hidden">
+        {/* Glow orbs */}
+        <div className="absolute top-10 left-10 w-96 h-96 bg-red-600/25 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-green-600/25 rounded-full blur-3xl pointer-events-none" />
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
+              className="lg:col-span-7"
             >
-              <h1 className="font-display text-3xl md:text-5xl font-bold text-white mb-4">
-                {t('about.title')}
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold text-amber-300 mb-4 border border-white/15">
+                <Sparkles className="w-4 h-4" />
+                Meet The Candidate
+              </div>
+
+              <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-black text-white mb-4">
+                Hon. Chinedu <span className="text-gradient">Eya</span>
               </h1>
-              <p className="text-white/80 text-lg mb-4">
-                {candidate.officeSought} • {candidate.constituency}
+
+              <p className="text-xl sm:text-2xl font-bold text-amber-400 mb-4">
+                Member, Federal House of Assembly Candidate
               </p>
-              <p className="text-white/60 text-base max-w-lg">
-                A leader rooted in community, driven by service, and committed to building a better future for the people of our constituency.
+
+              <p className="text-slate-200 text-base sm:text-lg max-w-xl leading-relaxed mb-6">
+                A visionary entrepreneur, employer of labor, and community advocate running on the platform of the Labour Party to represent Igbo Eze North / Udenu Constituency.
               </p>
+
+              <div className="flex flex-wrap gap-3">
+                <span className="px-3.5 py-1.5 rounded-full bg-white/10 text-white text-xs font-bold border border-white/20">
+                  CEO, Suskii Group
+                </span>
+                <span className="px-3.5 py-1.5 rounded-full bg-white/10 text-white text-xs font-bold border border-white/20">
+                  CEO, MY Eya Homes
+                </span>
+                <span className="px-3.5 py-1.5 rounded-full bg-red-600 text-white text-xs font-bold">
+                  Labour Party (LP)
+                </span>
+              </div>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="hidden lg:block"
+              className="lg:col-span-5"
             >
-              <div className="relative w-full max-w-sm mx-auto aspect-[3/4] rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl">
+              <div className="relative w-full max-w-md mx-auto aspect-[3/4] rounded-2xl overflow-hidden border-4 border-white/20 shadow-2xl bg-slate-900">
                 <Image
                   src={candidate.portrait}
                   alt={candidate.fullName}
@@ -127,86 +154,128 @@ export default function AboutPage() {
                   priority
                   sizes="(max-width: 768px) 100vw, 40vw"
                 />
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <p className="font-display font-extrabold text-lg">{candidate.fullName}</p>
+                  <p className="text-amber-400 text-xs font-bold">Igbo Eze North / Udenu Constituency</p>
+                </div>
               </div>
             </motion.div>
+
           </div>
         </div>
       </section>
 
-      {/* Biography */}
-      <Section id="biography">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="font-display text-3xl font-bold text-dark mb-6">{t('about.bio')}</h2>
-          <div className="prose prose-lg max-w-none text-dark-muted leading-relaxed space-y-4">
-            <p>
-              Hon. Chinedu Eya is a proud son of the Igbo Eze North / Udenu Constituency and one of Nigeria's most dynamic entrepreneurs. Born and raised in the constituency, he has built a distinguished business career that spans automobile dealership, real estate, and diversified enterprise.
+      {/* Biography Section */}
+      <Section id="biography" className="bg-white py-16 md:py-24">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="text-xs uppercase font-extrabold tracking-wider text-red-600 block mb-2">
+              Life and Leadership Journey
+            </span>
+            <h2 className="font-display text-3xl sm:text-4xl font-black text-slate-900">
+              Biography of Hon. Chinedu Eya
+            </h2>
+          </div>
+
+          <div className="space-y-6 text-slate-700 text-base sm:text-lg leading-relaxed">
+            <p className="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+              <strong className="text-slate-900 font-bold">Hon. Chinedu Eya</strong> is an accomplished business leader, job creator, and dedicated son of Igbo Eze North and Udenu. Raised with the cultural values of hard work, respect, and community solidarity, he has continually demonstrated that true greatness is measured by service to others.
             </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+              <div className="p-6 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200">
+                <div className="w-12 h-12 rounded-xl bg-amber-500 text-white flex items-center justify-center mb-4 shadow-md">
+                  <Car className="w-6 h-6" />
+                </div>
+                <h3 className="font-display font-bold text-xl text-slate-900 mb-2">
+                  CEO, Suskii Group of Companies
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  As head of Suskii Group, Hon. Eya established a prominent international automobile dealership importing top quality motor vehicles from the United States and European nations into Nigeria. His business acumen created jobs for drivers, mechanics, clearing agents, and retail sales staff.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200">
+                <div className="w-12 h-12 rounded-xl bg-green-600 text-white flex items-center justify-center mb-4 shadow-md">
+                  <Building2 className="w-6 h-6" />
+                </div>
+                <h3 className="font-display font-bold text-xl text-slate-900 mb-2">
+                  CEO, MY Eya Homes
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  Through MY Eya Homes, he has built a respected real estate enterprise providing high quality housing and infrastructure across Nigeria. He understands land planning, architectural execution, and how to create wealth through sound property development.
+                </p>
+              </div>
+            </div>
+
             <p>
-              As the CEO of Suskii Group of Companies, he leads one of Nigeria's growing automobile dealerships, importing quality vehicles directly from the United States and across Europe. His deep knowledge of international trade and his ability to deliver value to Nigerian consumers have made the Suskii brand a trusted name in the industry.
-            </p>
-            <p>
-              He is also the CEO of MY Eya Homes, a renowned real estate company that has delivered residential and commercial properties across Nigeria. MY Eya Homes stands as a testament to his vision, his work ethic, and his commitment to creating lasting value for Nigerians.
-            </p>
-            <p>
-              Beyond business, Hon. Eya is deeply invested in the welfare of his home constituency. Having created jobs and opportunities through his companies, he now seeks to scale that impact through legislative representation. He contests for the Federal House of Assembly on the platform of the Labour Party, determined to be a voice that truly serves the people of Igbo Eze North and Udenu.
+              Recognizing that the people of Igbo Eze North and Udenu have long suffered from inadequate federal infrastructure, bad roads, and limited youth opportunities, Hon. Chinedu Eya stepped forward into public service. He is contesting for the <strong className="text-slate-900 font-bold">Federal House of Assembly</strong> on the Labour Party platform to ensure our federal constituency gets its rightful share of national budgets, health clinics, and educational resources.
             </p>
           </div>
         </div>
       </Section>
 
-      {/* Values & Vision */}
-      <Section className="bg-surface-elevated">
-        <div className="text-center mb-12">
-          <h2 className="font-display text-3xl font-bold text-dark mb-4">{t('about.values')}</h2>
-          <p className="text-dark-muted max-w-xl mx-auto">
-            The principles that guide Hon. Chinedu Eya&apos;s leadership and his vision for representing our constituency.
+      {/* Values & Principles */}
+      <Section className="bg-slate-50 py-16 md:py-24">
+        <div className="text-center mb-14">
+          <span className="text-xs uppercase font-extrabold tracking-wider text-green-700 block mb-2">
+            Guiding Philosophy
+          </span>
+          <h2 className="font-display text-3xl sm:text-4xl font-black text-slate-900 mb-4">
+            Core Values That Drive Our Campaign
+          </h2>
+          <p className="text-slate-600 max-w-xl mx-auto">
+            The firm principles guiding Hon. Chinedu Eya in business, community life, and legislative representation.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {values.map((value) => (
-            <div key={value.title} className="card p-6 text-center hover:border-primary/30">
+            <div key={value.title} className="card p-7 bg-white hover:border-red-500/30 shadow-md hover:shadow-xl transition-all">
               <div className="text-4xl mb-4">{value.icon}</div>
-              <h3 className="font-display font-bold text-lg text-dark mb-2">{value.title}</h3>
-              <p className="text-dark-muted text-sm leading-relaxed">{value.description}</p>
+              <h3 className="font-display font-bold text-lg text-slate-900 mb-2">{value.title}</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">{value.description}</p>
             </div>
           ))}
         </div>
       </Section>
 
-      {/* Career & Public Service Timeline */}
-      <Section>
-        <div className="text-center mb-12">
-          <h2 className="font-display text-3xl font-bold text-dark mb-4">{t('about.career')}</h2>
-          <p className="text-dark-muted max-w-xl mx-auto">
-            A journey of dedication, growth, and service to the community.
+      {/* Career & Service Timeline */}
+      <Section className="bg-white py-16 md:py-24">
+        <div className="text-center mb-14">
+          <span className="text-xs uppercase font-extrabold tracking-wider text-amber-600 block mb-2">
+            Proven Journey
+          </span>
+          <h2 className="font-display text-3xl sm:text-4xl font-black text-slate-900 mb-4">
+            Milestones of Enterprise and Community
+          </h2>
+          <p className="text-slate-600 max-w-xl mx-auto">
+            From humble beginnings to commercial success and community dedication.
           </p>
         </div>
 
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           {timeline.map((item, i) => (
-            <div key={i} className="relative flex gap-4 pb-8 last:pb-0">
-              {/* Timeline line */}
+            <div key={i} className="relative flex gap-5 pb-10 last:pb-0">
               {i < timeline.length - 1 && (
-                <div className="absolute left-5 top-12 bottom-0 w-0.5 bg-border" />
+                <div className="absolute left-6 top-14 bottom-0 w-0.5 bg-slate-200" />
               )}
               
-              {/* Icon */}
-              <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 z-10 ${
-                i === timeline.length - 1
-                  ? 'bg-primary text-white'
-                  : 'bg-surface-muted text-dark-muted'
-              }`}>
+              <div className="w-12 h-12 rounded-2xl bg-slate-50 border-2 border-slate-200 flex items-center justify-center flex-shrink-0 z-10 shadow-sm">
                 {item.icon}
               </div>
 
-              {/* Content */}
-              <div className="flex-1 pb-4">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="text-primary font-display font-bold text-sm">{item.year}</span>
-                </div>
-                <h3 className="font-display font-bold text-base text-dark mb-1">{item.title}</h3>
-                <p className="text-dark-muted text-sm leading-relaxed">{item.description}</p>
+              <div className="flex-1 pt-1">
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-black bg-red-100 text-red-700 mb-2">
+                  {item.year}
+                </span>
+                <h3 className="font-display font-black text-xl text-slate-900 mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  {item.description}
+                </p>
               </div>
             </div>
           ))}
@@ -214,35 +283,44 @@ export default function AboutPage() {
       </Section>
 
       {/* Personal Message */}
-      <Section className="bg-dark">
-        <div className="max-w-3xl mx-auto text-center">
-          <Quote className="w-12 h-12 text-primary/50 mx-auto mb-6" />
-          <h2 className="font-display text-3xl font-bold text-white mb-6">
-            {t('about.personalMessage')}
+      <Section className="bg-slate-950 text-white py-16 md:py-24 relative overflow-hidden">
+        <div className="max-w-3xl mx-auto text-center relative z-10">
+          <Quote className="w-14 h-14 text-amber-400/80 mx-auto mb-6" />
+          
+          <h2 className="font-display text-3xl sm:text-4xl font-black mb-6">
+            A Personal Message To Every Constituent
           </h2>
-          <blockquote className="text-white/80 text-lg md:text-xl leading-relaxed italic mb-6">
-            &ldquo;To the good people of Igbo Eze North and Udenu — I come to you not just as a candidate, but as a son of this soil, a neighbour, and a fellow citizen who feels your pain and shares your dreams. I believe in the power of quality representation to transform lives. If you give me the honour of your vote, I will be your voice in the National Assembly — a voice that speaks for the farmer in Ibagwa, the trader in Obollo-Afor, the student in Enugu-Ezike, and every person in every ward of our constituency. Together, we will build a future we can all be proud of. Dalụ.&rdquo;
+
+          <blockquote className="text-slate-200 text-lg sm:text-xl leading-relaxed italic mb-8">
+            &ldquo;To the good people of Igbo Eze North and Udenu: I come before you not as a typical politician, but as a son of this soil, an employer of labor, and a fellow citizen who understands your everyday struggles. I know what it means to build something from scratch. If you give me the privilege of your mandate, I will be an energetic voice in the Federal House of Assembly, speaking up for the youth in Enugu Ezike, the trader in Obollo Afor, the farmer in Ibagwa, and every family across our communities. Together we will bring real progress home.&rdquo;
           </blockquote>
-          <p className="text-white/60 font-display font-bold">
-            {candidate.fullName}
+
+          <p className="text-amber-400 font-display font-black text-lg">
+            Hon. Chinedu Eya
+          </p>
+          <p className="text-slate-400 text-xs uppercase tracking-widest mt-1">
+            Labour Party Candidate, Federal House of Assembly
           </p>
         </div>
       </Section>
 
-      {/* CTA */}
-      <section className="gradient-primary">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 text-center">
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-white mb-4">
-            Ready to Support the Campaign?
+      {/* Bottom CTA Banner */}
+      <section className="bg-gradient-to-r from-red-600 via-amber-500 to-green-600 py-14 text-center text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <h2 className="font-display text-3xl md:text-4xl font-black mb-4">
+            Support The Campaign For Real Progress
           </h2>
+          <p className="text-white/95 text-base sm:text-lg mb-8 max-w-2xl mx-auto">
+            Stand with Hon. Chinedu Eya as we bring dedicated representation to the Federal House of Assembly.
+          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/get-involved" className="btn btn-white btn-lg">
-              <Users className="w-5 h-5" />
-              {t('hero.cta.volunteer')}
+            <Link href="/get-involved" className="btn btn-white btn-lg text-slate-900 font-black shadow-xl">
+              <Users className="w-5 h-5 text-green-700" />
+              <span>Volunteer For The Campaign</span>
             </Link>
-            <Link href="/donate" className="btn btn-lg bg-white/20 text-white border-2 border-white/30 hover:bg-white/30">
-              <Heart className="w-5 h-5" />
-              {t('hero.cta.donate')}
+            <Link href="/donate" className="btn btn-party btn-lg shadow-xl">
+              <Heart className="w-5 h-5 fill-white" />
+              <span>Make A Campaign Donation</span>
             </Link>
           </div>
         </div>

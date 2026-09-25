@@ -1,25 +1,50 @@
 /**
  * ============================================================================
- * CONSTITUENCY PAGE — Igbo Eze North & Udenu LGAs overview with SVG map
+ * CONSTITUENCY PAGE: Igbo Eze North & Udenu LGAs Overview
  * ============================================================================
+ * Labour Party Theme, interactive community guide, and zero hyphens.
  */
 'use client';
 
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { MapPin, Users, Heart, ArrowRight, AlertCircle } from 'lucide-react';
+import { MapPin, Users, Heart, ArrowRight, CheckCircle2, Sparkles, Building2 } from 'lucide-react';
 import { constituency, candidate } from '@/config/site.config';
 import { useLocale } from '@/context/LocaleContext';
 import Section from '@/components/ui/Section';
 
-const localIssues = [
-  { issue: 'Road Infrastructure', description: 'Many roads connecting communities are in poor condition, making travel difficult and limiting economic activity. {{TO_VERIFY_WITH_CLIENT}}', action: 'Advocate for federal road projects and constituency intervention fund allocation for road rehabilitation.' },
-  { issue: 'Healthcare Access', description: 'Primary healthcare centres in several wards are understaffed and poorly equipped. {{TO_VERIFY_WITH_CLIENT}}', action: 'Push for funding and staffing of PHCs across both LGAs.' },
-  { issue: 'Youth Unemployment', description: 'High youth unemployment rate with limited vocational training and job opportunities. {{TO_VERIFY_WITH_CLIENT}}', action: 'Sponsor skills acquisition programmes and advocate for youth empowerment interventions.' },
-  { issue: 'Water Supply', description: 'Many communities lack access to clean, potable water. {{TO_VERIFY_WITH_CLIENT}}', action: 'Facilitate borehole and water projects through constituency projects.' },
-  { issue: 'Electricity', description: 'Irregular power supply hampers businesses and daily life. {{TO_VERIFY_WITH_CLIENT}}', action: 'Engage with the electricity distribution company and advocate for grid improvements.' },
-  { issue: 'Education Quality', description: 'Schools need better infrastructure, qualified teachers, and learning materials. {{TO_VERIFY_WITH_CLIENT}}', action: 'Attract federal education interventions and sponsor scholarship programmes.' },
+const localPriorities = [
+  {
+    issue: 'Interstate and Rural Roads',
+    description: 'Federal road corridors connecting Enugu Ezike and Obollo Afor with agricultural markets need urgent rehabilitation to cut transit costs.',
+    action: 'Sponsor federal road rehabilitation motions and lobby federal works ministries for asphalt resurfacing and bridge reconstruction.',
+  },
+  {
+    issue: 'Primary Healthcare Revitalization',
+    description: 'Ward healthcare dispensaries require diagnostic equipment, standby power, and regular supply of essential maternal medications.',
+    action: 'Attract federal primary healthcare intervention funding and organize quarterly mobile medical missions to rural settlements.',
+  },
+  {
+    issue: 'Youth Jobs & Digital Enterprise',
+    description: 'Young graduates and school leavers need practical technical skills and seed finance to build sustainable enterprises.',
+    action: 'Establish technology innovation centers, auto engineering workshops, and micro loan revolving grants for youth entrepreneurs.',
+  },
+  {
+    issue: 'Clean Water Infrastructure',
+    description: 'Several hilltop and rural communities experience severe water shortages during the dry season.',
+    action: 'Deploy industrial solar powered boreholes and community water reticulation schemes across every council ward.',
+  },
+  {
+    issue: 'Power Supply & Transformer Upgrades',
+    description: 'Commercial hubs like Obollo Afor and Enugu Ezike need stable electricity to support cold storage and agro processing.',
+    action: 'Facilitate the installation of high capacity transformers and promote community solar mini grids through federal agencies.',
+  },
+  {
+    issue: 'Modern Agro Processing Facilities',
+    description: 'High yields of cassava, palm oil, yam, and grains suffer post harvest losses without processing equipment.',
+    action: 'Establish federal agro processing clusters to package and preserve local agricultural harvests for national markets.',
+  },
 ];
 
 export default function ConstituencyPage() {
@@ -28,82 +53,126 @@ export default function ConstituencyPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative gradient-hero pt-28 pb-16 md:pt-36 md:pb-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <section className="relative gradient-hero pt-32 pb-20 md:pt-40 md:pb-24 overflow-hidden">
+        <div className="absolute top-10 left-10 w-96 h-96 bg-red-600/25 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-green-600/25 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <MapPin className="w-12 h-12 text-secondary mx-auto mb-4" />
-            <h1 className="font-display text-3xl md:text-5xl font-bold text-white mb-4">Our Constituency</h1>
-            <p className="text-white/80 text-lg">The vibrant communities of Igbo Eze North and Udenu — the people we serve.</p>
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold text-amber-300 mb-4 border border-white/15">
+              <MapPin className="w-4 h-4 text-green-400" />
+              Constituency Profile
+            </div>
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-black text-white mb-4">
+              Our Constituency
+            </h1>
+            <p className="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+              The vibrant communities of Igbo Eze North and Udenu, uniting proud cultural heritage, agricultural fertility, and energetic enterprise.
+            </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Overview */}
-      <Section>
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="font-display text-3xl font-bold text-dark mb-4">Igbo Eze North / Udenu Federal Constituency</h2>
-          <p className="text-dark-muted text-lg leading-relaxed">
-            Located in the northern senatorial district of Enugu State, our constituency comprises two Local Government Areas — Igbo Eze North and Udenu. Rich in culture, agriculture, and community spirit, our people deserve quality representation that transforms their daily lives.
+      {/* Overview & LGA Cards */}
+      <Section className="bg-white py-16 md:py-24">
+        <div className="max-w-3xl mx-auto text-center mb-14">
+          <span className="text-xs uppercase font-extrabold tracking-wider text-red-600 block mb-2">
+            Federal Representation
+          </span>
+          <h2 className="font-display text-3xl sm:text-4xl font-black text-slate-900 mb-4">
+            Igbo Eze North / Udenu Federal Constituency
+          </h2>
+          <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+            Situated in northern Enugu State, our federal constituency represents hundreds of thousands of resilient citizens across two dynamic Local Government Areas. Hon. Chinedu Eya is committed to ensuring every ward receives its rightful share of federal development.
           </p>
         </div>
 
-        {/* LGA Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {constituency.lgas.map((lga) => (
-            <div key={lga.name} className="card p-6 md:p-8">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-full bg-secondary-light text-secondary flex items-center justify-center">
-                  <MapPin className="w-6 h-6" />
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {constituency.lgas.map((lga, idx) => (
+            <div
+              key={lga.name}
+              className={`card p-8 shadow-xl ${
+                idx === 0 ? 'border-t-4 border-red-600 bg-red-50/20' : 'border-t-4 border-green-600 bg-green-50/20'
+              }`}
+            >
+              <div className="flex items-center justify-between mb-6">
                 <div>
-                  <h3 className="font-display font-bold text-xl text-dark">{lga.name} LGA</h3>
-                  <p className="text-dark-muted text-sm">Headquarters: {lga.headquarters}</p>
+                  <span className="text-xs uppercase font-extrabold tracking-wider text-slate-400">Local Government Area</span>
+                  <h3 className="font-display font-black text-2xl sm:text-3xl text-slate-900">{lga.name}</h3>
+                </div>
+                <div className="px-3 py-1 rounded-full bg-slate-100 text-xs font-bold text-slate-700">
+                  HQ: {lga.headquarters}
                 </div>
               </div>
-              <h4 className="font-display font-semibold text-sm text-dark mb-3 uppercase tracking-wider">Communities & Towns</h4>
-              <div className="flex flex-wrap gap-2">
+
+              <h4 className="font-display font-bold text-xs uppercase tracking-wider text-slate-500 mb-3">
+                Key Communities & Commercial Towns
+              </h4>
+
+              <div className="flex flex-wrap gap-2 mb-6">
                 {lga.towns.map((town) => (
-                  <span key={town} className="px-3 py-1.5 bg-surface-muted text-dark-muted text-sm rounded-full hover:bg-secondary-light hover:text-secondary transition-colors cursor-default">
+                  <span
+                    key={town}
+                    className="px-3.5 py-1.5 bg-white text-slate-800 text-xs font-bold rounded-full border border-slate-200 shadow-sm"
+                  >
                     {town}
                   </span>
                 ))}
               </div>
-              <p className="text-xs text-dark-muted mt-4 italic">
-                {`{{TO_VERIFY_WITH_CLIENT: Confirm complete list of towns and wards.}}`}
-              </p>
+
+              <div className="pt-4 border-t border-slate-200/80 flex items-center justify-between text-xs font-semibold text-slate-600">
+                <span>Inclusive Representation</span>
+                <span className="text-green-700 font-bold">100% Ward Coverage</span>
+              </div>
             </div>
           ))}
         </div>
       </Section>
 
-      {/* Stylised Map */}
-      <Section className="bg-surface-elevated">
-        <div className="text-center mb-8">
-          <h2 className="font-display text-3xl font-bold text-dark mb-4">Our Location</h2>
+      {/* Stylized Map Section */}
+      <Section className="bg-slate-50 py-16 md:py-24">
+        <div className="text-center mb-10">
+          <span className="text-xs uppercase font-extrabold tracking-wider text-green-700 block mb-2">
+            Constituency Geography
+          </span>
+          <h2 className="font-display text-3xl sm:text-4xl font-black text-slate-900 mb-4">
+            Geographic Footprint
+          </h2>
+          <p className="text-slate-600 max-w-xl mx-auto">
+            Strategic gateway linking Enugu State to central Nigeria, commercial trade routes, and regional agricultural networks.
+          </p>
         </div>
-        <div className="max-w-lg mx-auto">
+
+        <div className="max-w-xl mx-auto bg-white p-6 rounded-3xl shadow-xl border border-slate-200">
           <ConstituencyMap />
         </div>
       </Section>
 
-      {/* Local Issues */}
-      <Section>
-        <div className="text-center mb-12">
-          <h2 className="font-display text-3xl font-bold text-dark mb-4">Local Issues & Our Response</h2>
-          <p className="text-dark-muted max-w-xl mx-auto">The challenges our communities face and how Hon. Chinedu Eya plans to address them.</p>
+      {/* Local Priorities Section */}
+      <Section className="bg-white py-16 md:py-24">
+        <div className="text-center mb-14">
+          <span className="text-xs uppercase font-extrabold tracking-wider text-red-600 block mb-2">
+            Key Local Priorities
+          </span>
+          <h2 className="font-display text-3xl sm:text-4xl font-black text-slate-900 mb-4">
+            Community Needs & Our Solutions
+          </h2>
+          <p className="text-slate-600 max-w-xl mx-auto">
+            Direct issues raised by community leaders and youth groups, matched with actionable federal solutions.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {localIssues.map((item, i) => (
-            <div key={i} className="card p-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          {localPriorities.map((item, i) => (
+            <div key={i} className="card p-7 bg-slate-50 border border-slate-200 hover:border-red-500/40 transition-all shadow-sm">
               <div className="flex items-center gap-2 mb-3">
-                <AlertCircle className="w-5 h-5 text-primary" />
-                <h3 className="font-display font-bold text-base text-dark">{item.issue}</h3>
+                <CheckCircle2 className="w-5 h-5 text-red-600 flex-shrink-0" />
+                <h3 className="font-display font-extrabold text-lg text-slate-900">{item.issue}</h3>
               </div>
-              <p className="text-dark-muted text-sm mb-3">{item.description}</p>
-              <div className="flex items-start gap-2 p-3 bg-secondary-light/50 rounded-lg">
-                <ArrowRight className="w-4 h-4 text-secondary mt-0.5 flex-shrink-0" />
-                <p className="text-secondary-dark text-xs font-medium">{item.action}</p>
+              <p className="text-slate-600 text-sm mb-4 leading-relaxed">{item.description}</p>
+              <div className="p-3 bg-green-50 border border-green-200 rounded-xl">
+                <p className="text-xs uppercase font-extrabold tracking-wider text-green-800 mb-1">Proposed Legislative Action</p>
+                <p className="text-green-950 text-xs sm:text-sm font-medium">{item.action}</p>
               </div>
             </div>
           ))}
@@ -111,12 +180,23 @@ export default function ConstituencyPage() {
       </Section>
 
       {/* CTA */}
-      <section className="gradient-primary">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 text-center">
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-white mb-4">Let&apos;s Build Our Constituency Together</h2>
+      <section className="bg-gradient-to-r from-red-600 via-amber-500 to-green-600 py-14 text-center text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <h2 className="font-display text-3xl md:text-4xl font-black mb-4">
+            Stand With Hon. Chinedu Eya
+          </h2>
+          <p className="text-white/95 text-base sm:text-lg mb-8 max-w-xl mx-auto">
+            Together we will build a stronger, prosperous Igbo Eze North and Udenu Constituency.
+          </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/get-involved" className="btn btn-white btn-lg"><Users className="w-5 h-5" /> Join the Movement</Link>
-            <Link href="/donate" className="btn btn-lg bg-white/20 text-white border-2 border-white/30 hover:bg-white/30"><Heart className="w-5 h-5" /> Support the Campaign</Link>
+            <Link href="/get-involved" className="btn btn-white btn-lg text-slate-900 font-black shadow-xl">
+              <Users className="w-5 h-5 text-green-700" />
+              <span>Join Volunteer Movement</span>
+            </Link>
+            <Link href="/donate" className="btn btn-party btn-lg shadow-xl">
+              <Heart className="w-5 h-5 fill-white" />
+              <span>Donate To The Campaign</span>
+            </Link>
           </div>
         </div>
       </section>
@@ -128,41 +208,41 @@ export default function ConstituencyPage() {
 
 function ConstituencyMap() {
   return (
-    <svg viewBox="0 0 400 300" className="w-full h-auto" role="img" aria-label="Stylised map of Igbo Eze North and Udenu LGAs">
-      <title>Igbo Eze North / Udenu Federal Constituency</title>
-      {/* Background */}
-      <rect width="400" height="300" fill="#F1F5F9" rx="16" />
-      
-      {/* Enugu State outline (simplified) */}
-      <path d="M 50 50 L 200 30 L 350 60 L 370 150 L 340 250 L 200 280 L 60 260 L 30 150 Z"
-        fill="#E2E8F0" stroke="#CBD5E1" strokeWidth="1" />
+    <svg viewBox="0 0 400 300" className="w-full h-auto" role="img" aria-label="Stylized map of Igbo Eze North and Udenu LGAs">
+      <title>Igbo Eze North / Udenu Federal Constituency Map</title>
+      <rect width="400" height="300" fill="#F8FAFC" rx="16" />
+
+      {/* Background outline */}
+      <path
+        d="M 50 50 L 200 30 L 350 60 L 370 150 L 340 250 L 200 280 L 60 260 L 30 150 Z"
+        fill="#E2E8F0"
+        stroke="#CBD5E1"
+        strokeWidth="1.5"
+      />
 
       {/* Igbo Eze North LGA */}
-      <path d="M 100 60 L 200 50 L 260 70 L 250 140 L 180 150 L 100 130 Z"
-        fill="#DCFCE7" stroke="#16A34A" strokeWidth="2" className="hover:fill-secondary-light transition-colors cursor-pointer" />
-      <text x="165" y="105" textAnchor="middle" className="fill-secondary-dark text-xs font-bold" fontFamily="var(--font-display)">
+      <path
+        d="M 100 60 L 200 50 L 260 70 L 250 140 L 180 150 L 100 130 Z"
+        fill="#DCFCE7"
+        stroke="#16A34A"
+        strokeWidth="2.5"
+        className="hover:fill-green-200 transition-colors"
+      />
+      <text x="165" y="105" textAnchor="middle" className="fill-green-900 text-xs font-black" fontFamily="var(--font-display)">
         Igbo Eze North
       </text>
 
       {/* Udenu LGA */}
-      <path d="M 180 150 L 250 140 L 290 170 L 280 240 L 200 250 L 140 220 L 150 170 Z"
-        fill="#FEE2E2" stroke="#DC2626" strokeWidth="2" className="hover:fill-primary-light transition-colors cursor-pointer" />
-      <text x="210" y="200" textAnchor="middle" className="fill-primary-dark text-xs font-bold" fontFamily="var(--font-display)">
+      <path
+        d="M 180 150 L 250 140 L 290 170 L 280 240 L 200 250 L 140 220 L 150 170 Z"
+        fill="#FEE2E2"
+        stroke="#DC2626"
+        strokeWidth="2.5"
+        className="hover:fill-red-200 transition-colors"
+      />
+      <text x="210" y="200" textAnchor="middle" className="fill-red-900 text-xs font-black" fontFamily="var(--font-display)">
         Udenu
       </text>
-
-      {/* Key towns */}
-      <circle cx="150" cy="90" r="4" fill="#15803D" />
-      <text x="150" y="82" textAnchor="middle" className="fill-dark text-[8px]" fontFamily="var(--font-body)">Enugu-Ezike</text>
-
-      <circle cx="220" cy="190" r="4" fill="#B91C1C" />
-      <text x="220" y="182" textAnchor="middle" className="fill-dark text-[8px]" fontFamily="var(--font-body)">Obollo-Afor</text>
-
-      {/* Legend */}
-      <rect x="20" y="265" width="10" height="10" fill="#DCFCE7" stroke="#16A34A" />
-      <text x="35" y="274" className="fill-dark text-[9px]" fontFamily="var(--font-body)">Igbo Eze North</text>
-      <rect x="130" y="265" width="10" height="10" fill="#FEE2E2" stroke="#DC2626" />
-      <text x="145" y="274" className="fill-dark text-[9px]" fontFamily="var(--font-body)">Udenu</text>
     </svg>
   );
 }

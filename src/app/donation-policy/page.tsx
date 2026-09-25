@@ -11,7 +11,7 @@ import { ShieldCheck, AlertCircle, FileText, ArrowRight, Heart } from 'lucide-re
 import { candidate, donation, seo } from '@/config/site.config';
 
 export const metadata = {
-  title: `Donation & Refund Policy — ${candidate.fullName}`,
+  title: `Donation & Refund Policy: ${candidate.fullName}`,
   description: `Official campaign donation and refund policy for the ${candidate.fullName} campaign in accordance with Nigerian electoral laws.`,
 };
 

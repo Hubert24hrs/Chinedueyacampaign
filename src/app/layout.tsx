@@ -47,7 +47,7 @@ export const metadata: Metadata = {
         url: seo.ogImage,
         width: 1200,
         height: 630,
-        alt: `${candidate.fullName} — ${candidate.slogan}`,
+        alt: `${candidate.fullName}: ${candidate.slogan}`,
       },
     ],
     locale: 'en_NG',

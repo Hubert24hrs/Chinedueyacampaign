@@ -108,7 +108,7 @@ const translations = {
     'footer.terms': 'Terms of Use',
     'footer.donationPolicy': 'Donation Policy',
     'footer.disclaimer':
-      'This website is maintained by the campaign of Hon. Chinedu Eya for the Federal House of Representatives, Igbo Eze North / Udenu Federal Constituency. Paid for by the Chinedu Eya Campaign Committee.',
+      'This website is maintained by the campaign of Hon. Chinedu Eya for Member, Federal House of Assembly, Igbo Eze North / Udenu Constituency, Nigeria. Paid for by the Chinedu Eya Campaign Organization.',
     'footer.copyright': '© {year} Chinedu Eya Campaign. All rights reserved.',
 
     // Newsletter
@@ -227,7 +227,7 @@ const translations = {
     'footer.terms': 'Usoro Ojiji',
     'footer.donationPolicy': 'Iwu Onyinye',
     'footer.disclaimer':
-      'Weebụsaịtị a bụ nke ọgbakọ Hon. Chinedu Eya maka Ụlọ Ndị Nnọchite Anya, Igbo Eze North / Udenu.',
+      'Weebụsaịtị a bụ nke ọgbakọ Hon. Chinedu Eya maka Ụlọ Mgbakọ Federal, Igbo Eze North / Udenu, Nigeria.',
     'footer.copyright': '© {year} Ọgbakọ Chinedu Eya. Ikike niile echekwara.',
 
     // Newsletter

@@ -29,7 +29,7 @@ export default function NewsDetailPage() {
   }
 
   const shareUrl = `${seo.siteUrl}/news/${article.slug}`;
-  const shareText = `${article.title} — ${candidate.fullName}`;
+  const shareText = `${article.title}: ${candidate.fullName}`;
   const whatsappShare = `https://wa.me/?text=${encodeURIComponent(`${shareText}\n${shareUrl}`)}`;
   const facebookShare = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
   const twitterShare = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;

@@ -28,14 +28,14 @@ export default function MediaPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
           {[
             { title: 'Candidate Bio', desc: 'Official biography for media use', icon: <FileText className="w-6 h-6" />, type: 'PDF' },
-            { title: 'High-Res Photos', desc: 'Campaign photos for editorial use', icon: <Camera className="w-6 h-6" />, type: 'ZIP' },
+            { title: 'High Resolution Photos', desc: 'Campaign photos for editorial use', icon: <Camera className="w-6 h-6" />, type: 'ZIP' },
             { title: 'Campaign Logos', desc: 'Logo files in various formats', icon: <ImageIcon className="w-6 h-6" />, type: 'ZIP' },
           ].map((item, i) => (
             <div key={i} className="card p-6 text-center">
               <div className="w-12 h-12 rounded-xl bg-primary-light text-primary mx-auto mb-4 flex items-center justify-center">{item.icon}</div>
               <h3 className="font-display font-bold text-base text-dark mb-1">{item.title}</h3>
               <p className="text-dark-muted text-sm mb-4">{item.desc}</p>
-              <button className="btn btn-outline btn-sm w-full" disabled><Download className="w-4 h-4" /> {item.type} — Coming Soon</button>
+              <button className="btn btn-outline btn-sm w-full" disabled><Download className="w-4 h-4" /> {item.type}: Available on Request</button>
             </div>
           ))}
         </div>
@@ -46,8 +46,7 @@ export default function MediaPage() {
         <h2 className="font-display text-3xl font-bold text-dark mb-8 text-center">Press Releases</h2>
         <div className="max-w-2xl mx-auto text-center py-8">
           <Newspaper className="w-12 h-12 text-dark-muted/30 mx-auto mb-4" />
-          <p className="text-dark-muted">Press releases will be published here as the campaign progresses.</p>
-          <p className="text-dark-muted text-sm mt-2">{'{{TO_VERIFY_WITH_CLIENT: Add press releases as they are issued.}}'}</p>
+          <p className="text-dark-muted">Official press statements will appear here as campaign announcements are issued.</p>
         </div>
       </Section>
 

@@ -187,7 +187,7 @@ function AmountSelector({
           className="text-secondary text-sm font-medium mt-3 flex items-center gap-2"
         >
           <Info className="w-4 h-4" />
-          ₦{selected.toLocaleString()} — {donation.impactStatements[selected]}
+          ₦{selected.toLocaleString()}: {donation.impactStatements[selected]}
         </motion.p>
       )}
     </div>
@@ -395,7 +395,7 @@ function DonorPledgeForm() {
               <p className="text-sm text-secondary font-medium">{proofFile.name}</p>
             ) : (
               <p className="text-sm text-dark-muted">
-                Click to upload (JPEG, PNG, WebP, PDF — max {donation.maxUploadSizeMB}MB)
+                Click to upload (JPEG, PNG, WebP, PDF, max {donation.maxUploadSizeMB}MB)
               </p>
             )}
           </div>

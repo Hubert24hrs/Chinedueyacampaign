@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * Countdown Timer — Election countdown driven by config
+ * Countdown Timer: Election countdown with Labour Party vibrant theme
  * ============================================================================
  */
 'use client';
@@ -8,6 +8,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocale } from '@/context/LocaleContext';
 import { election } from '@/config/site.config';
+import { Clock } from 'lucide-react';
 
 interface CountdownValues {
   days: number;
@@ -50,47 +51,51 @@ export default function CountdownTimer({ compact = false }: { compact?: boolean 
   if (!mounted) return null;
 
   const blocks = [
-    { value: countdown.days, label: t('hero.countdown.days') },
-    { value: countdown.hours, label: t('hero.countdown.hours') },
-    { value: countdown.minutes, label: t('hero.countdown.minutes') },
-    { value: countdown.seconds, label: t('hero.countdown.seconds') },
+    { value: countdown.days, label: 'DAYS' },
+    { value: countdown.hours, label: 'HOURS' },
+    { value: countdown.minutes, label: 'MINUTES' },
+    { value: countdown.seconds, label: 'SECONDS' },
   ];
 
   if (compact) {
     return (
       <div className="flex items-center gap-2 text-sm font-display font-bold">
-        <span className="text-primary">{countdown.days}</span>
-        <span className="text-dark-muted/50">d</span>
-        <span className="text-primary">{countdown.hours}</span>
-        <span className="text-dark-muted/50">h</span>
-        <span className="text-primary">{countdown.minutes}</span>
-        <span className="text-dark-muted/50">m</span>
+        <span className="text-red-500">{countdown.days}d</span>
+        <span className="text-amber-400">{countdown.hours}h</span>
+        <span className="text-green-500">{countdown.minutes}m</span>
       </div>
     );
   }
 
   return (
-    <div className="text-center">
-      <div className="flex items-center justify-center gap-3 md:gap-4">
+    <div className="p-4 md:p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl relative overflow-hidden">
+      <div className="flex items-center justify-center gap-2 mb-3">
+        <Clock className="w-4 h-4 text-amber-400 animate-spin-slow" />
+        <span className="text-xs uppercase tracking-widest font-extrabold text-amber-300">
+          COUNTDOWN TO ELECTION DAY 2027
+        </span>
+      </div>
+
+      <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4">
         {blocks.map((block, i) => (
           <React.Fragment key={block.label}>
             <div className="flex flex-col items-center">
-              <div className="w-16 h-16 md:w-20 md:h-20 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center">
-                <span className="text-2xl md:text-3xl font-display font-bold text-white">
+              <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-xl bg-gradient-to-b from-white/20 to-white/5 border border-white/30 flex items-center justify-center shadow-lg relative group">
+                <span className="text-xl sm:text-2xl md:text-3xl font-display font-black text-white group-hover:scale-110 transition-transform">
                   {String(block.value).padStart(2, '0')}
                 </span>
+                <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-red-500 via-amber-400 to-green-500 rounded-b-xl" />
               </div>
-              <span className="text-xs md:text-sm text-white/70 mt-1.5 font-medium">
+              <span className="text-[10px] sm:text-xs text-white/80 mt-1.5 font-bold tracking-wider">
                 {block.label}
               </span>
             </div>
             {i < blocks.length - 1 && (
-              <span className="text-2xl text-white/30 font-bold self-start mt-4">:</span>
+              <span className="text-xl sm:text-2xl text-amber-400/80 font-black self-start mt-3 sm:mt-4">:</span>
             )}
           </React.Fragment>
         ))}
       </div>
-      <p className="text-white/60 text-sm mt-4 font-medium">{t('hero.countdown.label')}</p>
     </div>
   );
 }

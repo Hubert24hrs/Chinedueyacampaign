@@ -20,10 +20,10 @@ import Section from '@/components/ui/Section';
 const electionDayChecklist = [
   { icon: <CreditCard className="w-5 h-5" />, text: 'Bring your Permanent Voter\'s Card (PVC)' },
   { icon: <Smartphone className="w-5 h-5" />, text: 'Know your polling unit location beforehand' },
-  { icon: <Clock className="w-5 h-5" />, text: 'Arrive early — voting starts at 8:30 AM' },
+  { icon: <Clock className="w-5 h-5" />, text: 'Arrive early, voting starts at 8:30 AM' },
   { icon: <CheckSquare className="w-5 h-5" />, text: 'Verify your name on the voter register at your polling unit' },
-  { icon: <AlertTriangle className="w-5 h-5" />, text: 'Do NOT carry weapons, cameras (for ballot), or campaign materials' },
-  { icon: <Vote className="w-5 h-5" />, text: 'Vote for the Labour Party candidate — Hon. Chinedu Eya' },
+  { icon: <AlertTriangle className="w-5 h-5" />, text: 'Do NOT carry weapons, cameras for ballot, or prohibited items' },
+  { icon: <Vote className="w-5 h-5" />, text: 'Vote for the Labour Party candidate: Hon. Chinedu Eya' },
   { icon: <MapPin className="w-5 h-5" />, text: 'Stay at the polling unit until results are announced' },
   { icon: <Bell className="w-5 h-5" />, text: 'Report any irregularities to election observers' },
 ];

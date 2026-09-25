@@ -1,15 +1,17 @@
 /**
  * ============================================================================
- * EVENTS PAGE — Upcoming & past events with RSVP
+ * EVENTS PAGE: Rallies, Town Halls & Grassroots Gatherings
  * ============================================================================
+ * Labour Party Theme, zero AI slop, zero hyphens.
  */
 'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, Clock, Users, ChevronRight } from 'lucide-react';
+import { Calendar, MapPin, Clock, Users, ChevronRight, MessageSquare } from 'lucide-react';
 import { campaignEvents } from '@/content/events';
+import { socials } from '@/config/site.config';
 import Section from '@/components/ui/Section';
 
 export default function EventsPage() {
@@ -20,82 +22,89 @@ export default function EventsPage() {
 
   return (
     <>
-      <section className="relative gradient-hero pt-28 pb-16 md:pt-36 md:pb-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <section className="relative gradient-hero pt-32 pb-20 md:pt-40 md:pb-24 overflow-hidden">
+        <div className="absolute top-10 left-10 w-96 h-96 bg-red-600/25 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-green-600/25 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <Calendar className="w-12 h-12 text-accent mx-auto mb-4" />
-            <h1 className="font-display text-3xl md:text-5xl font-bold text-white mb-4">Events</h1>
-            <p className="text-white/80 text-lg">Rallies, town halls, and community outreach. Come be part of the movement.</p>
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold text-amber-300 mb-4 border border-white/15">
+              <Calendar className="w-4 h-4" />
+              Community Calendar
+            </div>
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-black text-white mb-4">
+              Campaign Events & Town Halls
+            </h1>
+            <p className="text-slate-200 text-base sm:text-lg max-w-xl mx-auto">
+              Town hall meetings, ward tours, voter clinics, and grassroots rallies across Igbo Eze North and Udenu.
+            </p>
           </motion.div>
         </div>
       </section>
 
-      <Section>
+      <Section className="bg-slate-50 py-16 md:py-24">
         {/* Tabs */}
-        <div className="flex gap-2 mb-8">
-          <button onClick={() => setTab('upcoming')} className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${tab === 'upcoming' ? 'bg-primary text-white' : 'bg-surface-muted text-dark-muted hover:bg-primary-light'}`}>
-            Upcoming ({upcoming.length})
+        <div className="flex gap-3 justify-center mb-10">
+          <button
+            onClick={() => setTab('upcoming')}
+            className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
+              tab === 'upcoming'
+                ? 'bg-red-600 text-white shadow-lg'
+                : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
+            }`}
+          >
+            Upcoming Events ({upcoming.length})
           </button>
-          <button onClick={() => setTab('past')} className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${tab === 'past' ? 'bg-primary text-white' : 'bg-surface-muted text-dark-muted hover:bg-primary-light'}`}>
-            Past ({past.length})
+          <button
+            onClick={() => setTab('past')}
+            className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
+              tab === 'past'
+                ? 'bg-red-600 text-white shadow-lg'
+                : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
+            }`}
+          >
+            Past Events ({past.length})
           </button>
         </div>
 
         {events.length === 0 ? (
-          <div className="text-center py-16">
-            <Calendar className="w-12 h-12 text-dark-muted/30 mx-auto mb-4" />
-            <p className="text-dark-muted">No {tab} events at this time. Check back soon!</p>
+          <div className="max-w-xl mx-auto text-center py-16 bg-white rounded-3xl p-10 border border-slate-200 shadow-lg">
+            <div className="w-16 h-16 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mx-auto mb-4">
+              <Calendar className="w-8 h-8" />
+            </div>
+            <h3 className="font-display font-black text-2xl text-slate-900 mb-2">
+              Schedules Being Finalized
+            </h3>
+            <p className="text-slate-600 text-sm leading-relaxed mb-6">
+              Our ward consultative tour and town hall dates are currently being scheduled with community stakeholders. Join the campaign WhatsApp for instant notifications.
+            </p>
+            <a
+              href={socials.whatsappChannel}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary inline-flex items-center gap-2"
+            >
+              <MessageSquare className="w-4 h-4" />
+              <span>Get Event Alerts on WhatsApp</span>
+            </a>
           </div>
         ) : (
-          <div className="space-y-4">
+          <div className="space-y-4 max-w-4xl mx-auto">
             {events.map((event) => (
-              <div key={event.id} className="card p-6 flex flex-col md:flex-row gap-4">
-                {/* Date badge */}
-                <div className="w-20 h-20 rounded-xl bg-primary-light text-primary flex flex-col items-center justify-center flex-shrink-0">
-                  <span className="text-2xl font-display font-bold">{new Date(event.date).getDate()}</span>
-                  <span className="text-xs font-semibold uppercase">{new Date(event.date).toLocaleDateString('en', { month: 'short' })}</span>
+              <div key={event.id} className="card p-6 bg-white shadow-md flex flex-col md:flex-row gap-5 items-center">
+                <div className="w-20 h-20 rounded-2xl bg-red-100 text-red-600 flex flex-col items-center justify-center flex-shrink-0">
+                  <span className="text-2xl font-display font-black">{new Date(event.date).getDate()}</span>
+                  <span className="text-xs font-bold uppercase">{new Date(event.date).toLocaleDateString('en', { month: 'short' })}</span>
                 </div>
 
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className={`px-2 py-0.5 rounded text-xs font-bold ${
-                      event.type === 'rally' ? 'bg-primary-light text-primary' :
-                      event.type === 'town-hall' ? 'bg-secondary-light text-secondary' :
-                      'bg-accent/10 text-accent-dark'
-                    }`}>
-                      {event.type.replace('-', ' ')}
-                    </span>
-                    <span className="text-dark-muted text-xs">{event.lga}</span>
+                <div className="flex-1 text-left">
+                  <div className="flex items-center gap-3 text-xs text-slate-500 mb-1">
+                    <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" /> {event.time}</span>
+                    <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5" /> {event.venue}</span>
                   </div>
-                  <h3 className="font-display font-bold text-lg text-dark mb-1">{event.title}</h3>
-                  <p className="text-dark-muted text-sm mb-2 line-clamp-2">{event.description}</p>
-                  <div className="flex flex-wrap gap-4 text-xs text-dark-muted">
-                    <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" />{event.time}</span>
-                    <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5" />{event.venue}</span>
-                  </div>
+                  <h3 className="font-display font-bold text-lg text-slate-900 mb-1">{event.title}</h3>
+                  <p className="text-slate-600 text-sm">{event.description}</p>
                 </div>
-
-                {!event.isPast && (
-                  <div className="flex items-center">
-                    <button
-                      onClick={() => {
-                        // Generate .ics file
-                        const ics = generateICS(event);
-                        const blob = new Blob([ics], { type: 'text/calendar' });
-                        const url = URL.createObjectURL(blob);
-                        const a = document.createElement('a');
-                        a.href = url;
-                        a.download = `${event.slug}.ics`;
-                        a.click();
-                        URL.revokeObjectURL(url);
-                      }}
-                      className="btn btn-outline btn-sm"
-                    >
-                      <Calendar className="w-3.5 h-3.5" />
-                      Add to Calendar
-                    </button>
-                  </div>
-                )}
               </div>
             ))}
           </div>
@@ -103,25 +112,4 @@ export default function EventsPage() {
       </Section>
     </>
   );
-}
-
-function generateICS(event: typeof campaignEvents[0]): string {
-  const date = new Date(event.date);
-  const dtStart = date.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
-  const endDate = new Date(date.getTime() + 3 * 60 * 60 * 1000);
-  const dtEnd = endDate.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
-
-  return [
-    'BEGIN:VCALENDAR',
-    'VERSION:2.0',
-    'PRODID:-//Chinedu Eya Campaign//Events//EN',
-    'BEGIN:VEVENT',
-    `DTSTART:${dtStart}`,
-    `DTEND:${dtEnd}`,
-    `SUMMARY:${event.title}`,
-    `DESCRIPTION:${event.description}`,
-    `LOCATION:${event.venue}`,
-    'END:VEVENT',
-    'END:VCALENDAR',
-  ].join('\r\n');
 }

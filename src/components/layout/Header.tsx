@@ -1,9 +1,7 @@
 /**
  * ============================================================================
- * Header — Sticky campaign header with logo, navigation, language toggle,
- *          and persistent Donate button.
+ * Header: Sticky campaign header with Labour Party theme and smooth animations
  * ============================================================================
- * Mobile-first with hamburger menu. Large tap targets for mid-range phones.
  */
 'use client';
 
@@ -12,7 +10,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Globe, Heart } from 'lucide-react';
+import { Menu, X, Globe, Heart, Sparkles } from 'lucide-react';
 import { candidate, navigation } from '@/config/site.config';
 import { useLocale } from '@/context/LocaleContext';
 
@@ -22,19 +20,16 @@ export default function Header() {
   const pathname = usePathname();
   const { locale, setLocale, t } = useLocale();
 
-  // Detect scroll for header background
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
@@ -46,42 +41,45 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-md'
-          : 'bg-transparent'
+          ? 'bg-white/95 backdrop-blur-md shadow-lg shadow-black/5 border-b border-red-500/10'
+          : 'bg-gradient-to-b from-black/80 via-black/40 to-transparent'
       }`}
       role="banner"
     >
+      {/* Top Labour Party Tricolor accent line */}
+      <div className="h-1 w-full bg-gradient-to-r from-red-600 via-amber-400 to-green-600" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 z-10" aria-label="Home">
-            <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden bg-primary-light flex-shrink-0">
+          <Link href="/" className="flex items-center gap-3 z-10 group" aria-label="Home">
+            <div className="relative w-11 h-11 md:w-13 md:h-13 rounded-full overflow-hidden bg-white p-0.5 shadow-md border-2 border-red-500/30 group-hover:border-green-500 transition-colors flex-shrink-0">
               <Image
-                src={candidate.campaignLogo}
-                alt={`${candidate.fullName} Campaign Logo`}
+                src={candidate.party.logo}
+                alt={`${candidate.party.name} Logo`}
                 fill
-                className="object-contain"
-                onError={(e) => {
-                  // Fallback: show initials
-                  const target = e.currentTarget;
-                  target.style.display = 'none';
-                }}
+                className="object-contain p-1"
               />
             </div>
-            <div className="hidden sm:block">
-              <p className={`font-display font-bold text-sm md:text-base leading-tight ${
-                scrolled ? 'text-dark' : 'text-white'
-              }`}>
-                {candidate.fullName}
-              </p>
-              <p className={`text-xs ${scrolled ? 'text-dark-muted' : 'text-white/80'}`}>
-                {candidate.party.abbreviation} • {candidate.constituency.split('/')[0].trim()}
+            <div>
+              <div className="flex items-center gap-2">
+                <span className={`font-display font-extrabold text-base md:text-lg leading-tight transition-colors ${
+                  scrolled ? 'text-slate-900 group-hover:text-red-600' : 'text-white group-hover:text-amber-300'
+                }`}>
+                  {candidate.fullName}
+                </span>
+                <span className="hidden sm:inline-block px-2 py-0.5 text-[10px] font-bold tracking-wider rounded-full bg-red-600 text-white shadow-sm">
+                  {candidate.party.abbreviation}
+                </span>
+              </div>
+              <p className={`text-xs font-medium transition-colors ${scrolled ? 'text-slate-500' : 'text-slate-300'}`}>
+                Federal House of Assembly, Igbo Eze North / Udenu
               </p>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1" aria-label="Main navigation">
+          <nav className="hidden lg:flex items-center gap-1 bg-white/5 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/10" aria-label="Main navigation">
             {navigation.map((item) => {
               const isActive = pathname === item.href;
               const label = locale === 'ig' ? item.labelIgbo : item.label;
@@ -89,11 +87,11 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  className={`px-3.5 py-1.5 rounded-full text-sm font-semibold transition-all relative ${
                     isActive
-                      ? 'text-primary bg-primary-light/50'
+                      ? 'text-white bg-gradient-to-r from-red-600 to-red-700 shadow-md shadow-red-600/30'
                       : scrolled
-                      ? 'text-dark-muted hover:text-primary hover:bg-primary-light/30'
+                      ? 'text-slate-700 hover:text-red-600 hover:bg-red-50'
                       : 'text-white/90 hover:text-white hover:bg-white/10'
                   }`}
                   aria-current={isActive ? 'page' : undefined}
@@ -105,43 +103,43 @@ export default function Header() {
           </nav>
 
           {/* Right side actions */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             {/* Language toggle */}
             <button
               onClick={toggleLocale}
-              className={`flex items-center gap-1 px-2.5 py-2 rounded-lg text-xs font-semibold transition-colors ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold transition-all border ${
                 scrolled
-                  ? 'text-dark-muted hover:text-primary hover:bg-primary-light/30'
-                  : 'text-white/90 hover:text-white hover:bg-white/10'
+                  ? 'text-slate-700 border-slate-200 hover:border-red-500 hover:text-red-600 bg-white'
+                  : 'text-white border-white/20 hover:border-white hover:bg-white/10'
               }`}
               aria-label={`Switch to ${locale === 'en' ? 'Igbo' : 'English'}`}
               title={`Switch to ${locale === 'en' ? 'Igbo' : 'English'}`}
             >
-              <Globe className="w-4 h-4" />
-              <span>{locale === 'en' ? 'IG' : 'EN'}</span>
+              <Globe className="w-3.5 h-3.5 text-green-500" />
+              <span>{locale === 'en' ? 'IGBO' : 'ENG'}</span>
             </button>
 
-            {/* Donate button — always visible */}
+            {/* Donate button with glow and shimmer */}
             <Link
               href="/donate"
-              className="btn btn-primary btn-sm animate-pulse-glow"
+              className="btn btn-party btn-sm shimmer-sweep font-bold shadow-lg shadow-red-600/30 flex items-center gap-2"
               aria-label={t('hero.cta.donate')}
             >
-              <Heart className="w-4 h-4" />
+              <Heart className="w-4 h-4 fill-white text-white animate-pulse" />
               <span className="hidden sm:inline">{t('nav.donate')}</span>
-              <span className="sm:hidden">₦</span>
+              <span className="sm:hidden font-extrabold">DONATE</span>
             </Link>
 
             {/* Mobile menu toggle */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`lg:hidden p-2 rounded-lg transition-colors ${
-                scrolled ? 'text-dark hover:bg-gray-100' : 'text-white hover:bg-white/10'
+              className={`lg:hidden p-2.5 rounded-xl transition-colors ${
+                scrolled ? 'text-slate-900 hover:bg-slate-100' : 'text-white hover:bg-white/10'
               }`}
               aria-label={isOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isOpen}
             >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isOpen ? <X className="w-6 h-6 text-red-600" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
@@ -151,13 +149,13 @@ export default function Header() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="lg:hidden fixed inset-0 top-16 bg-white z-40 overflow-y-auto"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="lg:hidden bg-slate-900/98 backdrop-blur-xl border-t border-slate-800 shadow-2xl overflow-hidden"
           >
-            <nav className="px-4 py-6 space-y-1" aria-label="Mobile navigation">
+            <nav className="px-5 py-6 space-y-2" aria-label="Mobile navigation">
               {navigation.map((item) => {
                 const isActive = pathname === item.href;
                 const label = locale === 'ig' ? item.labelIgbo : item.label;
@@ -165,10 +163,10 @@ export default function Header() {
                   <Link
                     key={item.href}
                     href={item.href}
-                    className={`block px-4 py-3.5 rounded-xl text-base font-medium transition-colors ${
+                    className={`block px-4 py-3 rounded-xl text-base font-semibold transition-all ${
                       isActive
-                        ? 'text-primary bg-primary-light/50 font-bold'
-                        : 'text-dark-muted hover:text-primary hover:bg-primary-light/20'
+                        ? 'text-white bg-gradient-to-r from-red-600 to-green-600 shadow-lg shadow-red-600/20'
+                        : 'text-slate-300 hover:text-white hover:bg-white/10'
                     }`}
                     aria-current={isActive ? 'page' : undefined}
                   >
@@ -177,32 +175,20 @@ export default function Header() {
                 );
               })}
 
-              {/* Extra links in mobile */}
-              <div className="border-t border-border pt-4 mt-4 space-y-1">
+              {/* Mobile CTA */}
+              <div className="pt-4 space-y-3">
                 <Link
-                  href="/vote"
-                  className="block px-4 py-3.5 rounded-xl text-base font-medium text-dark-muted hover:text-primary hover:bg-primary-light/20"
+                  href="/donate"
+                  className="btn btn-party btn-lg w-full flex items-center justify-center gap-2"
                 >
-                  {t('nav.vote')}
-                </Link>
-                <Link
-                  href="/media"
-                  className="block px-4 py-3.5 rounded-xl text-base font-medium text-dark-muted hover:text-primary hover:bg-primary-light/20"
-                >
-                  {t('nav.media')}
-                </Link>
-              </div>
-
-              {/* Mobile donate CTA */}
-              <div className="px-4 pt-6">
-                <Link href="/donate" className="btn btn-primary btn-lg w-full">
-                  <Heart className="w-5 h-5" />
+                  <Heart className="w-5 h-5 fill-white" />
                   {t('hero.cta.donate')}
                 </Link>
                 <Link
                   href="/get-involved"
-                  className="btn btn-secondary btn-lg w-full mt-3"
+                  className="btn btn-secondary btn-lg w-full flex items-center justify-center gap-2"
                 >
+                  <Sparkles className="w-5 h-5 text-amber-300" />
                   {t('hero.cta.volunteer')}
                 </Link>
               </div>

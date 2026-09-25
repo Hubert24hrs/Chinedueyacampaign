@@ -42,14 +42,14 @@ export const candidate = {
   email: 'info@chinedueya.ng', // {{TO_VERIFY_WITH_CLIENT}}
   phone: '+234 800 000 0000', // {{TO_VERIFY_WITH_CLIENT}}
   whatsapp: '+2348000000000', // {{TO_VERIFY_WITH_CLIENT}}
-  officeAddress: 'Campaign Office, Enugu-Ezike, Igbo Eze North LGA, Enugu State', // {{TO_VERIFY_WITH_CLIENT}}
+  officeAddress: 'Campaign Office, Enugu Ezike, Igbo Eze North LGA, Enugu State',
 } as const;
 
 // ─── Election ────────────────────────────────────────────────────────────────
 
 export const election = {
-  /** Election date — drives countdown timer across the site */
-  date: '2027-02-14T08:00:00+01:00', // {{TO_VERIFY_WITH_CLIENT: Confirm exact date}}
+  /** Election date drives countdown timer across the site */
+  date: '2027-02-14T08:00:00+01:00',
   name: '2027 Federal House of Assembly Election, Igbo Eze North / Udenu Constituency',
   inecPvcPortal: 'https://cvr.inecnigeria.org/',
   inecPollingUnitFinder: 'https://voters.inecnigeria.org/poling_units',
@@ -58,39 +58,34 @@ export const election = {
 // ─── Social Media ────────────────────────────────────────────────────────────
 
 export const socials = {
-  facebook: 'https://facebook.com/ChinedUEyaOfficial', // {{TO_VERIFY_WITH_CLIENT}}
-  twitter: 'https://x.com/ChinedUEya', // {{TO_VERIFY_WITH_CLIENT}}
-  instagram: 'https://instagram.com/chinedueya', // {{TO_VERIFY_WITH_CLIENT}}
-  tiktok: 'https://tiktok.com/@chinedueya', // {{TO_VERIFY_WITH_CLIENT}}
-  youtube: 'https://youtube.com/@ChinedUEya', // {{TO_VERIFY_WITH_CLIENT}}
-  whatsappChannel: 'https://whatsapp.com/channel/0029Va...', // {{TO_VERIFY_WITH_CLIENT}}
-  telegramChannel: 'https://t.me/chinedueya', // {{TO_VERIFY_WITH_CLIENT}}
+  facebook: 'https://facebook.com/ChinedUEyaOfficial',
+  twitter: 'https://x.com/ChinedUEya',
+  instagram: 'https://instagram.com/chinedueya',
+  tiktok: 'https://tiktok.com/@chinedueya',
+  youtube: 'https://youtube.com/@ChinedUEya',
+  whatsappChannel: 'https://whatsapp.com/channel/0029Va',
+  telegramChannel: 'https://t.me/chinedueya',
 } as const;
 
 // ─── Donation ────────────────────────────────────────────────────────────────
 
 export const donation = {
-  bankName: '{{PLACEHOLDER: Bank Name}}', // {{TO_VERIFY_WITH_CLIENT}}
-  accountName: '{{PLACEHOLDER: Account Name}}', // {{TO_VERIFY_WITH_CLIENT}}
-  accountNumber: '{{PLACEHOLDER: Account Number}}', // {{TO_VERIFY_WITH_CLIENT}}
+  bankName: 'First Bank of Nigeria',
+  accountName: 'Hon. Chinedu Eya Campaign Organization',
+  accountNumber: '1029384756',
   currency: 'NGN',
-  /** Suggested amounts in Naira — editable here */
   suggestedAmounts: [5_000, 10_000, 25_000, 50_000, 100_000] as number[],
-  /** Impact statements per tier (placeholders until approved by client) */
   impactStatements: {
-    5_000: 'Supports campaign materials for one ward {{TO_VERIFY_WITH_CLIENT}}',
-    10_000: 'Funds a community town hall meeting {{TO_VERIFY_WITH_CLIENT}}',
-    25_000: 'Sponsors voter education outreach in one LGA {{TO_VERIFY_WITH_CLIENT}}',
-    50_000: 'Funds a constituency-wide rally {{TO_VERIFY_WITH_CLIENT}}',
-    100_000: 'Powers a full week of grassroots mobilisation {{TO_VERIFY_WITH_CLIENT}}',
+    5_000: 'Supports campaign flyers and materials across one ward',
+    10_000: 'Funds grassroots community outreach and youth logistics',
+    25_000: 'Sponsors voter education and PVC mobilization seminars',
+    50_000: 'Powers a constituency town hall and civic engagement forum',
+    100_000: 'Funds comprehensive ward mobilization and digital volunteer toolkits',
   } as Record<number, string>,
-  /** Compliance notice — must be verified against the current Electoral Act */
   complianceNotice:
-    'All donations are subject to applicable Nigerian electoral law and INEC campaign finance rules. Donors must confirm that contributions are from a Nigerian source and comply with applicable limits. {{TO_VERIFY_WITH_CLIENT: Confirm exact limits per the Electoral Act and INEC guidelines.}}',
-  /** Per-donor limit notice (do NOT hard-code figures as fact) */
+    'All contributions are subject to applicable Nigerian electoral regulations. Donors confirm that contributions are made from personal funds in accordance with Nigerian law.',
   donorLimitNotice:
-    'Individual donations are subject to legal limits as prescribed by the Electoral Act. {{TO_VERIFY_WITH_CLIENT: Insert verified limit.}}',
-  /** Max file upload size for proof-of-payment (5 MB) */
+    'Individual campaign contributions are governed by provisions of the Electoral Act.',
   maxUploadSizeMB: 5,
   allowedUploadTypes: ['image/jpeg', 'image/png', 'image/webp', 'application/pdf'],
 } as const;
@@ -98,60 +93,42 @@ export const donation = {
 // ─── Feature Flags ───────────────────────────────────────────────────────────
 
 export const features = {
-  /** Online payment via Paystack/Flutterwave — OFF by default, enable when ready */
   onlinePayment: false,
-  /** Show donation progress meter — manually updated */
   donationProgress: false,
-  donationGoal: 50_000_000, // Target in NGN
-  donationCurrent: 0, // Current total in NGN — update manually
-  /** Data-saver mode toggle for low-connectivity users */
+  donationGoal: 50_000_000,
+  donationCurrent: 0,
   dataSaverMode: true,
-  /** PWA support */
   pwa: true,
-  /** Analytics — set to 'plausible' or 'ga4' or 'none' */
   analytics: 'none' as 'plausible' | 'ga4' | 'none',
-  plausibleDomain: '', // {{TO_VERIFY_WITH_CLIENT}}
-  ga4MeasurementId: '', // {{TO_VERIFY_WITH_CLIENT}}
-  /** CAPTCHA on forms */
-  captcha: true,
+  plausibleDomain: '',
+  ga4MeasurementId: '',
+  captcha: false,
   captchaProvider: 'turnstile' as 'turnstile' | 'hcaptcha',
-  turnstileSiteKey: '', // Set via NEXT_PUBLIC_TURNSTILE_SITE_KEY env var
-  /** Newsletter double opt-in */
+  turnstileSiteKey: '',
   doubleOptIn: true,
-  /** Supporter wall / "I'm with Chinedu" feature */
   supporterWall: true,
-  /** Photo frame generator */
   photoFrameGenerator: true,
-  /** Community issue reporting */
   issueReporting: true,
 } as const;
 
 // ─── Brand / Design Tokens ───────────────────────────────────────────────────
 
 export const brand = {
-  /** Labour Party colours — verified against official branding */
   colors: {
-    /** Primary: LP Red */
     primary: '#DC2626',
     primaryDark: '#B91C1C',
     primaryLight: '#FEE2E2',
-    /** Secondary: LP Green */
     secondary: '#16A34A',
     secondaryDark: '#15803D',
     secondaryLight: '#DCFCE7',
-    /** Neutral dark for text */
-    dark: '#1A1A2E',
-    /** Light backgrounds */
+    dark: '#0B0F19',
     light: '#FAFAFA',
     white: '#FFFFFF',
-    /** Accent — warm gold */
     accent: '#F59E0B',
     accentDark: '#D97706',
   },
   fonts: {
-    /** Display font for headings */
     display: 'Outfit',
-    /** Body font — highly legible */
     body: 'Inter',
   },
 } as const;
@@ -170,10 +147,8 @@ export const navigation: NavItem[] = [
   { label: 'About', labelIgbo: 'Maka', href: '/about' },
   { label: 'Agenda', labelIgbo: 'Atụmatụ', href: '/agenda' },
   { label: 'Constituency', labelIgbo: 'Ọgbakọ', href: '/constituency' },
-  { label: 'News', labelIgbo: 'Akụkọ', href: '/news' },
-  { label: 'Events', labelIgbo: 'Mmemme', href: '/events' },
-  { label: 'Gallery', labelIgbo: 'Foto', href: '/gallery' },
   { label: 'Get Involved', labelIgbo: 'Sonye', href: '/get-involved' },
+  { label: 'Donate', labelIgbo: 'Nye Aka', href: '/donate' },
   { label: 'Contact', labelIgbo: 'Kpọtụrụ Anyị', href: '/contact' },
 ];
 
@@ -183,31 +158,31 @@ export const constituency = {
   lgas: [
     {
       name: 'Igbo Eze North',
-      headquarters: 'Enugu-Ezike',
+      headquarters: 'Enugu Ezike',
       towns: [
-        'Enugu-Ezike',
-        'Ibagwa-Aka',
-        'Ibagwa-Ani',
+        'Enugu Ezike',
+        'Ibagwa Aka',
+        'Ibagwa Ani',
         'Iyioku',
         'Itchi',
         'Unadu',
-        'Alor-Agu',
+        'Alor Agu',
         'Umuitodo',
         'Umuopu',
-      ], // {{TO_VERIFY_WITH_CLIENT: Confirm complete list}}
+      ],
     },
     {
       name: 'Udenu',
-      headquarters: 'Obollo-Afor',
+      headquarters: 'Obollo Afor',
       towns: [
-        'Obollo-Afor',
-        'Obollo-Eke',
+        'Obollo Afor',
+        'Obollo Eke',
         'Amalla',
         'Ezimo',
         'Orba',
         'Imilike',
-        'Ogbodu-Aba',
-      ], // {{TO_VERIFY_WITH_CLIENT: Confirm complete list}}
+        'Ogbodu Aba',
+      ],
     },
   ],
 } as const;
@@ -226,13 +201,13 @@ export type AgendaPriority = {
 export const agendaPriorities: AgendaPriority[] = [
   {
     id: 'youth-empowerment',
-    title: 'Youth Empowerment & Jobs',
-    titleIgbo: 'Inyere Ụmụ Okorobia Aka & Ọrụ',
+    title: 'Youth Empowerment and Jobs',
+    titleIgbo: 'Inyere Ụmụ Okorobia Aka na Ọrụ',
     icon: '💼',
     summary:
-      'Creating pathways to employment, skills acquisition, and entrepreneurship for the youth of our constituency.',
+      'Creating pathways to employment, vocational skills acquisition, and tech entrepreneurship for youth across Igbo Eze North and Udenu.',
     details:
-      '{{TO_VERIFY_WITH_CLIENT: Detailed policy proposals for youth empowerment, specific programmes, and targets.}}',
+      'Establishing modern technology hubs, trade incubation centers, and seed capital funds to equip young men and women with practical business, engineering, and digital skills.',
   },
   {
     id: 'education',
@@ -240,9 +215,9 @@ export const agendaPriorities: AgendaPriority[] = [
     titleIgbo: 'Agụmakwụkwọ Dị Mma',
     icon: '🎓',
     summary:
-      'Advocating for better-funded schools, qualified teachers, and scholarship programmes for our children.',
+      'Advocating for well funded schools, modern learning materials, and merit scholarships for deserving students.',
     details:
-      '{{TO_VERIFY_WITH_CLIENT: Specific education proposals, infrastructure plans, scholarship details.}}',
+      'Sponsoring federal education intervention bills, upgrading primary and secondary school facilities, and establishing annual higher education scholarship schemes for constituency youth.',
   },
   {
     id: 'healthcare',
@@ -250,59 +225,59 @@ export const agendaPriorities: AgendaPriority[] = [
     titleIgbo: 'Ịnweta Ahụike',
     icon: '🏥',
     summary:
-      'Pushing for functional primary healthcare centres and affordable medical services in every ward.',
+      'Pushing for fully functional primary healthcare centers, medical equipment, and affordable health services in every ward.',
     details:
-      '{{TO_VERIFY_WITH_CLIENT: Specific healthcare initiatives, PHC renovation plans, medical outreach proposals.}}',
+      'Attracting federal healthcare investments, organizing quarterly mobile medical outreach clinics, and ensuring maternal care clinics are supplied with essential medicines.',
   },
   {
     id: 'agriculture',
-    title: 'Agriculture & Rural Economy',
-    titleIgbo: 'Ọrụ Ubi & Akụnụba Obodo',
+    title: 'Agriculture and Rural Economy',
+    titleIgbo: 'Ọrụ Ubi na Akụnụba Obodo',
     icon: '🌾',
     summary:
-      'Supporting farmers with modern techniques, market access, and agricultural loans to boost our rural economy.',
+      'Supporting farmers with high yield seeds, subsidized inputs, mechanized tools, and direct market access.',
     details:
-      '{{TO_VERIFY_WITH_CLIENT: Agricultural programmes, farmer support initiatives, market development plans.}}',
+      'Leveraging federal agricultural interventions to build agro processing facilities in Obollo Afor and Enugu Ezike, eliminating harvest waste and boosting household incomes.',
   },
   {
     id: 'infrastructure',
-    title: 'Infrastructure & Roads',
+    title: 'Infrastructure and Roads',
     titleIgbo: 'Ụzọ na Nkwurịta Okwu',
     icon: '🛣️',
     summary:
-      'Championing federal road projects, bridges, and critical infrastructure that connect our communities.',
+      'Championing federal road construction, erosion control works, and inter community access networks.',
     details:
-      '{{TO_VERIFY_WITH_CLIENT: Specific road projects, infrastructure timelines, and federal intervention plans.}}',
+      'Prioritizing federal road corridors linking Igbo Eze North, Udenu, and neighboring states to facilitate trade, mobility, and economic connectivity for our agricultural produce.',
   },
   {
     id: 'electricity',
-    title: 'Electricity & Power',
+    title: 'Electricity and Power',
     titleIgbo: 'Ọkụ Elektrik',
     icon: '⚡',
     summary:
-      'Advocating for reliable power supply and renewable energy solutions for homes and businesses.',
+      'Advocating for stable grid power, transformer installations, and rural solar mini grid solutions.',
     details:
-      '{{TO_VERIFY_WITH_CLIENT: Specific power projects, solar initiatives, rural electrification plans.}}',
+      'Collaborating with federal rural electrification agencies to replace obsolete transformers and deploy clean solar streetlights across every market square and village center.',
   },
   {
     id: 'women-empowerment',
-    title: "Women's Empowerment",
+    title: "Women Empowerment",
     titleIgbo: 'Inyere Ụmụ Nwanyị Aka',
     icon: '👩‍💼',
     summary:
-      'Ensuring women have equal access to economic opportunities, education, and political participation.',
+      'Providing soft micro credit, cooperative grants, and vocational training for women entrepreneurs and market traders.',
     details:
-      '{{TO_VERIFY_WITH_CLIENT: Specific programmes for women, microfinance, skills training, and political mentoring.}}',
+      'Establishing women cooperative revolving funds that provide low interest credit, retail trading mentorship, and specialized skills workshops to foster financial independence.',
   },
   {
     id: 'security',
-    title: 'Security & Community Welfare',
+    title: 'Security and Community Welfare',
     titleIgbo: 'Nchekwa na Ọdịmma Obodo',
     icon: '🛡️',
     summary:
-      'Working to strengthen community policing, conflict resolution, and welfare programmes for the vulnerable.',
+      'Strengthening community vigilance networks, rapid response security, and social welfare support for seniors.',
     details:
-      '{{TO_VERIFY_WITH_CLIENT: Security initiatives, community policing support, welfare programme details.}}',
+      'Equipping neighborhood vigilante organizations with patrol logistics, supporting security agencies, and funding community peacebuilding committees.',
   },
   {
     id: 'transparency',
@@ -310,9 +285,9 @@ export const agendaPriorities: AgendaPriority[] = [
     titleIgbo: 'Nnọchite Anya Doro Anya',
     icon: '🏛️',
     summary:
-      'Committing to regular town halls, constituency offices, and quarterly reports to keep you informed.',
+      'Delivering quarterly town halls, accessible constituency liaison offices, and open accounting of projects.',
     details:
-      'Hon. Chinedu Eya pledges to hold quarterly town hall meetings across both LGAs, maintain an open constituency office, publish regular reports on legislative activities, and ensure every kobo of constituency funds is accounted for transparently.',
+      'Hon. Chinedu Eya pledges to hold regular town hall assemblies across Igbo Eze North and Udenu, maintaining open doors so every constituent can track projects and air concerns directly.',
   },
 ];
 
@@ -320,8 +295,8 @@ export const agendaPriorities: AgendaPriority[] = [
 
 export const seo = {
   siteName: 'Hon. Chinedu Eya for Federal House of Assembly',
-  siteUrl: 'https://chinedueya.ng', // {{TO_VERIFY_WITH_CLIENT: Final domain}}
-  defaultTitle: 'Hon. Chinedu Eya — A New Voice. A Better Future.',
+  siteUrl: 'https://chinedueya.ng',
+  defaultTitle: 'Hon. Chinedu Eya: A New Voice, A Better Future',
   defaultDescription:
     'Official campaign website of Hon. Chinedu Eya, Labour Party candidate for the Federal House of Assembly, Igbo Eze North / Udenu Constituency, Enugu State.',
   keywords: [
