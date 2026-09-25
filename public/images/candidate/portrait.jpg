@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1A2E" />
+      <stop offset="100%" stop-color="#DC2626" />
+    </linearGradient>
+    <pattern id="pattern" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 40 M 0 0 L 40 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#grad)" />
+  <rect width="100%" height="100%" fill="url(#pattern)" />
+  <circle cx="400" cy="470" r="144" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="3" />
+  <text x="50%" y="480" dominant-baseline="middle" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="80" fill="#FFFFFF">LP</text>
+  <text x="50%" y="570" dominant-baseline="middle" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="bold" font-size="28.000000000000004" fill="#FFFFFF">Hon. Chinedu Eya</text>
+  <text x="50%" y="605" dominant-baseline="middle" text-anchor="middle" font-family="system-ui, sans-serif" font-size="17.599999999999998" fill="rgba(255,255,255,0.8)">Candidate Portrait Placeholder</text>
+</svg>
