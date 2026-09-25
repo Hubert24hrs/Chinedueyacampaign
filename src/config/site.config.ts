@@ -38,7 +38,7 @@ export const candidate = {
    */
   slogan: 'A New Voice. A Better Future.',
   sloganIgbo: 'Olu Ọhụrụ. Ọdịnihu Ka Mma.',
-  bio: `Hon. Chinedu Eya is a dedicated community leader, public servant, and advocate for grassroots development in the Igbo Eze North / Udenu Constituency of Enugu State. {{TO_VERIFY_WITH_CLIENT: Full biography, career history, education, and community service details.}}`,
+  bio: `Hon. Chinedu Eya is a dedicated community leader, public servant, and advocate for grassroots development in the Igbo Eze North / Udenu Constituency of Enugu State.`,
   email: 'info@chinedueya.ng', // {{TO_VERIFY_WITH_CLIENT}}
   phone: '+234 800 000 0000', // {{TO_VERIFY_WITH_CLIENT}}
   whatsapp: '+2348000000000', // {{TO_VERIFY_WITH_CLIENT}}
@@ -50,7 +50,7 @@ export const candidate = {
 export const election = {
   /** Election date — drives countdown timer across the site */
   date: '2027-02-14T08:00:00+01:00', // {{TO_VERIFY_WITH_CLIENT: Confirm exact date}}
-  name: '2027 Federal House of Assembly Election — Igbo Eze North / Udenu Constituency',
+  name: '2027 Federal House of Assembly Election, Igbo Eze North / Udenu Constituency',
   inecPvcPortal: 'https://cvr.inecnigeria.org/',
   inecPollingUnitFinder: 'https://voters.inecnigeria.org/poling_units',
 } as const;

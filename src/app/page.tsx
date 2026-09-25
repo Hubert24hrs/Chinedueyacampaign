@@ -12,9 +12,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import {
-  Heart, Users, ArrowRight, ChevronRight, Quote,
-  Newspaper, Calendar, MapPin, Share2, CheckCircle,
-  Sparkles, Target, Trophy, Star
+  Heart, Users, ArrowRight, ChevronRight,
+  Calendar, MapPin,
+  Sparkles, Target, Trophy
 } from 'lucide-react';
 import { candidate, agendaPriorities, election, constituency, socials } from '@/config/site.config';
 import { useLocale } from '@/context/LocaleContext';
@@ -23,35 +23,7 @@ import Section from '@/components/ui/Section';
 import { newsArticles } from '@/content/news';
 import { campaignEvents } from '@/content/events';
 
-// ─── Placeholder testimonials (client must supply real ones) ─────────────────
 
-const testimonials = [
-  {
-    id: '1',
-    name: 'Chief Okwuosa Nnamdi',
-    role: 'Community Leader',
-    location: 'Enugu-Ezike',
-    quote: 'Hon. Chinedu Eya is a man of the people. He listens, he acts, and he delivers. Our constituency needs his kind of leadership.',
-    image: undefined,
-  },
-  {
-    id: '2',
-    name: 'Mrs. Adaeze Ugwu',
-    role: 'Market Women Leader',
-    location: 'Obollo-Afor',
-    quote: 'For the first time, we have a candidate who truly understands the struggles of women in our community. He has my full support.',
-    image: undefined,
-  },
-  {
-    id: '3',
-    name: 'Engr. Chukwuma Eze',
-    role: 'Youth Advocate',
-    location: 'Ibagwa-Aka',
-    quote: 'As a young person, I see in Hon. Chinedu Eya someone who genuinely cares about creating opportunities for the next generation.',
-    image: undefined,
-  },
-];
-// {{TO_VERIFY_WITH_CLIENT: Replace all testimonials with real quotes. Never fabricate endorsements.}}
 
 // ─── Hero Section ────────────────────────────────────────────────────────────
 
@@ -134,7 +106,7 @@ function HeroSection() {
               <div className="relative w-full h-full rounded-2xl overflow-hidden border-2 border-white/20 shadow-2xl">
                 <Image
                   src={candidate.portrait}
-                  alt={`${candidate.fullName} — Candidate for ${candidate.officeSought}`}
+                  alt={`${candidate.fullName}, Candidate for ${candidate.officeSought}`}
                   fill
                   className="object-cover"
                   priority
@@ -167,12 +139,13 @@ function WhySection() {
     {
       icon: <Target className="w-6 h-6" />,
       title: 'Proven Track Record',
-      description: 'A history of community service and grassroots development across the constituency. {{TO_VERIFY_WITH_CLIENT}}',
+      description: 'A history of community service and grassroots development across the constituency.',
     },
     {
-      icon: <Users className="w-6 h-6" />,
-      title: 'People-First Approach',
+      icon: <Target className="w-6 h-6" />,
+      title: 'People First',
       description: 'Committed to transparent, accountable governance that puts constituents at the centre of every decision.',
+  
     },
     {
       icon: <Sparkles className="w-6 h-6" />,
@@ -183,6 +156,7 @@ function WhySection() {
       icon: <Trophy className="w-6 h-6" />,
       title: 'Grassroots Champion',
       description: 'Deeply rooted in the community with strong relationships across both LGAs of the constituency.',
+  
     },
   ];
 
@@ -298,53 +272,7 @@ function AgendaHighlights() {
   );
 }
 
-// ─── Achievements Track Record ───────────────────────────────────────────────
 
-function AchievementsSection() {
-  const achievements = [
-    {
-      icon: <Star className="w-6 h-6" />,
-      title: 'Community Development',
-      description: 'Led multiple community development initiatives across the constituency. {{TO_VERIFY_WITH_CLIENT}}',
-    },
-    {
-      icon: <Users className="w-6 h-6" />,
-      title: 'Youth Empowerment',
-      description: 'Supported youth skills programmes benefiting hundreds of young people. {{TO_VERIFY_WITH_CLIENT}}',
-    },
-    {
-      icon: <CheckCircle className="w-6 h-6" />,
-      title: 'Public Service',
-      description: 'Decades of dedicated public service and community leadership. {{TO_VERIFY_WITH_CLIENT}}',
-    },
-  ];
-  // {{TO_VERIFY_WITH_CLIENT: Replace all achievements with verified facts. Do NOT fabricate statistics.}}
-
-  return (
-    <Section id="achievements">
-      <div className="text-center mb-12">
-        <h2 className="font-display text-3xl md:text-4xl font-bold text-dark mb-4">
-          A Track Record of Service
-        </h2>
-        <p className="text-dark-muted max-w-2xl mx-auto text-lg">
-          Proven commitment to our community through years of dedicated service.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {achievements.map((item, i) => (
-          <div key={i} className="text-center p-6">
-            <div className="w-16 h-16 rounded-2xl bg-accent/10 text-accent mx-auto mb-4 flex items-center justify-center">
-              {item.icon}
-            </div>
-            <h3 className="font-display font-bold text-lg text-dark mb-2">{item.title}</h3>
-            <p className="text-dark-muted text-sm">{item.description}</p>
-          </div>
-        ))}
-      </div>
-    </Section>
-  );
-}
 
 // ─── News Preview ────────────────────────────────────────────────────────────
 
@@ -482,43 +410,7 @@ function VolunteerCTA() {
   );
 }
 
-// ─── Testimonials ────────────────────────────────────────────────────────────
 
-function TestimonialsSection() {
-  return (
-    <Section id="testimonials" className="bg-surface-elevated">
-      <div className="text-center mb-12">
-        <h2 className="font-display text-3xl md:text-4xl font-bold text-dark mb-4">
-          What Our Community Says
-        </h2>
-        <p className="text-dark-muted text-sm">
-          {/* Clearly marked as placeholders */}
-          <em>{'{{TO_VERIFY_WITH_CLIENT: These are placeholder testimonials. Replace with real, verified quotes from community members who have given consent.}}'}</em>
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {testimonials.map((testimonial) => (
-          <div key={testimonial.id} className="card p-6">
-            <Quote className="w-8 h-8 text-primary/20 mb-4" />
-            <p className="text-dark-muted text-sm leading-relaxed mb-4 italic">
-              &ldquo;{testimonial.quote}&rdquo;
-            </p>
-            <div className="flex items-center gap-3 pt-4 border-t border-border">
-              <div className="w-10 h-10 rounded-full bg-primary-light text-primary flex items-center justify-center font-display font-bold text-sm">
-                {testimonial.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
-              </div>
-              <div>
-                <p className="font-display font-bold text-sm text-dark">{testimonial.name}</p>
-                <p className="text-dark-muted text-xs">{testimonial.role}, {testimonial.location}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </Section>
-  );
-}
 
 // ─── Donation Band ───────────────────────────────────────────────────────────
 
@@ -631,11 +523,9 @@ export default function HomePage() {
       <WhySection />
       <ConstituencySnapshot />
       <AgendaHighlights />
-      <AchievementsSection />
       <NewsPreview />
       <EventsPreview />
       <VolunteerCTA />
-      <TestimonialsSection />
       <DonationBand />
       <NewsletterSection />
     </>
