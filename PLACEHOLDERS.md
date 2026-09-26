@@ -13,11 +13,11 @@ This document provides a comprehensive inventory of all placeholder information,
 
 Supporters cannot transfer funds until these verified campaign details are configured in `src/config/site.config.ts`:
 
-| Item | Current Placeholder | Configuration Key | Required Information / Action |
-|------|---------------------|-------------------|--------------------------------|
-| **Bank Name** | `{{PLACEHOLDER: Bank Name}}` | `donation.bankName` | Official campaign bank name (e.g. Zenith Bank, Access Bank, First Bank, etc.) |
-| **Account Name** | `{{PLACEHOLDER: Account Name}}` | `donation.accountName` | Official registered campaign account name (e.g. *Chinedu Eya Campaign Organization*) |
-| **Account Number** | `{{PLACEHOLDER: Account Number}}` | `donation.accountNumber` | 10-digit NUBAN account number |
+| Item | Current Status / Value | Configuration Key | Required Information / Action |
+|------|------------------------|-------------------|--------------------------------|
+| **Bank Name** | `United Bank for Africa (UBA)` | `donation.bankName` | Configured |
+| **Account Name** | `Eya Chinedu` | `donation.accountName` | Configured |
+| **Account Number** | `2095991212` | `donation.accountNumber` | Configured (10-digit NUBAN) |
 | **Electoral Act Donation Limits** | `{{TO_VERIFY_WITH_CLIENT}}` | `donation.complianceNotice` & `donorLimitNotice` | Confirm individual donor contribution limits with campaign legal counsel pursuant to Section 88 of the Nigerian Electoral Act 2022. |
 | **Payment Gateway (Optional)** | Disabled (`false`) | `features.onlinePayment` | If enabling Paystack or Flutterwave: supply `NEXT_PUBLIC_PAYSTACK_KEY` or `NEXT_PUBLIC_FLUTTERWAVE_KEY`. |
 

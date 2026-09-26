@@ -70,9 +70,9 @@ export const socials = {
 // ─── Donation ────────────────────────────────────────────────────────────────
 
 export const donation = {
-  bankName: 'First Bank of Nigeria',
-  accountName: 'Hon. Chinedu Eya Campaign Organization',
-  accountNumber: '1029384756',
+  bankName: 'United Bank for Africa (UBA)',
+  accountName: 'Eya Chinedu',
+  accountNumber: '2095991212',
   currency: 'NGN',
   suggestedAmounts: [5_000, 10_000, 25_000, 50_000, 100_000] as number[],
   impactStatements: {
