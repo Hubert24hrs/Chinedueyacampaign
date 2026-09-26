@@ -74,13 +74,12 @@ export const donation = {
   accountName: 'Eya Chinedu',
   accountNumber: '2095991212',
   currency: 'NGN',
-  suggestedAmounts: [5_000, 10_000, 25_000, 50_000, 100_000] as number[],
+  suggestedAmounts: [25_000, 100_000, 500_000, 1_000_000] as number[],
   impactStatements: {
-    5_000: 'Supports campaign flyers and materials across one ward',
-    10_000: 'Funds grassroots community outreach and youth logistics',
-    25_000: 'Sponsors voter education and PVC mobilization seminars',
-    50_000: 'Powers a constituency town hall and civic engagement forum',
-    100_000: 'Funds comprehensive ward mobilization and digital volunteer toolkits',
+    25_000: 'Sponsors voter education and PVC mobilization seminars across a ward',
+    100_000: 'Funds comprehensive ward mobilization, logistics, and digital volunteer toolkits',
+    500_000: 'Powers a full constituency town hall, youth engagement forum, and grassroots outreach',
+    1_000_000: 'Underwrites major constituency-wide campaign tour, regional media, and voter mobilization',
   } as Record<number, string>,
   complianceNotice:
     'All contributions are subject to applicable Nigerian electoral regulations. Donors confirm that contributions are made from personal funds in accordance with Nigerian law.',

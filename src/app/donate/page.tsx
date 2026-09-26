@@ -129,7 +129,7 @@ function AmountSelector({
   return (
     <div className="mb-6">
       <label className="form-label">{t('donate.amount')}</label>
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-3">
+      <div className="grid grid-cols-2 gap-3 mb-3">
         {donation.suggestedAmounts.map((amount) => (
           <button
             key={amount}
@@ -154,7 +154,7 @@ function AmountSelector({
             setShowCustom(true);
             onSelect(null);
           }}
-          className={`py-3 px-4 rounded-xl font-display font-bold text-base transition-all ${
+          className={`col-span-2 py-3 px-4 rounded-xl font-display font-bold text-base transition-all ${
             showCustom
               ? 'bg-primary text-white shadow-lg'
               : 'bg-surface-muted text-dark hover:bg-primary-light hover:text-primary'
