@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * DONATE PAGE — Campaign donation with bank transfer + pledge form
+ * DONATE PAGE: Campaign donation with bank transfer and pledge form
  * ============================================================================
  * Mobile-friendly, trustworthy donation flow with compliance and anti-fraud
  * measures. Account number loaded from server config only.
@@ -65,13 +65,13 @@ function BankTransferCard() {
         </div>
         <div>
           <p className="text-dark-muted text-sm font-medium mb-1">Account Number</p>
-          <div className="flex items-center gap-3">
-            <p className="font-display font-bold text-2xl text-primary tracking-wider">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <p className="font-display font-bold text-xl sm:text-2xl text-primary tracking-wider select-all">
               {donation.accountNumber}
             </p>
             <button
               onClick={copyAccountNumber}
-              className={`flex items-center gap-1.5 px-4 py-2 rounded-lg font-display font-semibold text-sm transition-all ${
+              className={`flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-lg font-display font-semibold text-sm transition-all w-full sm:w-auto min-h-[44px] ${
                 copied
                   ? 'bg-secondary text-white'
                   : 'bg-primary text-white hover:bg-primary-dark'

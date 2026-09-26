@@ -257,20 +257,20 @@ export default function AboutPage() {
 
         <div className="max-w-3xl mx-auto">
           {timeline.map((item, i) => (
-            <div key={i} className="relative flex gap-5 pb-10 last:pb-0">
+            <div key={i} className="relative flex gap-3.5 sm:gap-5 pb-8 sm:pb-10 last:pb-0">
               {i < timeline.length - 1 && (
-                <div className="absolute left-6 top-14 bottom-0 w-0.5 bg-slate-200" />
+                <div className="absolute left-5 sm:left-6 top-12 sm:top-14 bottom-0 w-0.5 bg-slate-200" />
               )}
               
-              <div className="w-12 h-12 rounded-2xl bg-slate-50 border-2 border-slate-200 flex items-center justify-center flex-shrink-0 z-10 shadow-sm">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-slate-50 border-2 border-slate-200 flex items-center justify-center flex-shrink-0 z-10 shadow-sm">
                 {item.icon}
               </div>
 
-              <div className="flex-1 pt-1">
+              <div className="flex-1 pt-0.5 sm:pt-1">
                 <span className="inline-block px-3 py-1 rounded-full text-xs font-black bg-red-100 text-red-700 mb-2">
                   {item.year}
                 </span>
-                <h3 className="font-display font-black text-xl text-slate-900 mb-2">
+                <h3 className="font-display font-black text-lg sm:text-xl text-slate-900 mb-2">
                   {item.title}
                 </h3>
                 <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -313,12 +313,12 @@ export default function AboutPage() {
           <p className="text-white/95 text-base sm:text-lg mb-8 max-w-2xl mx-auto">
             Stand with Hon. Chinedu Eya as we bring dedicated representation to the Federal House of Assembly.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/get-involved" className="btn btn-white btn-lg text-slate-900 font-black shadow-xl">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center">
+            <Link href="/get-involved" className="btn btn-white btn-lg text-slate-900 font-black shadow-xl w-full sm:w-auto text-center justify-center">
               <Users className="w-5 h-5 text-green-700" />
               <span>Volunteer For The Campaign</span>
             </Link>
-            <Link href="/donate" className="btn btn-party btn-lg shadow-xl">
+            <Link href="/donate" className="btn btn-party btn-lg shadow-xl w-full sm:w-auto text-center justify-center">
               <Heart className="w-5 h-5 fill-white" />
               <span>Make A Campaign Donation</span>
             </Link>

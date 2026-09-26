@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * CONTACT PAGE — Contact form, office details, WhatsApp, social links
+ * CONTACT PAGE: Contact form, office details, WhatsApp, social links
  * ============================================================================
  */
 'use client';

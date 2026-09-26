@@ -128,12 +128,12 @@ export default function AgendaPage() {
           <p className="text-white/95 text-base sm:text-lg mb-8 max-w-2xl mx-auto">
             Help us elect Hon. Chinedu Eya to deliver these practical solutions for Igbo Eze North and Udenu.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/get-involved" className="btn btn-white btn-lg text-slate-900 font-black shadow-xl">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center">
+            <Link href="/get-involved" className="btn btn-white btn-lg text-slate-900 font-black shadow-xl w-full sm:w-auto text-center justify-center">
               <Users className="w-5 h-5 text-green-700" />
               <span>Volunteer For The Campaign</span>
             </Link>
-            <Link href="/donate" className="btn btn-party btn-lg shadow-xl">
+            <Link href="/donate" className="btn btn-party btn-lg shadow-xl w-full sm:w-auto text-center justify-center">
               <Heart className="w-5 h-5 fill-white" />
               <span>Support With A Donation</span>
             </Link>
@@ -154,15 +154,15 @@ function AgendaCard({ priority, locale }: { priority: typeof agendaPriorities[0]
     <div className="card overflow-hidden bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center gap-4 p-5 sm:p-6 text-left hover:bg-slate-50 transition-colors"
+        className="w-full flex items-center gap-3 sm:gap-4 p-4 sm:p-6 text-left hover:bg-slate-50 transition-colors"
         aria-expanded={isOpen}
       >
-        <div className="text-3xl flex-shrink-0 p-2 rounded-xl bg-slate-100">{priority.icon}</div>
-        <div className="flex-1">
-          <h3 className="font-display font-extrabold text-lg text-slate-900">{title}</h3>
-          <p className="text-slate-600 text-sm mt-1">{priority.summary}</p>
+        <div className="text-2xl sm:text-3xl flex-shrink-0 p-2 rounded-xl bg-slate-100">{priority.icon}</div>
+        <div className="flex-1 min-w-0">
+          <h3 className="font-display font-extrabold text-base sm:text-lg text-slate-900">{title}</h3>
+          <p className="text-slate-600 text-xs sm:text-sm mt-1">{priority.summary}</p>
         </div>
-        <div className="text-slate-400 flex-shrink-0 p-2 rounded-full hover:bg-slate-200 transition-colors">
+        <div className="text-slate-400 flex-shrink-0 p-1.5 sm:p-2 rounded-full hover:bg-slate-200 transition-colors">
           {isOpen ? <ChevronUp className="w-5 h-5 text-red-600" /> : <ChevronDown className="w-5 h-5" />}
         </div>
       </button>
@@ -176,7 +176,7 @@ function AgendaCard({ priority, locale }: { priority: typeof agendaPriorities[0]
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <div className="px-6 pb-6 pt-3 border-t border-slate-100 bg-slate-50/80">
+            <div className="px-4 sm:px-6 pb-5 sm:pb-6 pt-3 border-t border-slate-100 bg-slate-50/80">
               <p className="text-xs uppercase font-extrabold tracking-wider text-green-700 mb-2">
                 Action Plan & Implementation
               </p>

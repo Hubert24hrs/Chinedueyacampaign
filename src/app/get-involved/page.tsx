@@ -97,12 +97,12 @@ export default function GetInvolvedPage() {
             Get instant updates on ward tours, youth rallies, and election day logistics.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center">
             <a
               href={socials.whatsappChannel}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-secondary btn-lg shadow-xl flex items-center justify-center gap-2"
+              className="btn btn-secondary btn-lg shadow-xl flex items-center justify-center gap-2 w-full sm:w-auto"
             >
               <MessageCircle className="w-5 h-5" />
               <span>Join Official WhatsApp</span>
@@ -111,7 +111,7 @@ export default function GetInvolvedPage() {
               href={socials.telegramChannel}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-party btn-lg shadow-xl flex items-center justify-center gap-2"
+              className="btn btn-party btn-lg shadow-xl flex items-center justify-center gap-2 w-full sm:w-auto"
             >
               <Send className="w-5 h-5" />
               <span>Join Official Telegram</span>
@@ -129,7 +129,7 @@ export default function GetInvolvedPage() {
           <p className="text-white/95 text-base sm:text-lg mb-8 max-w-xl mx-auto">
             Your generous contribution funds flyers, community transport, and volunteer toolkits across all wards.
           </p>
-          <Link href="/donate" className="btn btn-white btn-lg text-slate-900 font-black shadow-xl">
+          <Link href="/donate" className="btn btn-white btn-lg text-slate-900 font-black shadow-xl w-full sm:w-auto inline-flex justify-center text-center">
             <Heart className="w-5 h-5 text-red-600 fill-red-600" />
             <span>Make A Campaign Donation</span>
           </Link>

@@ -16,7 +16,7 @@ import {
   Sparkles, Target, Trophy, Building2, Car,
   ShieldCheck, Globe2, Briefcase, CheckCircle2,
   GraduationCap, Stethoscope, Wheat, Compass,
-  Lightbulb, Landmark, MessageSquare, Send
+  Lightbulb, Landmark, MessageSquare, Send, Copy
 } from 'lucide-react';
 import { candidate, agendaPriorities, election, constituency, socials, donation } from '@/config/site.config';
 import { useLocale } from '@/context/LocaleContext';
@@ -65,8 +65,8 @@ function HeroSection() {
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-green-600/30 rounded-full blur-3xl animate-float-reverse pointer-events-none" />
       <div className="absolute top-1/2 left-1/3 w-80 h-80 bg-amber-500/20 rounded-full blur-3xl animate-pulse-glow pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-20 w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-20 w-full relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Left Column: Heading and CTAs (7 cols) */}
           <motion.div
@@ -76,8 +76,8 @@ function HeroSection() {
             className="lg:col-span-7 text-left"
           >
             {/* Party Badge */}
-            <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-full px-4 py-2 mb-6 border border-white/20 shadow-lg">
-              <div className="w-8 h-8 rounded-full bg-white overflow-hidden relative flex-shrink-0 p-0.5 shadow-sm">
+            <div className="inline-flex items-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-md rounded-full px-3.5 py-1.5 sm:px-4 sm:py-2 mb-4 sm:mb-6 border border-white/20 shadow-lg">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white overflow-hidden relative flex-shrink-0 p-0.5 shadow-sm">
                 <Image
                   src={candidate.party.logo}
                   alt={candidate.party.name}
@@ -86,7 +86,7 @@ function HeroSection() {
                 />
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-white font-extrabold text-xs md:text-sm tracking-wide">
+                <span className="text-white font-extrabold text-xs sm:text-sm tracking-wide">
                   {candidate.party.name}
                 </span>
                 <span className="px-2 py-0.5 bg-red-600 text-white text-[10px] font-black rounded-full uppercase">
@@ -100,25 +100,56 @@ function HeroSection() {
 
             {/* Candidate Title & Office */}
             <div className="mb-3">
-              <span className="text-amber-400 font-display font-bold text-base md:text-xl uppercase tracking-wider block">
+              <span className="text-amber-400 font-display font-bold text-sm sm:text-base md:text-xl uppercase tracking-wider block">
                 Official Campaign 2027
               </span>
-              <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-black text-white leading-[1.08] tracking-tight mt-1 mb-4">
+              <h1 className="font-display text-3xl sm:text-5xl md:text-7xl font-black text-white leading-[1.08] tracking-tight mt-1 mb-3 sm:mb-4">
                 Hon. Chinedu <span className="text-gradient">Eya</span>
               </h1>
             </div>
 
             {/* Slogan */}
-            <p className="text-2xl sm:text-3xl font-display font-extrabold text-white/95 mb-4">
+            <p className="text-xl sm:text-2xl md:text-3xl font-display font-extrabold text-white/95 mb-3 sm:mb-4">
               A New Voice, <span className="text-green-400">A Better Future.</span>
             </p>
 
-            <p className="text-base sm:text-lg text-slate-200 mb-6 max-w-2xl leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-slate-200 mb-6 max-w-2xl leading-relaxed">
               Contesting for <strong className="text-white font-bold">Member, Federal House of Assembly</strong> representing the dynamic people of <strong className="text-amber-300 font-bold">{candidate.constituency}</strong> in the National Assembly of Nigeria.
             </p>
 
+            {/* Mobile Candidate Portrait Card: Prominently featured on mobile and tablet */}
+            <div className="block lg:hidden my-6">
+              <div className="relative w-full max-w-sm mx-auto aspect-[3/4] rounded-2xl overflow-hidden border-4 border-white/30 shadow-2xl bg-slate-900">
+                <Image
+                  src={candidate.portrait}
+                  alt={`${candidate.fullName}, Candidate for ${candidate.officeSought}`}
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 1024px) 90vw, 45vw"
+                />
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent" />
+                <div className="absolute bottom-4 inset-x-4 text-left bg-black/60 backdrop-blur-md p-3.5 rounded-xl border border-white/20">
+                  <div className="flex items-center justify-between mb-1">
+                    <p className="text-white font-display font-extrabold text-base">
+                      {candidate.fullName}
+                    </p>
+                    <span className="px-2 py-0.5 bg-red-600 text-white font-bold text-[11px] rounded-md">
+                      Labour Party
+                    </span>
+                  </div>
+                  <p className="text-amber-400 font-semibold text-xs">
+                    {candidate.officeSought}
+                  </p>
+                  <p className="text-slate-300 text-xs">
+                    {candidate.constituency}
+                  </p>
+                </div>
+              </div>
+            </div>
+
             {/* Real Executive Credentials Badges */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 max-w-xl">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 sm:mb-8 max-w-xl">
               <div className="flex items-center gap-3 p-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 shadow-md">
                 <div className="w-10 h-10 rounded-lg bg-amber-500/20 text-amber-300 flex items-center justify-center flex-shrink-0">
                   <Car className="w-5 h-5" />
@@ -140,34 +171,34 @@ function HeroSection() {
               </div>
             </div>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-10">
-              <Link href="/donate" className="btn btn-party btn-lg shimmer-sweep shadow-xl">
+            {/* CTAs: Full width on phone, inline on tablet and desktop */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-8 sm:mb-10 w-full sm:w-auto">
+              <Link href="/donate" className="btn btn-party btn-lg shimmer-sweep shadow-xl w-full sm:w-auto text-center justify-center">
                 <Heart className="w-5 h-5 fill-white" />
                 <span>{t('hero.cta.donate')}</span>
               </Link>
-              <Link href="/get-involved" className="btn btn-secondary btn-lg shadow-xl">
+              <Link href="/get-involved" className="btn btn-secondary btn-lg shadow-xl w-full sm:w-auto text-center justify-center">
                 <Users className="w-5 h-5" />
                 <span>{t('hero.cta.volunteer')}</span>
               </Link>
-              <Link href="/agenda" className="btn btn-outline-white btn-lg">
+              <Link href="/agenda" className="btn btn-outline-white btn-lg w-full sm:w-auto text-center justify-center">
                 <span>View Agenda</span>
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
 
             {/* Countdown */}
-            <div className="max-w-lg">
+            <div className="max-w-lg w-full">
               <CountdownTimer />
             </div>
           </motion.div>
 
-          {/* Right Column: Candidate Portrait (5 cols) */}
+          {/* Right Column: Candidate Portrait on Desktop (5 cols) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-5 relative"
+            className="hidden lg:block lg:col-span-5 relative"
           >
             <div className="relative w-full aspect-[3/4] max-w-md mx-auto">
               
@@ -505,6 +536,25 @@ function VolunteerBanner() {
 // ─── Donation Band ───────────────────────────────────────────────────────────
 
 function DonationBanner() {
+  const [copied, setCopied] = useState(false);
+
+  const copyAccountNumber = async () => {
+    try {
+      await navigator.clipboard.writeText(donation.accountNumber);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    } catch {
+      const textArea = document.createElement('textarea');
+      textArea.value = donation.accountNumber;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    }
+  };
+
   return (
     <section className="bg-gradient-to-r from-red-700 via-red-600 to-amber-600 text-white py-14 md:py-18 relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
@@ -529,13 +579,32 @@ function DonationBanner() {
             <span className="text-xs uppercase font-bold text-amber-200">Account Name</span>
             <span className="font-bold text-sm text-white">{donation.accountName}</span>
           </div>
-          <div className="flex items-center justify-between">
-            <span className="text-xs uppercase font-bold text-amber-200">Account Number</span>
-            <span className="font-mono font-black text-lg text-amber-300 tracking-wider">{donation.accountNumber}</span>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
+            <div>
+              <span className="text-xs uppercase font-bold text-amber-200 block">Account Number</span>
+              <span className="font-mono font-black text-xl text-amber-300 tracking-wider select-all">{donation.accountNumber}</span>
+            </div>
+            <button
+              onClick={copyAccountNumber}
+              className="px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs flex items-center justify-center gap-1.5 transition-all active:scale-95 shadow-md w-full sm:w-auto min-h-[40px]"
+              aria-label="Copy Account Number"
+            >
+              {copied ? (
+                <>
+                  <CheckCircle2 className="w-4 h-4 text-slate-950" />
+                  <span>Account Number Copied</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="w-4 h-4 text-slate-950" />
+                  <span>Copy Account Number</span>
+                </>
+              )}
+            </button>
           </div>
         </div>
 
-        <Link href="/donate" className="btn btn-white btn-lg text-red-600 font-extrabold shadow-xl">
+        <Link href="/donate" className="btn btn-white btn-lg text-red-600 font-extrabold shadow-xl w-full sm:w-auto inline-flex justify-center text-center">
           <Heart className="w-5 h-5 fill-red-600" />
           <span>Contribute Online & View Donation Tiers</span>
         </Link>

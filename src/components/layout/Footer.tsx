@@ -192,19 +192,20 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-slate-800/80 bg-black/40">
+      {/* Bottom Bar with safe area padding */}
+      <div className="border-t border-slate-800/80 bg-black/40 pb-[calc(1.5rem+env(safe-area-inset-bottom,0px))]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-slate-400 text-xs text-center md:text-left">
               Official Campaign Website for Hon. Chinedu Eya, Labour Party Candidate for Federal House of Assembly.
             </p>
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-center sm:text-left">
               <p className="text-slate-400 text-xs">
                 Copyright {year} Hon. Chinedu Eya Campaign Organization. All Rights Reserved.
               </p>
               <button
                 onClick={scrollToTop}
-                className="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center hover:bg-red-600 hover:border-red-500 text-white transition-all shadow-md"
+                className="w-10 h-10 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center hover:bg-red-600 hover:border-red-500 text-white transition-all shadow-md flex-shrink-0"
                 aria-label="Back to Top"
               >
                 <ArrowUp className="w-4 h-4" />

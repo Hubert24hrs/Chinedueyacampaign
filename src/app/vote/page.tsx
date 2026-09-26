@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * VOTER INFORMATION PAGE — PVC, polling unit, election day checklist
+ * VOTER INFORMATION PAGE: PVC, polling unit, election day checklist
  * ============================================================================
  */
 'use client';

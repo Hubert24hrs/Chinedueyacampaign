@@ -188,12 +188,12 @@ export default function ConstituencyPage() {
           <p className="text-white/95 text-base sm:text-lg mb-8 max-w-xl mx-auto">
             Together we will build a stronger, prosperous Igbo Eze North and Udenu Constituency.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/get-involved" className="btn btn-white btn-lg text-slate-900 font-black shadow-xl">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center">
+            <Link href="/get-involved" className="btn btn-white btn-lg text-slate-900 font-black shadow-xl w-full sm:w-auto text-center justify-center">
               <Users className="w-5 h-5 text-green-700" />
               <span>Join Volunteer Movement</span>
             </Link>
-            <Link href="/donate" className="btn btn-party btn-lg shadow-xl">
+            <Link href="/donate" className="btn btn-party btn-lg shadow-xl w-full sm:w-auto text-center justify-center">
               <Heart className="w-5 h-5 fill-white" />
               <span>Donate To The Campaign</span>
             </Link>
