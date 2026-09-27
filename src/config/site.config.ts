@@ -58,11 +58,11 @@ export const election = {
 // ─── Social Media ────────────────────────────────────────────────────────────
 
 export const socials = {
-  facebook: 'https://facebook.com/ChinedUEyaOfficial',
-  twitter: 'https://x.com/ChinedUEya',
-  instagram: 'https://instagram.com/chinedueya',
-  tiktok: 'https://tiktok.com/@chinedueya',
-  youtube: 'https://youtube.com/@ChinedUEya',
+  facebook: '',
+  twitter: '',
+  instagram: '',
+  tiktok: '',
+  youtube: '',
   whatsappChannel: 'https://whatsapp.com/channel/0029Va',
   telegramChannel: 'https://t.me/chinedueya',
 } as const;

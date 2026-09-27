@@ -9,10 +9,9 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { 
-  Phone, Mail, MapPin, MessageCircle, Send, Heart, ArrowUp, Sparkles, Building2, Car
+  Phone, Mail, MapPin, MessageCircle, Heart, ArrowUp, Sparkles, Building2, Car
 } from 'lucide-react';
-import { Facebook, Twitter, Instagram, Youtube } from '@/components/ui/SocialIcons';
-import { candidate, socials, seo } from '@/config/site.config';
+import { candidate, seo } from '@/config/site.config';
 import { useLocale } from '@/context/LocaleContext';
 
 export default function Footer() {
@@ -63,46 +62,6 @@ export default function Footer() {
               <p className="flex items-center gap-1.5 text-slate-300 font-medium">
                 <Building2 className="w-3.5 h-3.5 text-green-400" /> CEO, MY Eya Homes
               </p>
-            </div>
-
-            {/* Social Icons */}
-            <div className="flex items-center gap-2.5">
-              {socials.facebook && (
-                <a href={socials.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook"
-                   className="w-10 h-10 rounded-full bg-slate-800/80 border border-slate-700 flex items-center justify-center hover:bg-red-600 hover:border-red-500 text-white transition-all hover:scale-110">
-                  <Facebook className="w-4 h-4" />
-                </a>
-              )}
-              {socials.twitter && (
-                <a href={socials.twitter} target="_blank" rel="noopener noreferrer" aria-label="X Twitter"
-                   className="w-10 h-10 rounded-full bg-slate-800/80 border border-slate-700 flex items-center justify-center hover:bg-red-600 hover:border-red-500 text-white transition-all hover:scale-110">
-                  <Twitter className="w-4 h-4" />
-                </a>
-              )}
-              {socials.instagram && (
-                <a href={socials.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram"
-                   className="w-10 h-10 rounded-full bg-slate-800/80 border border-slate-700 flex items-center justify-center hover:bg-red-600 hover:border-red-500 text-white transition-all hover:scale-110">
-                  <Instagram className="w-4 h-4" />
-                </a>
-              )}
-              {socials.youtube && (
-                <a href={socials.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube"
-                   className="w-10 h-10 rounded-full bg-slate-800/80 border border-slate-700 flex items-center justify-center hover:bg-red-600 hover:border-red-500 text-white transition-all hover:scale-110">
-                  <Youtube className="w-4 h-4" />
-                </a>
-              )}
-              {socials.whatsappChannel && (
-                <a href={socials.whatsappChannel} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"
-                   className="w-10 h-10 rounded-full bg-slate-800/80 border border-slate-700 flex items-center justify-center hover:bg-green-600 hover:border-green-500 text-white transition-all hover:scale-110">
-                  <MessageCircle className="w-4 h-4" />
-                </a>
-              )}
-              {socials.telegramChannel && (
-                <a href={socials.telegramChannel} target="_blank" rel="noopener noreferrer" aria-label="Telegram"
-                   className="w-10 h-10 rounded-full bg-slate-800/80 border border-slate-700 flex items-center justify-center hover:bg-blue-600 hover:border-blue-500 text-white transition-all hover:scale-110">
-                  <Send className="w-4 h-4" />
-                </a>
-              )}
             </div>
           </div>
 

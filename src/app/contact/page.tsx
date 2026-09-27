@@ -10,8 +10,7 @@ import { motion } from 'framer-motion';
 import {
   Mail, Phone, MapPin, MessageCircle, Send, CheckCircle
 } from 'lucide-react';
-import { Facebook, Twitter, Instagram, Youtube } from '@/components/ui/SocialIcons';
-import { candidate, socials } from '@/config/site.config';
+import { candidate } from '@/config/site.config';
 import { useLocale } from '@/context/LocaleContext';
 import Section from '@/components/ui/Section';
 
@@ -77,32 +76,6 @@ export default function ContactPage() {
                 <p className="text-dark-muted text-sm">Get a quick response on WhatsApp</p>
               </div>
             </a>
-
-            {/* Social Links */}
-            <div className="card p-6">
-              <h3 className="font-display font-bold text-lg text-dark mb-4">Follow Us</h3>
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  { name: 'Facebook', url: socials.facebook, icon: <Facebook className="w-4 h-4" />, color: 'bg-blue-600' },
-                  { name: 'X (Twitter)', url: socials.twitter, icon: <Twitter className="w-4 h-4" />, color: 'bg-black' },
-                  { name: 'Instagram', url: socials.instagram, icon: <Instagram className="w-4 h-4" />, color: 'bg-gradient-to-br from-purple-600 to-pink-500' },
-                  { name: 'YouTube', url: socials.youtube, icon: <Youtube className="w-4 h-4" />, color: 'bg-red-600' },
-                ].map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-surface-muted hover:bg-surface-elevated transition-colors text-sm"
-                  >
-                    <div className={`w-7 h-7 rounded-full ${social.color} text-white flex items-center justify-center`}>
-                      {social.icon}
-                    </div>
-                    {social.name}
-                  </a>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </Section>
