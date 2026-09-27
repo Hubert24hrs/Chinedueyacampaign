@@ -70,6 +70,8 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
   other: {
     'theme-color': '#DC2626',
+    'thumbnail': seo.ogImage,
+    'image': seo.ogImage,
   },
 };
 
