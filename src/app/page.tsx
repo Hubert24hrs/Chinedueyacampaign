@@ -459,7 +459,7 @@ function ConstituencySection() {
         <span className="inline-block px-4 py-1 rounded-full bg-white/10 text-amber-300 font-display font-extrabold text-xs uppercase tracking-wider mb-3">
           Our Communities
         </span>
-        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4">
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black text-green-400 mb-4" style={{ color: '#4ade80' }}>
           Igbo Eze North / Udenu Federal Constituency
         </h2>
         <p className="text-slate-300 max-w-2xl mx-auto text-base sm:text-lg">
@@ -482,7 +482,7 @@ function ConstituencySection() {
                 <span className="text-xs uppercase font-extrabold tracking-wider text-amber-400">
                   Local Government Area
                 </span>
-                <h3 className="font-display font-black text-2xl sm:text-3xl text-white">
+                <h3 className="font-display font-black text-2xl sm:text-3xl text-green-400" style={{ color: '#4ade80' }}>
                   {lga.name}
                 </h3>
               </div>
