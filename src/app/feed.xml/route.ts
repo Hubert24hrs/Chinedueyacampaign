@@ -3,7 +3,7 @@ import { newsArticles } from '@/content/news';
 import { candidate, seo } from '@/config/site.config';
 
 export async function GET() {
-  const siteUrl = seo.siteUrl || 'https://chinedueya.ng';
+  const siteUrl = seo.siteUrl || 'https://chinedueya2027.com';
 
   const itemsXml = newsArticles
     .map((article) => {

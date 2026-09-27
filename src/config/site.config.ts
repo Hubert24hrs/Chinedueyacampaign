@@ -293,13 +293,10 @@ export const agendaPriorities: AgendaPriority[] = [
 // ─── SEO Defaults ────────────────────────────────────────────────────────────
 
 const getBaseUrl = (): string => {
-  if (
-    process.env.NEXT_PUBLIC_SITE_URL &&
-    !process.env.NEXT_PUBLIC_SITE_URL.includes('chinedueya.ng')
-  ) {
+  if (process.env.NEXT_PUBLIC_SITE_URL) {
     return process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, '');
   }
-  return 'https://chinedu-eya-campaign.vercel.app';
+  return 'https://chinedueya2027.com';
 };
 
 export const seo = {
@@ -318,6 +315,7 @@ export const seo = {
     'Federal Constituency',
     'Nigeria election',
     '2027 election',
+    'chinedueya2027',
   ],
   ogImage: '/thumbnail.jpg',
 };
