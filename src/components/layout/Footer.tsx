@@ -9,7 +9,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { 
-  Phone, MapPin, MessageCircle, Heart, ArrowUp, Sparkles, Building2, Car
+  Phone, MapPin, MessageCircle, Heart, ArrowUp, Sparkles, Building2, Car, Globe2, GraduationCap
 } from 'lucide-react';
 import { candidate, seo } from '@/config/site.config';
 import { useLocale } from '@/context/LocaleContext';
@@ -57,10 +57,16 @@ export default function Footer() {
 
             <div className="space-y-1.5 text-xs text-slate-400 mb-6 border-l-2 border-green-500 pl-3 py-1">
               <p className="flex items-center gap-1.5 text-slate-300 font-medium">
-                <Car className="w-3.5 h-3.5 text-amber-400" /> CEO, Suskii Group of Companies
+                <Globe2 className="w-3.5 h-3.5 text-blue-400" /> CEO, Suskii Group (P2P & Errands)
               </p>
               <p className="flex items-center gap-1.5 text-slate-300 font-medium">
                 <Building2 className="w-3.5 h-3.5 text-green-400" /> CEO, MY Eya Homes
+              </p>
+              <p className="flex items-center gap-1.5 text-slate-300 font-medium">
+                <Car className="w-3.5 h-3.5 text-amber-400" /> CEO, EYA AUTOS
+              </p>
+              <p className="flex items-center gap-1.5 text-slate-300 font-medium">
+                <GraduationCap className="w-3.5 h-3.5 text-red-400" /> Grassroots AI Training & Philanthropy
               </p>
             </div>
           </div>

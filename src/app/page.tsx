@@ -33,8 +33,10 @@ function CampaignTicker() {
     'HON. CHINEDU EYA',
     'MEMBER FEDERAL HOUSE OF ASSEMBLY',
     'IGBO EZE NORTH AND UDENU CONSTITUENCY',
-    'CEO SUSKII GROUP OF COMPANIES',
+    'CEO SUSKII GROUP OF COMPANIES (P2P MARKETPLACE & ERRANDS)',
     'CEO MY EYA HOMES',
+    'CEO EYA AUTOS (USA & EUROPE AUTO IMPORTS)',
+    'GRASSROOTS AI TRAINING & YOUTH EMPOWERMENT',
     'A NEW VOICE, A BETTER FUTURE',
     'VOTE LABOUR PARTY 2027',
   ];
@@ -149,14 +151,14 @@ function HeroSection() {
             </div>
 
             {/* Real Executive Credentials Badges */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 sm:mb-8 max-w-xl">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 sm:mb-8 max-w-2xl">
               <div className="flex items-center gap-3 p-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 shadow-md">
-                <div className="w-10 h-10 rounded-lg bg-amber-500/20 text-amber-300 flex items-center justify-center flex-shrink-0">
-                  <Car className="w-5 h-5" />
+                <div className="w-10 h-10 rounded-lg bg-blue-500/20 text-blue-300 flex items-center justify-center flex-shrink-0">
+                  <Globe2 className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs text-amber-300 font-bold uppercase tracking-wider">CEO, Suskii Group</p>
-                  <p className="text-xs text-slate-200">Automobile Imports from USA & Europe</p>
+                  <p className="text-xs text-blue-300 font-bold uppercase tracking-wider">CEO, Suskii Group</p>
+                  <p className="text-xs text-slate-200">P2P Online Marketplace & Errands Hub</p>
                 </div>
               </div>
 
@@ -167,6 +169,26 @@ function HeroSection() {
                 <div>
                   <p className="text-xs text-green-300 font-bold uppercase tracking-wider">CEO, MY Eya Homes</p>
                   <p className="text-xs text-slate-200">Renowned Nigerian Real Estate</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 p-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 shadow-md">
+                <div className="w-10 h-10 rounded-lg bg-amber-500/20 text-amber-300 flex items-center justify-center flex-shrink-0">
+                  <Car className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-xs text-amber-300 font-bold uppercase tracking-wider">CEO, EYA AUTOS</p>
+                  <p className="text-xs text-slate-200">USA & Europe Auto Importation</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 p-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 shadow-md">
+                <div className="w-10 h-10 rounded-lg bg-red-500/20 text-red-300 flex items-center justify-center flex-shrink-0">
+                  <GraduationCap className="w-5 h-5" />
+                </div>
+                <div>
+                  <p className="text-xs text-red-300 font-bold uppercase tracking-wider">Grassroots Impact</p>
+                  <p className="text-xs text-slate-200">AI Skills, Charity & Keke Grants</p>
                 </div>
               </div>
             </div>
@@ -270,32 +292,42 @@ function HeroSection() {
 function LeadershipShowcase() {
   const credentials = [
     {
-      icon: <Car className="w-8 h-8 text-amber-500" />,
-      tag: 'International Automobile Trade',
+      icon: <Globe2 className="w-8 h-8 text-blue-600" />,
+      tag: 'Digital Commerce & Services',
       title: 'CEO, Suskii Group of Companies',
       description:
-        'A premier automobile dealership operating at scale, importing quality vehicles from the United States and European countries. Created dozens of direct and indirect employment opportunities for youth in transport and logistics.',
-      highlight: 'Importation from USA and Europe',
-      colorBorder: 'border-t-4 border-amber-500',
-      badgeBg: 'bg-amber-100 text-amber-800',
+        'Suskii Group comprises Suskii P2P Online Marketplace, an innovative platform where you can buy and sell anything securely, and Suskii Errands, a dynamic on demand service hub where all possible and available services can be professionally rendered.',
+      highlight: 'P2P Market & Errands',
+      colorBorder: 'border-t-4 border-blue-600',
+      badgeBg: 'bg-blue-100 text-blue-800',
     },
     {
       icon: <Building2 className="w-8 h-8 text-green-600" />,
       tag: 'Real Estate & Infrastructure',
       title: 'CEO, MY Eya Homes',
       description:
-        'A renowned real estate development firm in Nigeria delivering modern residential properties, commercial facilities, and architectural quality. Transforming housing accessibility with integrity and vision.',
-      highlight: 'Nationwide Property Portfolio',
+        'A renowned real estate development firm in Nigeria delivering modern residential properties, commercial facilities, and architectural quality. Transforming housing accessibility with integrity, urban planning, and sustainable construction jobs.',
+      highlight: 'Real Estate Development',
       colorBorder: 'border-t-4 border-green-600',
       badgeBg: 'bg-green-100 text-green-800',
     },
     {
-      icon: <Users className="w-8 h-8 text-red-600" />,
-      tag: 'Constituency Grassroots',
-      title: 'Community Leader & Philanthropist',
+      icon: <Car className="w-8 h-8 text-amber-500" />,
+      tag: 'International Automobile Trade',
+      title: 'CEO, EYA AUTOS',
       description:
-        'Deep commitment to the people of Igbo Eze North and Udenu. Spearheading youth scholarships, community assistance initiatives, market development, and grassroots empowerment projects for years.',
-      highlight: 'Grassroots Community Impact',
+        'A premier automobile enterprise specializing in the direct importation of top grade autos and cars from the United States and Europe into Nigeria. Renowned for integrity, verified vehicle documentation, and creating automotive jobs.',
+      highlight: 'USA & Europe Auto Imports',
+      colorBorder: 'border-t-4 border-amber-500',
+      badgeBg: 'bg-amber-100 text-amber-800',
+    },
+    {
+      icon: <GraduationCap className="w-8 h-8 text-red-600" />,
+      tag: 'Grassroots Community Impact',
+      title: 'Philanthropy & Youth Empowerment',
+      description:
+        'Organizes cutting edge Artificial Intelligence (AI) and technology training for the people of Igbo Eze North and Udenu. Consistently provides charity to the needy and has donated numerous commercial tricycles (Keke) and motorcycles to empower indigenous youth with sustainable livelihoods.',
+      highlight: 'AI Training & Youth Keke Grants',
       colorBorder: 'border-t-4 border-red-600',
       badgeBg: 'bg-red-100 text-red-800',
     },
@@ -315,7 +347,7 @@ function LeadershipShowcase() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {credentials.map((item, idx) => (
           <div
             key={idx}

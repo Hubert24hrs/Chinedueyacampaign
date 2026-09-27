@@ -13,7 +13,7 @@ import { motion } from 'framer-motion';
 import {
   Heart, GraduationCap, Briefcase, Users, Target,
   Star, ArrowRight, Quote, Calendar, Car, Building2,
-  CheckCircle2, Sparkles, Shield, Compass, Landmark
+  CheckCircle2, Sparkles, Shield, Compass, Landmark, Globe2
 } from 'lucide-react';
 import { candidate } from '@/config/site.config';
 import { useLocale } from '@/context/LocaleContext';
@@ -23,10 +23,10 @@ import Section from '@/components/ui/Section';
 
 const timeline = [
   {
-    year: 'Automobile Enterprise',
+    year: 'Digital Commerce',
     title: 'Founder & CEO, Suskii Group of Companies',
-    description: 'Established Suskii Group of Companies, an international automobile dealership importing top grade motor vehicles from the United States and European nations directly to Nigeria, creating substantial youth employment in logistics and automotive commerce.',
-    icon: <Car className="w-5 h-5 text-amber-500" />,
+    description: 'Spearheaded Suskii Group of Companies, comprising the innovative Suskii P2P Online Marketplace—enabling people to buy and sell anything securely—and Suskii Errands, a versatile service hub where all possible and available services can be rendered.',
+    icon: <Globe2 className="w-5 h-5 text-blue-500" />,
   },
   {
     year: 'Real Estate Growth',
@@ -35,16 +35,16 @@ const timeline = [
     icon: <Building2 className="w-5 h-5 text-green-600" />,
   },
   {
-    year: 'Commercial Expansion',
-    title: 'Diversified Business Leadership',
-    description: 'Expanded commercial footprint across transport, vehicle spare parts importation, and property acquisition, building reputable business relationships across North America, Europe, and Nigeria.',
-    icon: <Target className="w-5 h-5 text-red-600" />,
+    year: 'Automotive Enterprise',
+    title: 'CEO, EYA AUTOS',
+    description: 'Established EYA AUTOS as a premier automobile enterprise in Nigeria, specializing in the direct importation of top grade autos and cars from the United States and Europe, built on a reputation of trust and quality verification.',
+    icon: <Car className="w-5 h-5 text-amber-500" />,
   },
   {
-    year: 'Community Impact',
-    title: 'Grassroots Philanthropy & Youth Support',
-    description: 'Invested personal resources into community development, providing tuition scholarships for indigent students, medical assistance for families, and vocational training across Igbo Eze North and Udenu.',
-    icon: <Users className="w-5 h-5 text-amber-600" />,
+    year: 'Grassroots Impact',
+    title: 'Grassroots Community Impact & Youth Empowerment',
+    description: 'Organizes high impact Artificial Intelligence (AI) and technology training for the people and youth of Igbo Eze North and Udenu. Consistently provides charity to the needy and has donated numerous commercial tricycles (Keke) and motorcycles to empower indigenous youth with sustainable livelihoods.',
+    icon: <GraduationCap className="w-5 h-5 text-red-600" />,
   },
   {
     year: 'Public Service',
@@ -126,12 +126,18 @@ export default function AboutPage() {
                 A visionary entrepreneur, employer of labor, and community advocate running on the platform of the Labour Party to represent Igbo Eze North / Udenu Constituency.
               </p>
 
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2.5">
                 <span className="px-3.5 py-1.5 rounded-full bg-white/10 text-white text-xs font-bold border border-white/20">
                   CEO, Suskii Group
                 </span>
                 <span className="px-3.5 py-1.5 rounded-full bg-white/10 text-white text-xs font-bold border border-white/20">
                   CEO, MY Eya Homes
+                </span>
+                <span className="px-3.5 py-1.5 rounded-full bg-white/10 text-white text-xs font-bold border border-white/20">
+                  CEO, EYA AUTOS
+                </span>
+                <span className="px-3.5 py-1.5 rounded-full bg-white/10 text-white text-xs font-bold border border-white/20">
+                  Grassroots Impact
                 </span>
                 <span className="px-3.5 py-1.5 rounded-full bg-red-600 text-white text-xs font-bold">
                   Labour Party (LP)
@@ -183,20 +189,20 @@ export default function AboutPage() {
               <strong className="text-slate-900 font-bold">Hon. Chinedu Eya</strong> is an accomplished business leader, job creator, and dedicated son of Igbo Eze North and Udenu. Raised with the cultural values of hard work, respect, and community solidarity, he has continually demonstrated that true greatness is measured by service to others.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-              <div className="p-6 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200">
-                <div className="w-12 h-12 rounded-xl bg-amber-500 text-white flex items-center justify-center mb-4 shadow-md">
-                  <Car className="w-6 h-6" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 my-8">
+              <div className="p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 shadow-sm">
+                <div className="w-12 h-12 rounded-xl bg-blue-600 text-white flex items-center justify-center mb-4 shadow-md">
+                  <Globe2 className="w-6 h-6" />
                 </div>
                 <h3 className="font-display font-bold text-xl text-slate-900 mb-2">
                   CEO, Suskii Group of Companies
                 </h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  As head of Suskii Group, Hon. Eya established a prominent international automobile dealership importing top quality motor vehicles from the United States and European nations into Nigeria. His business acumen created jobs for drivers, mechanics, clearing agents, and retail sales staff.
+                  Suskii Group encompasses the innovative <strong>Suskii P2P Online Marketplace</strong>, where people can buy anything and sell anything securely, alongside <strong>Suskii Errands</strong>, an on demand platform where all possible and available services can be conveniently rendered.
                 </p>
               </div>
 
-              <div className="p-6 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200">
+              <div className="p-6 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 shadow-sm">
                 <div className="w-12 h-12 rounded-xl bg-green-600 text-white flex items-center justify-center mb-4 shadow-md">
                   <Building2 className="w-6 h-6" />
                 </div>
@@ -204,7 +210,31 @@ export default function AboutPage() {
                   CEO, MY Eya Homes
                 </h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  Through MY Eya Homes, he has built a respected real estate enterprise providing high quality housing and infrastructure across Nigeria. He understands land planning, architectural execution, and how to create wealth through sound property development.
+                  A renowned real estate development firm in Nigeria, MY Eya Homes delivers quality residential properties, commercial infrastructure, and architectural excellence across the nation while driving job creation and housing development.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 shadow-sm">
+                <div className="w-12 h-12 rounded-xl bg-amber-500 text-white flex items-center justify-center mb-4 shadow-md">
+                  <Car className="w-6 h-6" />
+                </div>
+                <h3 className="font-display font-bold text-xl text-slate-900 mb-2">
+                  CEO, EYA AUTOS
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  A premier automotive enterprise specializing in the direct importation of top grade autos and cars from the United States and Europe into Nigeria. Celebrated for vehicle inspection integrity, verified titles, and automotive industry jobs.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-gradient-to-br from-red-50 to-rose-50 border border-red-200 shadow-sm">
+                <div className="w-12 h-12 rounded-xl bg-red-600 text-white flex items-center justify-center mb-4 shadow-md">
+                  <GraduationCap className="w-6 h-6" />
+                </div>
+                <h3 className="font-display font-bold text-xl text-slate-900 mb-2">
+                  Grassroots Community Impact
+                </h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  Hon. Eya actively organizes Artificial Intelligence (AI) and technology training for the people of Igbo Eze North and Udenu. He continuously extends charity to the needy, and has donated numerous commercial tricycles (Keke) and motorcycles to empower indigenous youth with sustainable livelihoods.
                 </p>
               </div>
             </div>
