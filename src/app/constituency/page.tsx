@@ -79,7 +79,7 @@ export default function ConstituencyPage() {
           <span className="text-xs uppercase font-extrabold tracking-wider text-red-600 block mb-2">
             Federal Representation
           </span>
-          <h2 className="font-display text-3xl sm:text-4xl font-black text-slate-900 mb-4">
+          <h2 className="font-display text-3xl sm:text-4xl font-black text-green-700 mb-4">
             Igbo Eze North / Udenu Federal Constituency
           </h2>
           <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
@@ -98,7 +98,7 @@ export default function ConstituencyPage() {
               <div className="flex items-center justify-between mb-6">
                 <div>
                   <span className="text-xs uppercase font-extrabold tracking-wider text-slate-400">Local Government Area</span>
-                  <h3 className="font-display font-black text-2xl sm:text-3xl text-slate-900">{lga.name}</h3>
+                  <h3 className="font-display font-black text-2xl sm:text-3xl text-green-700">{lga.name}</h3>
                 </div>
                 <div className="px-3 py-1 rounded-full bg-slate-100 text-xs font-bold text-slate-700">
                   HQ: {lga.headquarters}

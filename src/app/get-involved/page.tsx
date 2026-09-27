@@ -12,7 +12,7 @@ import { motion } from 'framer-motion';
 import {
   Users, Heart, Download, Share2, MessageCircle,
   Send, CheckCircle, ArrowRight, UserPlus, Megaphone,
-  Sparkles, CheckCircle2
+  Sparkles, CheckCircle2, Phone
 } from 'lucide-react';
 import { candidate, constituency, socials } from '@/config/site.config';
 import { useLocale } from '@/context/LocaleContext';
@@ -105,16 +105,14 @@ export default function GetInvolvedPage() {
               className="btn btn-secondary btn-lg shadow-xl flex items-center justify-center gap-2 w-full sm:w-auto"
             >
               <MessageCircle className="w-5 h-5" />
-              <span>Join Official WhatsApp</span>
+              <span>Connect on WhatsApp</span>
             </a>
             <a
-              href={socials.telegramChannel}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`tel:${candidate.phone}`}
               className="btn btn-party btn-lg shadow-xl flex items-center justify-center gap-2 w-full sm:w-auto"
             >
-              <Send className="w-5 h-5" />
-              <span>Join Official Telegram</span>
+              <Phone className="w-5 h-5" />
+              <span>Call Campaign Hotline: {candidate.phone}</span>
             </a>
           </div>
         </div>

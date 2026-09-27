@@ -2,8 +2,11 @@
  * ============================================================================
  * HOME PAGE: Hon. Chinedu Eya Campaign Landing Page
  * ============================================================================
- * Redesigned with Labour Party theme (Red, Green, Gold, White)
- * Highly animated, colorful, fancy, and completely free of hyphens.
+ * World-Class USA & European Political Campaign Style
+ * Labour Party Theme (Red, Green, Gold, White)
+ * Authoritative typography, high-impact ActBlue-style donation card,
+ * executive candidate editorial profile, and vibrant green constituency headings.
+ * ============================================================================
  */
 'use client';
 
@@ -16,7 +19,9 @@ import {
   Sparkles, Target, Trophy, Building2, Car,
   ShieldCheck, Globe2, Briefcase, CheckCircle2,
   GraduationCap, Stethoscope, Wheat, Compass,
-  Lightbulb, Landmark, MessageSquare, Send, Copy
+  Lightbulb, Landmark, MessageSquare, Send, Copy,
+  Quote, MapPin, Calendar, Phone, Award, Shield,
+  CheckCircle, ArrowUpRight
 } from 'lucide-react';
 import { candidate, agendaPriorities, election, constituency, socials, donation } from '@/config/site.config';
 import { useLocale } from '@/context/LocaleContext';
@@ -61,25 +66,25 @@ function HeroSection() {
   const { t } = useLocale();
 
   return (
-    <section className="relative min-h-screen flex items-center gradient-hero overflow-hidden pt-20 pb-16">
-      {/* Animated floating ambient glow orbs */}
+    <section className="relative min-h-[92vh] flex items-center gradient-hero overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24">
+      {/* Background ambient lighting */}
       <div className="absolute top-10 left-10 w-96 h-96 bg-red-600/30 rounded-full blur-3xl animate-float pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-green-600/30 rounded-full blur-3xl animate-float-reverse pointer-events-none" />
-      <div className="absolute top-1/2 left-1/3 w-80 h-80 bg-amber-500/20 rounded-full blur-3xl animate-pulse-glow pointer-events-none" />
+      <div className="absolute top-1/2 left-1/3 w-80 h-80 bg-amber-500/15 rounded-full blur-3xl animate-pulse-glow pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-20 w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
-          {/* Left Column: Heading and CTAs (7 cols) */}
+          {/* Left Column: Authoritative Campaign Header & Message (7 cols) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="lg:col-span-7 text-left"
           >
-            {/* Party Badge */}
-            <div className="inline-flex items-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-md rounded-full px-3.5 py-1.5 sm:px-4 sm:py-2 mb-4 sm:mb-6 border border-white/20 shadow-lg">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white overflow-hidden relative flex-shrink-0 p-0.5 shadow-sm">
+            {/* Top Official Election Badge */}
+            <div className="inline-flex items-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-md rounded-full px-4 py-1.5 mb-5 border border-white/20 shadow-lg">
+              <div className="w-7 h-7 rounded-full bg-white overflow-hidden relative flex-shrink-0 p-0.5 shadow-sm">
                 <Image
                   src={candidate.party.logo}
                   alt={candidate.party.name}
@@ -87,39 +92,44 @@ function HeroSection() {
                   className="object-contain p-0.5"
                 />
               </div>
-              <div className="flex items-center gap-2">
-                <span className="text-white font-extrabold text-xs sm:text-sm tracking-wide">
+              <div className="flex items-center gap-2 text-xs sm:text-sm">
+                <span className="text-white font-extrabold tracking-wide">
                   {candidate.party.name}
                 </span>
                 <span className="px-2 py-0.5 bg-red-600 text-white text-[10px] font-black rounded-full uppercase">
                   {candidate.party.abbreviation}
                 </span>
-                <span className="text-amber-300 text-xs font-semibold hidden sm:inline">
-                  Forward Ever
+                <span className="text-amber-300 font-bold hidden sm:inline">
+                  • 2027 Election
                 </span>
               </div>
             </div>
 
-            {/* Candidate Title & Office */}
-            <div className="mb-3">
-              <span className="text-amber-400 font-display font-bold text-sm sm:text-base md:text-xl uppercase tracking-wider block">
-                Official Campaign 2027
+            {/* Candidate Identity */}
+            <div className="mb-4">
+              <span className="text-amber-400 font-display font-black text-xs sm:text-sm uppercase tracking-widest block mb-1">
+                For Member, Federal House of Assembly
               </span>
-              <h1 className="font-display text-3xl sm:text-5xl md:text-7xl font-black text-white leading-[1.08] tracking-tight mt-1 mb-3 sm:mb-4">
-                Hon. Chinedu <span className="text-gradient">Eya</span>
+              <h1 className="font-display text-4xl sm:text-6xl md:text-7xl font-black text-white leading-[1.05] tracking-tight">
+                HON. CHINEDU <span className="text-gradient">EYA</span>
               </h1>
+              <p className="text-xs sm:text-sm font-bold text-slate-300 uppercase tracking-wider mt-2">
+                Igbo Eze North / Udenu Federal Constituency • Enugu State
+              </p>
             </div>
 
-            {/* Slogan */}
-            <p className="text-xl sm:text-2xl md:text-3xl font-display font-extrabold text-white/95 mb-3 sm:mb-4">
-              A New Voice, <span className="text-green-400">A Better Future.</span>
-            </p>
+            {/* Official Campaign Slogan */}
+            <div className="inline-block bg-white/10 backdrop-blur-sm border-l-4 border-green-500 px-4 py-2 rounded-r-xl mb-5">
+              <p className="text-lg sm:text-2xl font-display font-black text-white">
+                A New Voice. <span className="text-green-400">A Better Future.</span>
+              </p>
+            </div>
 
             <p className="text-sm sm:text-base md:text-lg text-slate-200 mb-6 max-w-2xl leading-relaxed">
-              Contesting for <strong className="text-white font-bold">Member, Federal House of Assembly</strong> representing the dynamic people of <strong className="text-amber-300 font-bold">{candidate.constituency}</strong> in the National Assembly of Nigeria.
+              Accomplished entrepreneur, employer of labor, and proven grassroots leader. Hon. Chinedu Eya is standing for the Federal House of Assembly to deliver accountable representation, youth technology jobs, agricultural wealth, and quality infrastructure to all 32 wards.
             </p>
 
-            {/* Mobile Candidate Portrait Card: Prominently featured on mobile and tablet */}
+            {/* Mobile Candidate Portrait Card: Displayed right in the flow on mobile */}
             <div className="block lg:hidden my-6">
               <div className="relative w-full max-w-sm mx-auto aspect-[3/4] rounded-2xl overflow-hidden border-4 border-white/30 shadow-2xl bg-slate-900">
                 <Image
@@ -131,13 +141,13 @@ function HeroSection() {
                   sizes="(max-width: 1024px) 90vw, 45vw"
                 />
                 <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent" />
-                <div className="absolute bottom-4 inset-x-4 text-left bg-black/60 backdrop-blur-md p-3.5 rounded-xl border border-white/20">
+                <div className="absolute bottom-4 inset-x-4 text-left bg-black/70 backdrop-blur-md p-3.5 rounded-xl border border-white/20">
                   <div className="flex items-center justify-between mb-1">
                     <p className="text-white font-display font-extrabold text-base">
                       {candidate.fullName}
                     </p>
-                    <span className="px-2 py-0.5 bg-red-600 text-white font-bold text-[11px] rounded-md">
-                      Labour Party
+                    <span className="px-2 py-0.5 bg-red-600 text-white font-bold text-[10px] rounded-md">
+                      Labour Party (LP)
                     </span>
                   </div>
                   <p className="text-amber-400 font-semibold text-xs">
@@ -150,7 +160,7 @@ function HeroSection() {
               </div>
             </div>
 
-            {/* Real Executive Credentials Badges */}
+            {/* 4 Proven Leadership Pillars Chips */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 sm:mb-8 max-w-2xl">
               <div className="flex items-center gap-3 p-3 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 shadow-md">
                 <div className="w-10 h-10 rounded-lg bg-blue-500/20 text-blue-300 flex items-center justify-center flex-shrink-0">
@@ -158,7 +168,7 @@ function HeroSection() {
                 </div>
                 <div>
                   <p className="text-xs text-blue-300 font-bold uppercase tracking-wider">CEO, Suskii Group</p>
-                  <p className="text-xs text-slate-200">P2P Online Marketplace & Errands Hub</p>
+                  <p className="text-xs text-slate-200">P2P Marketplace & Errands Hub</p>
                 </div>
               </div>
 
@@ -178,7 +188,7 @@ function HeroSection() {
                 </div>
                 <div>
                   <p className="text-xs text-amber-300 font-bold uppercase tracking-wider">CEO, EYA AUTOS</p>
-                  <p className="text-xs text-slate-200">USA & Europe Auto Importation</p>
+                  <p className="text-xs text-slate-200">USA & Europe Auto Imports</p>
                 </div>
               </div>
 
@@ -195,27 +205,27 @@ function HeroSection() {
 
             {/* CTAs: Full width on phone, inline on tablet and desktop */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-8 sm:mb-10 w-full sm:w-auto">
-              <Link href="/donate" className="btn btn-party btn-lg shimmer-sweep shadow-xl w-full sm:w-auto text-center justify-center">
+              <Link href="/donate" className="btn btn-party btn-lg shimmer-sweep shadow-xl w-full sm:w-auto text-center justify-center font-black">
                 <Heart className="w-5 h-5 fill-white" />
-                <span>{t('hero.cta.donate')}</span>
+                <span>Chip In To The Campaign</span>
               </Link>
-              <Link href="/get-involved" className="btn btn-secondary btn-lg shadow-xl w-full sm:w-auto text-center justify-center">
+              <Link href="/get-involved" className="btn btn-secondary btn-lg shadow-xl w-full sm:w-auto text-center justify-center font-bold">
                 <Users className="w-5 h-5" />
-                <span>{t('hero.cta.volunteer')}</span>
+                <span>Join The Movement</span>
               </Link>
-              <Link href="/agenda" className="btn btn-outline-white btn-lg w-full sm:w-auto text-center justify-center">
-                <span>View Agenda</span>
+              <Link href="/agenda" className="btn btn-outline-white btn-lg w-full sm:w-auto text-center justify-center font-bold">
+                <span>The Legislative Blueprint</span>
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
 
-            {/* Countdown */}
+            {/* Countdown Timer */}
             <div className="max-w-lg w-full">
               <CountdownTimer />
             </div>
           </motion.div>
 
-          {/* Right Column: Candidate Portrait on Desktop (5 cols) */}
+          {/* Right Column: Presidential Portrait on Desktop (5 cols) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -242,13 +252,13 @@ function HeroSection() {
                 <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent" />
 
                 {/* Bottom Details Card */}
-                <div className="absolute bottom-5 inset-x-5 text-left bg-black/60 backdrop-blur-md p-4 rounded-xl border border-white/20">
+                <div className="absolute bottom-5 inset-x-5 text-left bg-black/70 backdrop-blur-md p-4 rounded-xl border border-white/20">
                   <div className="flex items-center justify-between mb-1">
                     <p className="text-white font-display font-extrabold text-lg sm:text-xl">
                       {candidate.fullName}
                     </p>
                     <span className="px-2 py-0.5 bg-red-600 text-white font-bold text-xs rounded-md">
-                      Labour Party
+                      Labour Party (LP)
                     </span>
                   </div>
                   <p className="text-amber-400 font-semibold text-xs">
@@ -264,8 +274,8 @@ function HeroSection() {
               <div className="absolute -top-3 -left-3 bg-red-600 text-white p-3 rounded-2xl shadow-xl border-2 border-white flex items-center gap-2 animate-float hidden sm:flex">
                 <Trophy className="w-5 h-5 text-amber-300" />
                 <div>
-                  <p className="text-[10px] uppercase font-bold tracking-wider text-amber-200">Leadership</p>
-                  <p className="text-xs font-black">Proven Job Creator</p>
+                  <p className="text-[10px] uppercase font-bold tracking-wider text-amber-200">Proven Leadership</p>
+                  <p className="text-xs font-black">Job Creator & CEO</p>
                 </div>
               </div>
 
@@ -274,7 +284,7 @@ function HeroSection() {
                 <CheckCircle2 className="w-5 h-5 text-white" />
                 <div>
                   <p className="text-[10px] uppercase font-bold tracking-wider text-green-200">Representation</p>
-                  <p className="text-xs font-black">People First Always</p>
+                  <p className="text-xs font-black">100% Ward Inclusivity</p>
                 </div>
               </div>
 
@@ -287,7 +297,223 @@ function HeroSection() {
   );
 }
 
-// ─── Business & Executive Showcase ──────────────────────────────────────────
+// ─── ActBlue-Style Contribution Ribbon (Instant Grassroots Support) ─────────
+
+function ActBlueContributionRibbon() {
+  const [copied, setCopied] = useState(false);
+  const [selectedTier, setSelectedTier] = useState<number | null>(100_000);
+
+  const copyAccountNumber = async () => {
+    try {
+      await navigator.clipboard.writeText(donation.accountNumber);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    } catch {
+      const textArea = document.createElement('textarea');
+      textArea.value = donation.accountNumber;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    }
+  };
+
+  return (
+    <section className="bg-slate-950 text-white py-12 border-y border-slate-800 relative z-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="bg-gradient-to-br from-slate-900 via-slate-900 to-red-950/40 rounded-3xl p-6 sm:p-8 md:p-10 border border-slate-800 shadow-2xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            {/* Left Column: Call to action */}
+            <div className="lg:col-span-6 text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-600/20 text-red-400 border border-red-500/30 text-xs font-extrabold uppercase tracking-wider mb-3">
+                <Heart className="w-3.5 h-3.5 fill-red-400" />
+                Grassroots Campaign Finance
+              </div>
+              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-black text-white mb-3">
+                Power The Movement Across 32 Wards
+              </h2>
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                Hon. Chinedu Eya is running a people powered campaign. Every contribution directly funds door to door voter education, grassroots town halls, and election day logistics.
+              </p>
+
+              {/* Quick Select Amounts */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mb-4">
+                {donation.suggestedAmounts.map((amt) => (
+                  <Link
+                    key={amt}
+                    href={`/donate?amount=${amt}`}
+                    className={`py-2.5 px-3 rounded-xl text-center font-display font-black text-sm transition-all border ${
+                      selectedTier === amt
+                        ? 'bg-red-600 text-white border-red-500 shadow-lg shadow-red-600/30 scale-105'
+                        : 'bg-slate-800 text-slate-200 border-slate-700 hover:border-slate-500 hover:bg-slate-700'
+                    }`}
+                  >
+                    ₦{amt.toLocaleString()}
+                  </Link>
+                ))}
+              </div>
+
+              <div className="flex items-center gap-2 text-xs text-slate-400">
+                <ShieldCheck className="w-4 h-4 text-green-400 flex-shrink-0" />
+                <span>100% Transparent • In full compliance with the Nigerian Electoral Act</span>
+              </div>
+            </div>
+
+            {/* Right Column: Direct Bank Transfer Card (UBA) */}
+            <div className="lg:col-span-6">
+              <div className="bg-slate-950/80 rounded-2xl p-6 border-2 border-amber-500/40 shadow-xl relative overflow-hidden">
+                <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full bg-red-600" />
+                    <span className="font-display font-bold text-xs uppercase tracking-wider text-slate-300">
+                      Official Campaign Bank Details
+                    </span>
+                  </div>
+                  <span className="text-xs font-bold text-amber-400 bg-amber-400/10 px-2.5 py-0.5 rounded-full border border-amber-400/20">
+                    Direct Bank Transfer
+                  </span>
+                </div>
+
+                <div className="space-y-3 mb-5">
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-slate-400">Bank:</span>
+                    <span className="font-bold text-white text-base">{donation.bankName}</span>
+                  </div>
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-slate-400">Account Name:</span>
+                    <span className="font-bold text-white text-base">{donation.accountName}</span>
+                  </div>
+                  <div className="p-3.5 bg-slate-900 rounded-xl border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div>
+                      <span className="text-[11px] uppercase tracking-wider font-extrabold text-amber-300 block">
+                        Account Number
+                      </span>
+                      <span className="font-mono font-black text-2xl text-white tracking-widest select-all">
+                        {donation.accountNumber}
+                      </span>
+                    </div>
+
+                    <button
+                      onClick={copyAccountNumber}
+                      className="btn btn-party btn-sm text-xs font-bold flex items-center justify-center gap-1.5 w-full sm:w-auto"
+                      aria-label="Copy Account Number"
+                    >
+                      {copied ? (
+                        <>
+                          <CheckCircle className="w-4 h-4 text-white" />
+                          <span>Copied to Clipboard!</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-4 h-4 text-white" />
+                          <span>Copy Account Number</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between pt-3 border-t border-slate-800 text-xs">
+                  <Link href="/donate" className="text-amber-400 hover:text-white transition-colors font-bold inline-flex items-center gap-1">
+                    <span>View All Donation Tiers & Pledges</span>
+                    <ArrowUpRight className="w-4 h-4" />
+                  </Link>
+                  <span className="text-slate-400">Verified by Campaign Org</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Editorial Feature: Meet Chinedu Eya ──────────────────────────────────────
+
+function CandidateStory() {
+  return (
+    <Section id="about-preview" className="bg-white py-16 md:py-24">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Candidate Image Card with Editorial Frame */}
+          <div className="lg:col-span-5 relative">
+            <div className="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border-8 border-slate-50 bg-slate-900">
+              <Image
+                src={candidate.portrait}
+                alt={candidate.fullName}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
+              <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6 text-white">
+                <span className="px-3 py-1 rounded-full bg-red-600 text-white font-extrabold text-xs uppercase tracking-wider inline-block mb-2">
+                  The Candidate
+                </span>
+                <h3 className="font-display font-black text-2xl">{candidate.fullName}</h3>
+                <p className="text-amber-300 text-sm font-semibold">{candidate.officeSought}</p>
+              </div>
+            </div>
+
+            {/* Editorial Floating Quote Card */}
+            <div className="absolute -bottom-6 -right-6 hidden sm:block bg-gradient-to-br from-slate-900 to-slate-950 text-white p-5 rounded-2xl shadow-2xl border border-slate-800 max-w-xs">
+              <Quote className="w-8 h-8 text-amber-400 mb-2 opacity-80" />
+              <p className="text-xs text-slate-200 italic leading-relaxed">
+                Leadership is about tangible results that put food on tables and hope in hearts.
+              </p>
+              <p className="text-right text-[11px] font-black text-amber-300 mt-2">— Hon. Chinedu Eya</p>
+            </div>
+          </div>
+
+          {/* Editorial Text Content */}
+          <div className="lg:col-span-7">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 text-red-700 text-xs font-extrabold uppercase tracking-wider mb-4">
+              <Award className="w-4 h-4 text-red-600" />
+              Leadership With Integrity
+            </div>
+
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">
+              From Private Sector Enterprise To Federal Public Service
+            </h2>
+
+            {/* Large Lead Quote */}
+            <blockquote className="border-l-4 border-red-600 pl-4 py-1 mb-6 text-slate-800 text-lg sm:text-xl font-display font-bold leading-snug">
+              &ldquo;Our people do not need empty political promises. They need real enterprise, digital skills, reliable infrastructure, and a representative who listens and delivers for every single community.&rdquo;
+            </blockquote>
+
+            <div className="space-y-4 text-slate-600 text-base leading-relaxed mb-8">
+              <p>
+                Hon. Chinedu Eya is not a career politician disconnected from the everyday struggles of our citizens. Born and raised with deep roots in our communities, he is a seasoned entrepreneur, job creator, and community advocate who has built thriving enterprises across Nigeria and abroad.
+              </p>
+              <p>
+                Through his track record heading the <strong>Suskii Group of Companies</strong>, <strong>MY Eya Homes</strong>, and <strong>EYA AUTOS</strong>, he has proven that vision and execution create real economic wealth. Now, he brings that exact private sector dynamism to the National Assembly to fight for federal budgets, youth technological empowerment, and road corridors for Igbo Eze North and Udenu.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <Link href="/about" className="btn btn-party btn-lg font-black shadow-xl">
+                <span>Read Full Biography & Vision</span>
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+              <Link href="/constituency" className="btn btn-outline btn-lg font-bold">
+                <span>Explore Constituency Map</span>
+              </Link>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </Section>
+  );
+}
+
+// ─── Business & Executive Showcase (The 4 Proven Pillars) ────────────────────
 
 function LeadershipShowcase() {
   const credentials = [
@@ -296,7 +522,7 @@ function LeadershipShowcase() {
       tag: 'Digital Commerce & Services',
       title: 'CEO, Suskii Group of Companies',
       description:
-        'Suskii Group comprises Suskii P2P Online Marketplace, an innovative platform where you can buy and sell anything securely, and Suskii Errands, a dynamic on demand service hub where all possible and available services can be professionally rendered.',
+        'Suskii Group comprises Suskii P2P Online Marketplace, an innovative platform where you can buy and sell anything seamlessly and securely, alongside Suskii Errands, a versatile service hub where all possible and available services can be professionally rendered.',
       highlight: 'P2P Market & Errands',
       colorBorder: 'border-t-4 border-blue-600',
       badgeBg: 'bg-blue-100 text-blue-800',
@@ -306,7 +532,7 @@ function LeadershipShowcase() {
       tag: 'Real Estate & Infrastructure',
       title: 'CEO, MY Eya Homes',
       description:
-        'A renowned real estate development firm in Nigeria delivering modern residential properties, commercial facilities, and architectural quality. Transforming housing accessibility with integrity, urban planning, and sustainable construction jobs.',
+        'A renowned real estate development firm in Nigeria delivering modern residential properties, commercial facilities, and architectural excellence across the nation while driving job creation, housing development, and urban planning.',
       highlight: 'Real Estate Development',
       colorBorder: 'border-t-4 border-green-600',
       badgeBg: 'bg-green-100 text-green-800',
@@ -340,10 +566,10 @@ function LeadershipShowcase() {
           Proven Private Sector Track Record
         </span>
         <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-4">
-          A Leader With Tangible Results
+          Four Pillars of Proven Leadership
         </h2>
         <p className="text-slate-600 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
-          Hon. Chinedu Eya is not a career politician making empty promises. He is an accomplished entrepreneur and employer of labor bringing practical business competence to the Federal House of Assembly.
+          Hon. Chinedu Eya brings tangible business experience, digital innovation, and community philanthropy to federal legislative representation.
         </p>
       </div>
 
@@ -385,7 +611,40 @@ function LeadershipShowcase() {
   );
 }
 
-// ─── 9 Agenda Priorities ─────────────────────────────────────────────────────
+// ─── Grassroots Movement By The Numbers ──────────────────────────────────────
+
+function CampaignStats() {
+  const stats = [
+    { number: '32', label: 'Electoral Wards', sub: 'Active Ward Coordinators Across LGAs' },
+    { number: '100%', label: 'Inclusive Governance', sub: 'Equality for All Towns & Communities' },
+    { number: '2', label: 'Local Governments', sub: 'Igbo Eze North & Udenu United' },
+    { number: '1', label: 'United Mission', sub: 'Delivering Federal Presence To Our People' },
+  ];
+
+  return (
+    <section className="bg-slate-950 text-white py-14 border-y border-slate-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
+          {stats.map((s, idx) => (
+            <div key={idx} className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800">
+              <p className="font-display text-4xl sm:text-5xl font-black text-gradient mb-2">
+                {s.number}
+              </p>
+              <p className="font-display font-bold text-base sm:text-lg text-white mb-1">
+                {s.label}
+              </p>
+              <p className="text-xs text-slate-400">
+                {s.sub}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── The Legislative Blueprint / Agenda ──────────────────────────────────────
 
 function AgendaSection() {
   const iconsMap: Record<string, React.ReactNode> = {
@@ -437,8 +696,8 @@ function AgendaSection() {
       </div>
 
       <div className="text-center mt-12">
-        <Link href="/agenda" className="btn btn-party btn-lg">
-          <span>Read Full Manifesto</span>
+        <Link href="/agenda" className="btn btn-party btn-lg font-black shadow-xl">
+          <span>Read Full Legislative Manifesto</span>
           <ArrowRight className="w-5 h-5" />
         </Link>
       </div>
@@ -446,7 +705,7 @@ function AgendaSection() {
   );
 }
 
-// ─── Constituency Snapshot ───────────────────────────────────────────────────
+// ─── Constituency Snapshot (Preserving Green Headings) ─────────────────────────
 
 function ConstituencySection() {
   return (
@@ -515,10 +774,68 @@ function ConstituencySection() {
       </div>
 
       <div className="text-center mt-12 relative z-10">
-        <Link href="/constituency" className="btn btn-outline-white btn-lg">
+        <Link href="/constituency" className="btn btn-outline-white btn-lg font-bold">
           <span>Explore All Communities and Wards</span>
           <ArrowRight className="w-5 h-5" />
         </Link>
+      </div>
+    </Section>
+  );
+}
+
+// ─── Grassroots Voices & Endorsements ────────────────────────────────────────
+
+function GrassrootsVoices() {
+  const testimonials = [
+    {
+      quote:
+        'The free AI and computer technology training organized by Hon. Chinedu Eya changed the course of my career. He is investing in our future long before taking public office.',
+      author: 'Chidubem O.',
+      role: 'Software Developer & AI Trainee, Enugu Ezike',
+    },
+    {
+      quote:
+        'His donation of commercial tricycles (Keke) and motorcycles provided sustainable livelihoods to dozens of young men in our community who now feed their families with dignity.',
+      author: 'Emeka U.',
+      role: 'Youth Leader & Transport Beneficiary, Obollo Afor',
+    },
+    {
+      quote:
+        'Hon. Chinedu Eya understands real enterprise. A leader who has successfully created private sector jobs in Suskii and real estate knows how to attract federal jobs to our constituency.',
+      author: 'Mrs. Ngozi E.',
+      role: 'Market Traders Association Leader, Udenu',
+    },
+  ];
+
+  return (
+    <Section id="endorsements" className="bg-slate-50 py-16 md:py-24">
+      <div className="text-center mb-14">
+        <span className="inline-block px-4 py-1 rounded-full bg-red-100 text-red-700 font-display font-extrabold text-xs uppercase tracking-wider mb-3">
+          Community Testimonials
+        </span>
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-4">
+          Voices Across Our Constituency
+        </h2>
+        <p className="text-slate-600 max-w-xl mx-auto">
+          Hear from students, transport workers, and community leaders whose lives have been touched by Hon. Chinedu Eya&apos;s grassroots leadership.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {testimonials.map((t, i) => (
+          <div key={i} className="card p-7 bg-white shadow-lg border border-slate-200/80 flex flex-col justify-between">
+            <div>
+              <Quote className="w-8 h-8 text-amber-500 mb-4 opacity-80" />
+              <p className="text-slate-700 text-sm leading-relaxed italic mb-6">
+                &ldquo;{t.quote}&rdquo;
+              </p>
+            </div>
+            <div className="pt-4 border-t border-slate-100">
+              <p className="font-display font-extrabold text-slate-900 text-base">{t.author}</p>
+              <p className="text-xs text-red-600 font-semibold">{t.role}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </Section>
   );
@@ -555,91 +872,11 @@ function VolunteerBanner() {
             <Users className="w-5 h-5 text-green-700" />
             <span>Sign Up As Volunteer</span>
           </Link>
-          <Link href="/donate" className="btn btn-party btn-lg shadow-xl">
+          <Link href="/donate" className="btn btn-party btn-lg shadow-xl font-black">
             <Heart className="w-5 h-5 fill-white" />
             <span>Donate To The Campaign</span>
           </Link>
         </div>
-      </div>
-    </section>
-  );
-}
-
-// ─── Donation Band ───────────────────────────────────────────────────────────
-
-function DonationBanner() {
-  const [copied, setCopied] = useState(false);
-
-  const copyAccountNumber = async () => {
-    try {
-      await navigator.clipboard.writeText(donation.accountNumber);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2500);
-    } catch {
-      const textArea = document.createElement('textarea');
-      textArea.value = donation.accountNumber;
-      document.body.appendChild(textArea);
-      textArea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textArea);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2500);
-    }
-  };
-
-  return (
-    <section className="bg-gradient-to-r from-red-700 via-red-600 to-amber-600 text-white py-14 md:py-18 relative overflow-hidden">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center relative z-10">
-        <span className="inline-block px-4 py-1 rounded-full bg-black/20 text-white font-display font-extrabold text-xs uppercase tracking-wider mb-4">
-          Direct Campaign Contribution
-        </span>
-
-        <h2 className="font-display text-3xl sm:text-4xl font-black mb-3">
-          Power The Grassroots Campaign
-        </h2>
-
-        <p className="text-white/90 text-sm sm:text-base mb-8 max-w-xl mx-auto">
-          Every naira directly funds ward mobilization, voter education toolkits, and civic outreach across Igbo Eze North and Udenu.
-        </p>
-
-        <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl max-w-lg mx-auto border border-white/20 mb-8 text-left">
-          <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-3">
-            <span className="text-xs uppercase font-bold text-amber-200">Bank Name</span>
-            <span className="font-bold text-sm text-white">{donation.bankName}</span>
-          </div>
-          <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-3">
-            <span className="text-xs uppercase font-bold text-amber-200">Account Name</span>
-            <span className="font-bold text-sm text-white">{donation.accountName}</span>
-          </div>
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
-            <div>
-              <span className="text-xs uppercase font-bold text-amber-200 block">Account Number</span>
-              <span className="font-mono font-black text-xl text-amber-300 tracking-wider select-all">{donation.accountNumber}</span>
-            </div>
-            <button
-              onClick={copyAccountNumber}
-              className="px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs flex items-center justify-center gap-1.5 transition-all active:scale-95 shadow-md w-full sm:w-auto min-h-[40px]"
-              aria-label="Copy Account Number"
-            >
-              {copied ? (
-                <>
-                  <CheckCircle2 className="w-4 h-4 text-slate-950" />
-                  <span>Account Number Copied</span>
-                </>
-              ) : (
-                <>
-                  <Copy className="w-4 h-4 text-slate-950" />
-                  <span>Copy Account Number</span>
-                </>
-              )}
-            </button>
-          </div>
-        </div>
-
-        <Link href="/donate" className="btn btn-white btn-lg text-red-600 font-extrabold shadow-xl w-full sm:w-auto inline-flex justify-center text-center">
-          <Heart className="w-5 h-5 fill-red-600" />
-          <span>Contribute Online & View Donation Tiers</span>
-        </Link>
       </div>
     </section>
   );
@@ -685,7 +922,7 @@ function NewsletterSection() {
           />
           <button
             type="submit"
-            className="btn btn-primary px-8"
+            className="btn btn-primary px-8 font-bold"
             disabled={status === 'loading'}
           >
             {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
@@ -699,15 +936,15 @@ function NewsletterSection() {
         )}
 
         <div className="flex flex-wrap items-center justify-center gap-3 pt-4 border-t border-slate-200">
-          <span className="text-slate-500 text-sm font-medium">Or join our WhatsApp channel:</span>
+          <span className="text-slate-500 text-sm font-medium">Or connect directly via WhatsApp:</span>
           <a
             href={socials.whatsappChannel}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-secondary btn-sm"
+            className="btn btn-secondary btn-sm font-bold"
           >
             <MessageSquare className="w-4 h-4" />
-            <span>Join Campaign WhatsApp</span>
+            <span>Chat on WhatsApp: {candidate.phone}</span>
           </a>
         </div>
       </div>
@@ -721,12 +958,15 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <ActBlueContributionRibbon />
       <CampaignTicker />
+      <CandidateStory />
       <LeadershipShowcase />
+      <CampaignStats />
       <AgendaSection />
       <ConstituencySection />
+      <GrassrootsVoices />
       <VolunteerBanner />
-      <DonationBanner />
       <NewsletterSection />
     </>
   );

@@ -63,8 +63,8 @@ export const socials = {
   instagram: '',
   tiktok: '',
   youtube: '',
-  whatsappChannel: 'https://whatsapp.com/channel/0029Va',
-  telegramChannel: 'https://t.me/chinedueya',
+  whatsappChannel: 'https://wa.me/2348130890283',
+  telegramChannel: '',
 } as const;
 
 // ─── Donation ────────────────────────────────────────────────────────────────

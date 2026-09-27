@@ -64,7 +64,7 @@ export default function NewsPage() {
               className="btn btn-secondary inline-flex items-center gap-2"
             >
               <MessageSquare className="w-4 h-4" />
-              <span>Join Official WhatsApp Channel</span>
+              <span>Connect on Campaign WhatsApp</span>
             </a>
           </div>
         ) : (

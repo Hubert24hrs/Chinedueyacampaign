@@ -42,12 +42,32 @@ export default function Header() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? 'bg-white/95 backdrop-blur-md shadow-lg shadow-black/5 border-b border-red-500/10'
-          : 'bg-gradient-to-b from-black/80 via-black/40 to-transparent'
+          : 'bg-gradient-to-b from-black/90 via-black/60 to-transparent'
       }`}
       role="banner"
     >
       {/* Top Labour Party Tricolor accent line */}
       <div className="h-1 w-full bg-gradient-to-r from-red-600 via-amber-400 to-green-600" />
+
+      {/* Official Campaign Announcement Ribbon (USA/European Political Campaign Standard) */}
+      <div className="hidden md:flex items-center justify-between px-4 sm:px-6 py-1 bg-slate-950 text-white text-[10px] font-extrabold tracking-widest uppercase border-b border-white/10">
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+          <span>Official 2027 Campaign</span>
+          <span className="text-slate-400">•</span>
+          <span className="text-amber-300">Hon. Chinedu Eya for Federal House of Assembly</span>
+          <span className="text-slate-400">•</span>
+          <span className="text-slate-300">Igbo Eze North & Udenu Constituency</span>
+        </div>
+        <div className="flex items-center gap-3 text-slate-300">
+          <span className="text-white font-black bg-red-600 px-1.5 py-0.5 rounded text-[9px]">LP</span>
+          <span>Forward Ever</span>
+          <span className="text-slate-400">•</span>
+          <Link href="/donate" className="text-amber-400 hover:text-white transition-colors underline font-black">
+            Chip In Now →
+          </Link>
+        </div>
+      </div>
 
       <div className="max-w-7xl mx-auto px-3 sm:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
