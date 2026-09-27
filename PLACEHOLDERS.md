@@ -94,7 +94,7 @@ Copy `.env.example` to `.env.local` and set these production credentials before 
 
 ```bash
 # General
-NEXT_PUBLIC_SITE_URL=https://chinedueya.ng
+NEXT_PUBLIC_SITE_URL=https://chinedueya2027.com
 
 # Turnstile Bot Protection (Cloudflare - Free tier recommended)
 NEXT_PUBLIC_TURNSTILE_SITE_KEY=your_turnstile_site_key_here
@@ -102,14 +102,14 @@ TURNSTILE_SECRET_KEY=your_turnstile_secret_key_here
 
 # Email Notifications (Resend.com - 3,000 free emails/month)
 RESEND_API_KEY=your_resend_api_key_here
-NOTIFICATION_EMAIL=alerts@chinedueya.ng
+NOTIFICATION_EMAIL=alerts@chinedueya2027.com
 
 # Database / Storage (Optional Supabase integration for volunteer database & payment slips)
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key_here
 
 # Analytics (Privacy-friendly Plausible or GA4)
-NEXT_PUBLIC_PLAUSIBLE_DOMAIN=chinedueya.ng
+NEXT_PUBLIC_PLAUSIBLE_DOMAIN=chinedueya2027.com
 NEXT_PUBLIC_GA4_MEASUREMENT_ID=G-XXXXXXXXXX
 
 # Payment Gateway (Optional - if features.onlinePayment is enabled)

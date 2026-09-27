@@ -47,8 +47,8 @@ export async function POST(request: NextRequest) {
 
     // TODO: Send email notification via Resend
     // await resend.emails.send({
-    //   from: 'campaign@chinedueya.ng',
-    //   to: 'info@chinedueya.ng',
+    //   from: 'campaign@chinedueya2027.com',
+    //   to: 'info@chinedueya2027.com',
     //   subject: `New Volunteer: ${data.fullName}`,
     //   text: `Name: ${data.fullName}\nPhone: ${data.phone}\nLGA: ${data.lga}\nWard: ${data.ward}\nSkills: ${data.skills}`,
     // });

@@ -138,7 +138,7 @@ All candidate details, banking information, policy priorities, and election date
 
 3. **Add Environment Variables:**
    Under **Environment Variables**, add the values from your `.env.local`:
-   - `NEXT_PUBLIC_SITE_URL` = `https://chinedueya.ng`
+   - `NEXT_PUBLIC_SITE_URL` = `https://chinedueya2027.com`
    - `RESEND_API_KEY` (if using Resend for email delivery)
    - `NOTIFICATION_EMAIL` (your campaign inbox)
    - `NEXT_PUBLIC_TURNSTILE_SITE_KEY` (if using Cloudflare Turnstile)
@@ -151,11 +151,11 @@ All candidate details, banking information, policy priorities, and election date
 
 ## 📋 Pre-Launch & Post-Launch Checklist
 
-Refer to [`PLACEHOLDERS.md`](file:///C:/Users/HP/.gemini/antigravity-ide/scratch/eya-campaign/PLACEHOLDERS.md) for the complete list of client deliverables.
+Refer to [`PLACEHOLDERS.md`](./PLACEHOLDERS.md) for the complete list of client deliverables.
 
 ### Technical & Go-Live Checklist:
-- [ ] **Custom Domain & DNS:** Point `chinedueya.ng` and `www.chinedueya.ng` to Vercel CNAME/A records.
-- [ ] **SSL/TLS Certificate:** Verify HTTPS is active and forcing redirect from HTTP.
+- [x] **Custom Domain & DNS:** Pointed `chinedueya2027.com` and `www.chinedueya2027.com` to Vercel CNAME/A records.
+- [x] **SSL/TLS Certificate:** HTTPS is active with automated SSL/TLS certificates.
 - [ ] **Bank Account Verification:** Perform a test NGN 100 transfer to ensure the account name and number displayed match the candidate's campaign account.
 - [ ] **Form Submissions:** Submit test volunteer and pledge forms to confirm receipts and database/email routing.
 - [ ] **Mobile Device Testing:** Test across:
@@ -163,5 +163,5 @@ Refer to [`PLACEHOLDERS.md`](file:///C:/Users/HP/.gemini/antigravity-ide/scratch
   - Apple iPhone on Safari.
   - Slow 3G network simulation via Chrome DevTools.
 - [ ] **Lighthouse Audit:** Verify 90+ scores across Performance, Accessibility, Best Practices, and SEO.
-- [ ] **Social Sharing Preview:** Paste `https://chinedueya.ng` into WhatsApp and Facebook debuggers to verify the OpenGraph banner and tagline display properly.
+- [ ] **Social Sharing Preview:** Paste `https://chinedueya2027.com` into WhatsApp and Facebook debuggers to verify the OpenGraph banner and tagline display properly.
 - [ ] **Security Review:** Ensure honeypot fields are active and rate limits are respected.
