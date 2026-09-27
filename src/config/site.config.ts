@@ -292,22 +292,41 @@ export const agendaPriorities: AgendaPriority[] = [
 
 // ─── SEO Defaults ────────────────────────────────────────────────────────────
 
+const getBaseUrl = (): string => {
+  if (
+    process.env.NEXT_PUBLIC_SITE_URL &&
+    !process.env.NEXT_PUBLIC_SITE_URL.includes('chinedueya.ng')
+  ) {
+    return process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, '');
+  }
+  if (process.env.NEXT_PUBLIC_VERCEL_URL) {
+    return `https://${process.env.NEXT_PUBLIC_VERCEL_URL.replace(/\/$/, '')}`;
+  }
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL.replace(/\/$/, '')}`;
+  }
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL.replace(/\/$/, '')}`;
+  }
+  return 'https://chinedu-eya-campaign.vercel.app';
+};
+
 export const seo = {
-  siteName: 'Hon. Chinedu Eya for Federal House of Assembly',
-  siteUrl: 'https://chinedueya.ng',
-  defaultTitle: 'Hon. Chinedu Eya: A New Voice, A Better Future',
+  siteName: 'Hon. Chinedu Eya for Federal House of Representatives',
+  siteUrl: getBaseUrl(),
+  defaultTitle: 'Hon. Chinedu Eya: A New Voice, A Greater Future',
   defaultDescription:
-    'Official campaign website of Hon. Chinedu Eya, Labour Party candidate for the Federal House of Assembly, Igbo Eze North / Udenu Constituency, Enugu State.',
+    'Official campaign website of Hon. Chinedu Eya, Labour Party candidate for the Federal House of Representatives, Igbo Eze North / Udenu Federal Constituency, Enugu State.',
   keywords: [
     'Chinedu Eya',
     'Labour Party',
     'Igbo Eze North',
     'Udenu',
     'Enugu State',
-    'House of Assembly',
+    'House of Representatives',
     'Federal Constituency',
     'Nigeria election',
     '2027 election',
   ],
-  ogImage: '/images/og/og-default.jpg',
-} as const;
+  ogImage: '/thumbnail.jpg',
+};

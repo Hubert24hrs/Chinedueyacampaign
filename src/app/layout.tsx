@@ -29,6 +29,10 @@ const outfit = Outfit({
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
+const siteUrl = seo.siteUrl;
+const thumbnailUrl = `${siteUrl}/thumbnail.jpg`;
+const ogDefaultUrl = `${siteUrl}/images/og/og-default.jpg`;
+
 export const metadata: Metadata = {
   title: {
     default: seo.defaultTitle,
@@ -36,17 +40,30 @@ export const metadata: Metadata = {
   },
   description: seo.defaultDescription,
   keywords: [...seo.keywords],
-  metadataBase: new URL(seo.siteUrl),
+  metadataBase: new URL(siteUrl),
+  alternates: {
+    canonical: siteUrl,
+  },
   openGraph: {
     title: seo.defaultTitle,
     description: seo.defaultDescription,
-    url: seo.siteUrl,
+    url: siteUrl,
     siteName: seo.siteName,
     images: [
       {
-        url: seo.ogImage,
+        url: thumbnailUrl,
+        secureUrl: thumbnailUrl,
         width: 1200,
         height: 630,
+        type: 'image/jpeg',
+        alt: `${candidate.fullName}: ${candidate.slogan}`,
+      },
+      {
+        url: ogDefaultUrl,
+        secureUrl: ogDefaultUrl,
+        width: 1200,
+        height: 630,
+        type: 'image/jpeg',
         alt: `${candidate.fullName}: ${candidate.slogan}`,
       },
     ],
@@ -57,7 +74,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: seo.defaultTitle,
     description: seo.defaultDescription,
-    images: [seo.ogImage],
+    images: [thumbnailUrl],
   },
   robots: {
     index: true,
@@ -69,9 +86,10 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.json',
   other: {
-    'theme-color': '#DC2626',
-    'thumbnail': seo.ogImage,
-    'image': seo.ogImage,
+    'theme-color': '#059669',
+    'thumbnail': thumbnailUrl,
+    'image': thumbnailUrl,
+    'og:image:secure_url': thumbnailUrl,
   },
 };
 
@@ -79,7 +97,7 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
-  themeColor: '#DC2626',
+  themeColor: '#059669',
   viewportFit: 'cover',
 };
 
@@ -95,8 +113,8 @@ function JsonLd() {
       '@type': 'Organization',
       name: candidate.party.name,
     },
-    url: seo.siteUrl,
-    image: `${seo.siteUrl}${candidate.portrait}`,
+    url: siteUrl,
+    image: thumbnailUrl,
     description: seo.defaultDescription,
     address: {
       '@type': 'PostalAddress',
@@ -124,6 +142,17 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
       <head>
+        <link rel="image_src" href={thumbnailUrl} />
+        <meta property="og:image" content={thumbnailUrl} />
+        <meta property="og:image:secure_url" content={thumbnailUrl} />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={`${candidate.fullName}: ${candidate.slogan}`} />
+        <meta name="twitter:image" content={thumbnailUrl} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="thumbnail" content={thumbnailUrl} />
+        <meta name="image" content={thumbnailUrl} />
         <JsonLd />
       </head>
       <body className="font-body antialiased">
