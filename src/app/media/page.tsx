@@ -5,7 +5,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Download, Newspaper, Mail, Camera, FileText, Image as ImageIcon } from 'lucide-react';
+import { Download, Newspaper, Phone, Camera, FileText, Image as ImageIcon } from 'lucide-react';
 import { candidate } from '@/config/site.config';
 import Section from '@/components/ui/Section';
 
@@ -53,12 +53,11 @@ export default function MediaPage() {
       {/* Media Enquiry */}
       <Section>
         <div className="max-w-xl mx-auto text-center">
-          <Mail className="w-12 h-12 text-primary mx-auto mb-4" />
+          <Phone className="w-12 h-12 text-primary mx-auto mb-4" />
           <h2 className="font-display text-3xl font-bold text-dark mb-4">Media Enquiries</h2>
           <p className="text-dark-muted mb-6">For interview requests, press enquiries, and media partnerships:</p>
           <div className="card p-6 text-left">
             <p className="text-dark font-display font-bold mb-2">Campaign Press Office</p>
-            <p className="text-dark-muted text-sm mb-1">Email: <a href={`mailto:press@chinedueya.ng`} className="text-primary">press@chinedueya.ng</a></p>
             <p className="text-dark-muted text-sm mb-1">Phone: <a href={`tel:${candidate.phone}`} className="text-primary">{candidate.phone}</a></p>
             <p className="text-xs text-dark-muted mt-3 italic">{'{{TO_VERIFY_WITH_CLIENT: Confirm press contact details.}}'}</p>
           </div>

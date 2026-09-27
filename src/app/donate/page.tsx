@@ -102,7 +102,7 @@ function BankTransferCard() {
             {t('donate.warning')}
           </p>
           <p className="text-amber-700 text-xs mt-1">
-            For verification, contact the campaign at {candidate.phone} or {candidate.email}.
+            For verification, contact the campaign at {candidate.phone}.
           </p>
         </div>
       </div>

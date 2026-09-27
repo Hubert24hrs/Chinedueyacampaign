@@ -131,7 +131,7 @@ export default function DonationPolicyPage() {
             </ul>
             <p className="text-xs text-dark/60 mt-3">
               Refund requests must be lodged within 7 days of the transaction by contacting{' '}
-              <a href={`mailto:${candidate.email}`} className="text-primary hover:underline">{candidate.email}</a>{' '}
+              <a href={`tel:${candidate.phone}`} className="text-primary hover:underline">{candidate.phone}</a>{' '}
               with proof of payment and bank transaction narrative.
             </p>
           </section>
@@ -145,7 +145,6 @@ export default function DonationPolicyPage() {
               If you have any questions about this policy, donor verification, or campaign expenditure audits, please contact our Finance & Compliance Directorate:
             </p>
             <div className="mt-4 p-4 rounded-xl bg-dark/5 text-sm space-y-1">
-              <p><strong>Email:</strong> {candidate.email}</p>
               <p><strong>Phone:</strong> {candidate.phone}</p>
               <p><strong>Address:</strong> {candidate.officeAddress}</p>
             </div>

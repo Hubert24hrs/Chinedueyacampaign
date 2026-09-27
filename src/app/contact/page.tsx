@@ -50,12 +50,6 @@ export default function ContactPage() {
                     {candidate.phone}
                   </a>
                 </li>
-                <li className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                  <a href={`mailto:${candidate.email}`} className="text-dark-muted text-sm hover:text-primary transition-colors">
-                    {candidate.email}
-                  </a>
-                </li>
               </ul>
             </div>
 

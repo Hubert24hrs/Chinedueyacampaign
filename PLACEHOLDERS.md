@@ -61,9 +61,9 @@ Update in `src/config/site.config.ts`:
 |---------|---------------|---------------------|
 | **Headquarters Address** | `Campaign Office, Enugu-Ezike, Igbo Eze North LGA` | Exact physical street address of campaign secretariat in Enugu-Ezike or Obollo-Afor |
 | **Liaison Office 2 (Udenu)** | *Optional* | Physical address for Udenu LGA coordination office in Obollo-Afor |
-| **Official Phone Number** | `+234 800 000 0000` | Working campaign direct line for press and voters |
-| **Official Email** | `info@chinedueya.ng` | Working campaign email address (configured with domain MX records) |
-| **WhatsApp Support Line** | `+2348000000000` | WhatsApp Business number for instant voter interaction & proof-of-payment receipts |
+| **Official Phone Number** | `+234 813 089 0283` | Configured |
+| **Official Email** | *None (Removed per client instruction)* | Working campaign email address (to supply if email channel is desired) |
+| **WhatsApp Support Line** | `+2348130890283` | Configured |
 | **WhatsApp Broadcast Channel** | `https://whatsapp.com/channel/...` | Public WhatsApp channel link for campaign volunteers & news |
 | **Telegram Broadcast Channel** | `https://t.me/chinedueya` | Public Telegram channel / discussion group link |
 | **Facebook Page** | `https://facebook.com/ChinedUEyaOfficial` | Verified Facebook campaign page URL |

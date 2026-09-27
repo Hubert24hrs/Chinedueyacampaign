@@ -9,7 +9,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { 
-  Phone, Mail, MapPin, MessageCircle, Heart, ArrowUp, Sparkles, Building2, Car
+  Phone, MapPin, MessageCircle, Heart, ArrowUp, Sparkles, Building2, Car
 } from 'lucide-react';
 import { candidate, seo } from '@/config/site.config';
 import { useLocale } from '@/context/LocaleContext';
@@ -106,12 +106,6 @@ export default function Footer() {
                 <Phone className="w-4 h-4 text-amber-400 flex-shrink-0" />
                 <a href={`tel:${candidate.phone}`} className="text-slate-300 hover:text-white transition-colors font-medium">
                   {candidate.phone}
-                </a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-red-500 flex-shrink-0" />
-                <a href={`mailto:${candidate.email}`} className="text-slate-300 hover:text-white transition-colors">
-                  {candidate.email}
                 </a>
               </li>
               <li className="flex items-center gap-3">

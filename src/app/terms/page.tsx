@@ -40,7 +40,7 @@ export default function TermsPage() {
           <p>We may update these terms at any time. Continued use of the website constitutes acceptance of updated terms.</p>
 
           <h2>9. Contact</h2>
-          <p>For questions about these terms, contact us at <a href={`mailto:${candidate.email}`}>{candidate.email}</a>.</p>
+          <p>For questions about these terms, contact us at <a href={`tel:${candidate.phone}`}>{candidate.phone}</a>.</p>
 
           <p className="text-xs italic">{'{{TO_VERIFY_WITH_CLIENT: Review terms with legal counsel.}}'}</p>
         </div>

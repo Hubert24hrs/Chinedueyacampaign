@@ -78,7 +78,7 @@ export default function PrivacyPage() {
 
           <h2>9. Contact Us</h2>
           <p>For privacy-related enquiries or to exercise your rights, contact us at:</p>
-          <p>Email: <a href={`mailto:${candidate.email}`}>{candidate.email}</a><br />Phone: {candidate.phone}<br />Address: {candidate.officeAddress}</p>
+          <p>Phone: {candidate.phone}<br />Address: {candidate.officeAddress}</p>
 
           <p className="text-xs italic">{'{{TO_VERIFY_WITH_CLIENT: Review and confirm all privacy policy details with legal counsel before launch.}}'}</p>
         </div>
