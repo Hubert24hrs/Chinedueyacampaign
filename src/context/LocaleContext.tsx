@@ -23,18 +23,32 @@ const LocaleContext = createContext<LocaleContextType>({
 export function LocaleProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>('en');
 
-  // Load saved locale from localStorage
+  // Load saved locale from localStorage safely
   useEffect(() => {
-    const saved = localStorage.getItem('campaign-locale') as Locale;
-    if (saved && (saved === 'en' || saved === 'ig')) {
-      setLocaleState(saved);
+    try {
+      if (typeof window !== 'undefined' && window.localStorage) {
+        const saved = window.localStorage.getItem('campaign-locale') as Locale;
+        if (saved && (saved === 'en' || saved === 'ig')) {
+          setLocaleState(saved);
+        }
+      }
+    } catch {
+      // Ignore storage restrictions in private browsing / webview
     }
   }, []);
 
   const setLocale = useCallback((newLocale: Locale) => {
     setLocaleState(newLocale);
-    localStorage.setItem('campaign-locale', newLocale);
-    document.documentElement.lang = newLocale === 'ig' ? 'ig' : 'en';
+    try {
+      if (typeof window !== 'undefined' && window.localStorage) {
+        window.localStorage.setItem('campaign-locale', newLocale);
+      }
+    } catch {
+      // Ignore storage restrictions
+    }
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = newLocale === 'ig' ? 'ig' : 'en';
+    }
   }, []);
 
   const translate = useCallback(

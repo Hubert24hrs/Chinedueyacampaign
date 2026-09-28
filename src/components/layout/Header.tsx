@@ -73,7 +73,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 sm:gap-3 z-10 group min-w-0" aria-label="Home">
-            <div className="relative w-9 h-9 sm:w-11 sm:h-11 md:w-13 md:h-13 rounded-full overflow-hidden bg-white p-0.5 shadow-md border-2 border-red-500/30 group-hover:border-green-500 transition-colors flex-shrink-0">
+            <div className="relative w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full overflow-hidden bg-white p-0.5 shadow-md border-2 border-red-500/30 group-hover:border-green-500 transition-colors flex-shrink-0">
               <Image
                 src={candidate.party.logo}
                 alt={`${candidate.party.name} Logo`}

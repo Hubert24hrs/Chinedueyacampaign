@@ -19,7 +19,7 @@ export default function WhatsAppFloat() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom,0px))] left-4 sm:left-6 z-40 w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-2xl hover:shadow-green-500/50 hover:scale-110 active:scale-95 transition-all duration-300 border-2 border-white/80"
+      className="fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom,0px))] left-4 sm:left-6 z-40 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-2xl hover:shadow-green-500/50 hover:scale-110 active:scale-95 transition-all duration-300 border-2 border-white/80"
       aria-label="Chat on WhatsApp"
       title="Chat with us on WhatsApp"
     >

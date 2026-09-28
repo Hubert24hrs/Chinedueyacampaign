@@ -19,12 +19,16 @@ const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
+  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'sans-serif'],
+  adjustFontFallback: true,
 });
 
 const outfit = Outfit({
   subsets: ['latin'],
   variable: '--font-outfit',
   display: 'swap',
+  fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'sans-serif'],
+  adjustFontFallback: true,
 });
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
@@ -152,7 +156,11 @@ export default function RootLayout({
         <meta name="twitter:image" content={thumbnailUrl} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="thumbnail" content={thumbnailUrl} />
-        <meta name="image" content={thumbnailUrl} />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="Chinedu Eya 2027" />
+        <meta name="format-detection" content="telephone=no, date=no, address=no, email=no" />
         <JsonLd />
       </head>
       <body className="font-body antialiased">
