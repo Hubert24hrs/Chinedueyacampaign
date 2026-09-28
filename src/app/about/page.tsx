@@ -9,7 +9,6 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import {
   Heart, GraduationCap, Briefcase, Users, Target,
   Star, ArrowRight, Quote, Calendar, Car, Building2,
@@ -103,12 +102,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="lg:col-span-7"
-            >
+            <div className="lg:col-span-7 animate-fade-in-up">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold text-amber-300 mb-4 border border-white/15">
                 <Sparkles className="w-4 h-4" />
                 Meet The Candidate
@@ -143,14 +137,9 @@ export default function AboutPage() {
                   Labour Party (LP)
                 </span>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="lg:col-span-5"
-            >
+            <div className="lg:col-span-5 animate-fade-in">
               <div className="relative w-full max-w-md mx-auto aspect-[3/4] rounded-2xl overflow-hidden border-4 border-white/20 shadow-2xl bg-slate-900">
                 <Image
                   src={candidate.portrait}
@@ -166,7 +155,7 @@ export default function AboutPage() {
                   <p className="text-amber-400 text-xs font-bold">Igbo Eze North / Udenu Constituency</p>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
           </div>
         </div>

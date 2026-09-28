@@ -9,7 +9,6 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Globe, Heart, Sparkles } from 'lucide-react';
 import { candidate, navigation } from '@/config/site.config';
 import { useLocale } from '@/context/LocaleContext';
@@ -165,59 +164,53 @@ export default function Header() {
       </div>
 
       {/* Mobile Drawer Menu: Viewport height with iOS safe area padding */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-x-0 top-16 md:top-20 bottom-0 z-50 bg-slate-950/98 backdrop-blur-2xl border-t border-slate-800 shadow-2xl overflow-y-auto pb-[calc(2.5rem+env(safe-area-inset-bottom,0px))] lg:hidden"
-          >
-            <nav className="px-5 py-6 space-y-2 max-w-lg mx-auto" aria-label="Mobile navigation">
-              {navigation.map((item) => {
-                const isActive = pathname === item.href;
-                const label = locale === 'ig' ? item.labelIgbo : item.label;
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className={`block px-4 py-3.5 rounded-xl text-base font-bold transition-all min-h-[46px] flex items-center ${
-                      isActive
-                        ? 'text-white bg-gradient-to-r from-red-600 to-green-600 shadow-lg shadow-red-600/30'
-                        : 'text-slate-200 hover:text-white hover:bg-white/10 active:bg-white/20'
-                    }`}
-                    aria-current={isActive ? 'page' : undefined}
-                  >
-                    {label}
-                  </Link>
-                );
-              })}
+      {isOpen && (
+        <div
+          className="fixed inset-x-0 top-16 md:top-20 bottom-0 z-50 bg-slate-950/98 backdrop-blur-2xl border-t border-slate-800 shadow-2xl overflow-y-auto pb-[calc(2.5rem+env(safe-area-inset-bottom,0px))] lg:hidden transition-all duration-300"
+        >
+          <nav className="px-5 py-6 space-y-2 max-w-lg mx-auto" aria-label="Mobile navigation">
+            {navigation.map((item) => {
+              const isActive = pathname === item.href;
+              const label = locale === 'ig' ? item.labelIgbo : item.label;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`block px-4 py-3.5 rounded-xl text-base font-bold transition-all min-h-[46px] flex items-center ${
+                    isActive
+                      ? 'text-white bg-gradient-to-r from-red-600 to-green-600 shadow-lg shadow-red-600/30'
+                      : 'text-slate-200 hover:text-white hover:bg-white/10 active:bg-white/20'
+                  }`}
+                  aria-current={isActive ? 'page' : undefined}
+                >
+                  {label}
+                </Link>
+              );
+            })}
 
-              {/* Mobile CTA */}
-              <div className="pt-6 space-y-3">
-                <Link
-                  href="/donate"
-                  onClick={() => setIsOpen(false)}
-                  className="btn btn-party btn-lg w-full flex items-center justify-center gap-2 shadow-xl shadow-red-600/30"
-                >
-                  <Heart className="w-5 h-5 fill-white" />
-                  {t('hero.cta.donate')}
-                </Link>
-                <Link
-                  href="/get-involved"
-                  onClick={() => setIsOpen(false)}
-                  className="btn btn-secondary btn-lg w-full flex items-center justify-center gap-2 shadow-xl shadow-green-600/30"
-                >
-                  <Sparkles className="w-5 h-5 text-amber-300" />
-                  {t('hero.cta.volunteer')}
-                </Link>
-              </div>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            {/* Mobile CTA */}
+            <div className="pt-6 space-y-3">
+              <Link
+                href="/donate"
+                onClick={() => setIsOpen(false)}
+                className="btn btn-party btn-lg w-full flex items-center justify-center gap-2 shadow-xl shadow-red-600/30"
+              >
+                <Heart className="w-5 h-5 fill-white" />
+                {t('hero.cta.donate')}
+              </Link>
+              <Link
+                href="/get-involved"
+                onClick={() => setIsOpen(false)}
+                className="btn btn-secondary btn-lg w-full flex items-center justify-center gap-2 shadow-xl shadow-green-600/30"
+              >
+                <Sparkles className="w-5 h-5 text-amber-300" />
+                {t('hero.cta.volunteer')}
+              </Link>
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

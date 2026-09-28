@@ -7,7 +7,6 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import {
   Vote, ExternalLink, CheckSquare, MapPin, Bell, Calendar,
   CreditCard, Smartphone, Clock, AlertTriangle
@@ -35,12 +34,12 @@ export default function VoterInfoPage() {
     <>
       <section className="gradient-hero pt-28 pb-16 md:pt-36 md:pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+          <div className="animate-fade-in-up">
             <Vote className="w-12 h-12 text-accent mx-auto mb-4" />
             <h1 className="font-display text-3xl md:text-5xl font-bold text-white mb-4">{t('voter.title')}</h1>
             <p className="text-white/80 text-lg mb-8">Everything you need to know to vote on Election Day.</p>
             <CountdownTimer />
-          </motion.div>
+          </div>
         </div>
       </section>
 

@@ -8,7 +8,6 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Camera, X, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 import Section from '@/components/ui/Section';
 import { candidate } from '@/config/site.config';
@@ -51,7 +50,7 @@ export default function GalleryPage() {
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-green-600/25 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+          <div className="animate-fade-in-up">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold text-amber-300 mb-4 border border-white/15">
               <Camera className="w-4 h-4" />
               Official Media Archive
@@ -62,7 +61,7 @@ export default function GalleryPage() {
             <p className="text-slate-200 text-base sm:text-lg max-w-xl mx-auto">
               Visual records, portraits, and moments from the grassroots movement across our constituency.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -116,37 +115,32 @@ export default function GalleryPage() {
       </Section>
 
       {/* Lightbox Modal */}
-      <AnimatePresence>
-        {lightbox !== null && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
+      {lightbox !== null && (
+        <div
+          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 animate-fade-in"
+          onClick={() => setLightbox(null)}
+        >
+          <button
             onClick={() => setLightbox(null)}
+            className="absolute top-6 right-6 text-white/80 hover:text-white p-2 rounded-full bg-white/10"
+            aria-label="Close"
           >
-            <button
-              onClick={() => setLightbox(null)}
-              className="absolute top-6 right-6 text-white/80 hover:text-white p-2 rounded-full bg-white/10"
-              aria-label="Close"
-            >
-              <X className="w-6 h-6" />
-            </button>
+            <X className="w-6 h-6" />
+          </button>
 
-            <div
-              className="relative max-w-3xl max-h-[85vh] w-full aspect-[4/3]"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Image
-                src={filtered[lightbox].src}
-                alt={filtered[lightbox].alt}
-                fill
-                className="object-contain"
-              />
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          <div
+            className="relative max-w-3xl max-h-[85vh] w-full aspect-[4/3]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={filtered[lightbox].src}
+              alt={filtered[lightbox].alt}
+              fill
+              className="object-contain"
+            />
+          </div>
+        </div>
+      )}
     </>
   );
 }

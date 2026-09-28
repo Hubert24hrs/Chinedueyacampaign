@@ -9,7 +9,6 @@
 
 import React, { useState, useRef } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import {
   Heart, Copy, CheckCircle, Upload, AlertTriangle,
   Shield, ChevronDown, ChevronUp, Phone, Mail, Info
@@ -181,14 +180,10 @@ function AmountSelector({
 
       {/* Impact statement */}
       {selected && donation.impactStatements[selected] && (
-        <motion.p
-          initial={{ opacity: 0, y: -5 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-secondary text-sm font-medium mt-3 flex items-center gap-2"
-        >
+        <p className="text-secondary text-sm font-medium mt-3 flex items-center gap-2 animate-fade-in">
           <Info className="w-4 h-4" />
           ₦{selected.toLocaleString()}: {donation.impactStatements[selected]}
-        </motion.p>
+        </p>
       )}
     </div>
   );
@@ -273,11 +268,7 @@ function DonorPledgeForm() {
 
   if (status === 'success') {
     return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="card p-8 md:p-12 text-center"
-      >
+      <div className="card p-8 md:p-12 text-center animate-fade-in">
         <div className="w-20 h-20 rounded-full bg-secondary-light text-secondary mx-auto mb-6 flex items-center justify-center">
           <CheckCircle className="w-10 h-10" />
         </div>
@@ -289,7 +280,7 @@ function DonorPledgeForm() {
           If you&apos;ve already made the transfer, our team will verify and send you a confirmation.
           For questions, contact us at {candidate.phone}.
         </p>
-      </motion.div>
+      </div>
     );
   }
 
@@ -470,11 +461,9 @@ function DonationProgress() {
         <span className="text-primary font-bold text-sm">{percentage.toFixed(0)}%</span>
       </div>
       <div className="h-3 bg-surface-muted rounded-full overflow-hidden">
-        <motion.div
-          initial={{ width: 0 }}
-          animate={{ width: `${percentage}%` }}
-          transition={{ duration: 1.5, ease: 'easeOut' }}
-          className="h-full gradient-primary rounded-full"
+        <div
+          style={{ width: `${percentage}%` }}
+          className="h-full gradient-primary rounded-full transition-all duration-1000 ease-out"
         />
       </div>
       <div className="flex justify-between mt-2 text-xs text-dark-muted">
@@ -495,11 +484,7 @@ export default function DonatePage() {
       {/* Emotive Header */}
       <section className="relative gradient-hero pt-28 pb-16 md:pt-36 md:pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <div className="animate-fade-in-up">
             <Heart className="w-12 h-12 text-primary mx-auto mb-4" />
             <h1 className="font-display text-3xl md:text-5xl font-bold text-white mb-4">
               {t('donate.title')}
@@ -507,7 +492,7 @@ export default function DonatePage() {
             <p className="text-white/80 text-lg max-w-xl mx-auto">
               {t('donate.subtitle')}. Every naira brings us closer to building the future our constituency deserves.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 

@@ -8,7 +8,6 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { Calendar, MapPin, Clock, Users, ChevronRight, MessageSquare } from 'lucide-react';
 import { campaignEvents } from '@/content/events';
 import { socials } from '@/config/site.config';
@@ -27,7 +26,7 @@ export default function EventsPage() {
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-green-600/25 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+          <div className="animate-fade-in-up">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold text-amber-300 mb-4 border border-white/15">
               <Calendar className="w-4 h-4" />
               Community Calendar
@@ -38,7 +37,7 @@ export default function EventsPage() {
             <p className="text-slate-200 text-base sm:text-lg max-w-xl mx-auto">
               Town hall meetings, ward tours, voter clinics, and grassroots rallies across Igbo Eze North and Udenu.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 

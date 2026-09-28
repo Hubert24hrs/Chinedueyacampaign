@@ -9,7 +9,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import { Newspaper, ArrowRight, MessageSquare, Sparkles } from 'lucide-react';
 import { newsArticles } from '@/content/news';
 import { socials } from '@/config/site.config';
@@ -30,7 +29,7 @@ export default function NewsPage() {
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-green-600/25 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+          <div className="animate-fade-in-up">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold text-amber-300 mb-4 border border-white/15">
               <Newspaper className="w-4 h-4" />
               Press & Dispatch
@@ -41,7 +40,7 @@ export default function NewsPage() {
             <p className="text-slate-200 text-base sm:text-lg max-w-xl mx-auto">
               Official press statements, community announcements, and media releases.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 

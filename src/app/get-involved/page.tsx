@@ -8,7 +8,6 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import {
   Users, Heart, Download, Share2, MessageCircle,
   Send, CheckCircle, ArrowRight, UserPlus, Megaphone,
@@ -29,11 +28,7 @@ export default function GetInvolvedPage() {
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-red-600/25 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <div className="animate-fade-in-up">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold text-green-300 mb-4 border border-white/15">
               <Users className="w-4 h-4" />
               People Powered Movement
@@ -46,7 +41,7 @@ export default function GetInvolvedPage() {
             <p className="text-slate-200 text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
               Real progress in Igbo Eze North and Udenu begins with you. Give your time, skills, and energy to elect Hon. Chinedu Eya to the Federal House of Assembly.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 

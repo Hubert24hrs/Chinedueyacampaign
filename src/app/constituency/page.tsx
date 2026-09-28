@@ -8,7 +8,6 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { MapPin, Users, Heart, ArrowRight, CheckCircle2, Sparkles, Building2 } from 'lucide-react';
 import { constituency, candidate } from '@/config/site.config';
 import { useLocale } from '@/context/LocaleContext';
@@ -58,7 +57,7 @@ export default function ConstituencyPage() {
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-green-600/25 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+          <div className="animate-fade-in-up">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold text-amber-300 mb-4 border border-white/15">
               <MapPin className="w-4 h-4 text-green-400" />
               Constituency Profile
@@ -69,7 +68,7 @@ export default function ConstituencyPage() {
             <p className="text-slate-200 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
               The vibrant communities of Igbo Eze North and Udenu, uniting proud cultural heritage, agricultural fertility, and energetic enterprise.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 

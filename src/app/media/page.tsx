@@ -4,7 +4,6 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Download, Newspaper, Phone, Camera, FileText, Image as ImageIcon } from 'lucide-react';
 import { candidate } from '@/config/site.config';
 import Section from '@/components/ui/Section';
@@ -14,11 +13,11 @@ export default function MediaPage() {
     <>
       <section className="gradient-hero pt-28 pb-16 md:pt-36 md:pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+          <div className="animate-fade-in-up">
             <Newspaper className="w-12 h-12 text-accent mx-auto mb-4" />
             <h1 className="font-display text-3xl md:text-5xl font-bold text-white mb-4">Media & Press</h1>
             <p className="text-white/80 text-lg">Press kit, resources, and media contact information.</p>
-          </motion.div>
+          </div>
         </div>
       </section>
 

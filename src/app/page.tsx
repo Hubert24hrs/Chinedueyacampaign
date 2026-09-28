@@ -13,7 +13,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import {
   Heart, Users, ArrowRight, ChevronRight,
   Sparkles, Target, Trophy, Building2, Car,
@@ -76,12 +75,7 @@ function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
           {/* Left Column: Authoritative Campaign Header & Message (7 cols) */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-7 text-left"
-          >
+          <div className="lg:col-span-7 text-left animate-fade-in-up">
             {/* Top Official Election Badge */}
             <div className="inline-flex items-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-md rounded-full px-4 py-1.5 mb-5 border border-white/20 shadow-lg">
               <div className="w-7 h-7 rounded-full bg-white overflow-hidden relative flex-shrink-0 p-0.5 shadow-sm">
@@ -223,15 +217,10 @@ function HeroSection() {
             <div className="max-w-lg w-full">
               <CountdownTimer />
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Column: Presidential Portrait on Desktop (5 cols) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="hidden lg:block lg:col-span-5 relative"
-          >
+          <div className="hidden lg:block lg:col-span-5 relative animate-fade-in">
             <div className="relative w-full aspect-[3/4] max-w-md mx-auto">
               
               {/* Vibrant spinning background ring */}
@@ -289,7 +278,7 @@ function HeroSection() {
               </div>
 
             </div>
-          </motion.div>
+          </div>
 
         </div>
       </div>
